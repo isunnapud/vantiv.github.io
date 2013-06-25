@@ -7,16 +7,16 @@
 
 			
 			<div class="row">
-				<div id="logo"><a href="{path='developers'}">Transact</a></div>
+				<div id="logo"><a href="{{site.url}}">Transact</a></div>
 				<div id="logo-text">Payments Integration Platform</div>
-				<div id="company"><img src="{site_url}themes/site_themes/corp/images/DEV-credit.png" border="0" alt="" /></div>	
+				<div id="company"><img src="{{site.litle_url | append: 'themes/site_themes/corp/images/DEV-credit.png' }}" border="0" alt="" /></div>	
 			</div>
 
 
 			<div class="row" id="headline-top">
 				<div class="cta-feature">
-						<a href="{path='developers/processing-overview'}">
-							<img src="{site_url}themes/site_themes/corp/images/DEV-quickstart.png" alt="0" />
+						<a href="{{ site.url | append: 'processing-overview'}}">
+							<img src="{{site.litle_url | append: 'themes/site_themes/corp/images/DEV-quickstart.png' }}" alt="0" />
 						</a>
 				</div>
 
