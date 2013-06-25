@@ -1,0 +1,25 @@
+<body>
+	<header class="header">
+		<div class="container" id="header">
+			<div class="row" id="top-bar">
+				{embed="global_embed/top-nav" loc="developers"}
+			</div>
+
+			
+			<div class="row">
+				<div id="logo"><a href="{path='developers'}">Transact</a></div>
+				<div id="logo-text">Payments Integration Platform</div>
+				<div id="company"><img src="/themes/site_themes/corp/images/DEV-credit.png" border="0" alt="" /></div>	
+			</div>
+
+			<div class="row" id="devFeature">
+				<div id="title" class="twelvecol last">
+					{exp:channel:entries channel="developers"}
+					<h1>{title}</h1>
+					{/exp:channel:entries}
+				</div>
+			</div>
+
+		
+		</div>
+	</header>

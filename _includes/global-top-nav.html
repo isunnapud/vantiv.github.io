@@ -1,0 +1,40 @@
+<div class="span6">
+    <nav id="topleft" class="navi">
+        <ul>
+            <li class="litlecom"><a {if embed:loc=="home"} class="active"{/if} href="{path='/'}" rel="tooltip" data-placement="bottom" title="Litle &amp; Co. - Home" alt="Litle &amp; Co. - Home">Litle &amp; Co. - Home</a></li>
+            <li class="merchants"><a {if embed:loc== "merchant-care"} class="active" {/if} href="{path='merchant-care'}" rel="tooltip" data-placement="bottom"  title="Merchant Care" alt="Merchant Care">Merchant Care</a></li>
+            <li class="blog"><a {if embed:loc== "blog"} class="active" {/if} href="{path='blog'}" rel="tooltip" data-placement="bottom"  title="Litle Blog" alt="Litle Blog" >Litle Blog</a></li>
+            
+            <li class="devs"><a {if embed:loc== "developers"} class="active" {/if} href="{path='developers'}" rel="tooltip" data-placement="bottom"  title="Litle Developers API" alt="Litle Developers API">Litle Developers API</a></li>
+            
+            <li class="partners"><a  {if embed:loc== "partners"} class="active" {/if} href="{path='clients-partners/partners'}" rel="tooltip" data-placement="bottom"  title="Litle Partners" alt="Litle Partners">Litle Partners</a></li>
+            <li class="careers"><a {if embed:loc=="careers"} class="active" {/if} href="{path='about-us/careers'}" rel="tooltip" data-placement="bottom"  title="Litle Careers" alt="Litle Careers">Litle Careers</a></li>
+            <li class="linkedin"></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="span6">
+    <div class="dt">
+        <nav id="topright">
+            <ul>
+                <li><a href="{path='about-us'}" title="About Litle &amp; Co." alt="About Litle &amp; Co.">About Us</a></li>
+                <li><a href="{path='resources'}" title="Resources" alt="Resources">Resources</a></li>
+                <li><a href="{path='news-events'}" title="News &amp; Events" alt="News &amp; Events">News &amp; Events</a></li>
+                <li><a href="{path='about-us/contact-us'}" title="Contact Litle &amp; Co." alt="Contact Litle &amp; Co.">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="mb" id="tr">
+        <form>
+            <div class="rowElem">
+                <select onchange="window.open(this.options[this.selectedIndex].value,'_top')">
+                    <option value="{site_url}about-us">About Us</option>
+                    <option value="{site_url}resources">Resources</option>
+                    <option value="{site_url}news-events">News &amp; Events</option>
+                    <option value="{site_url}about-us/contact-us">Contact</option>
+                </select>    
+            </div>
+        </form>
+    </div>
+</div>
