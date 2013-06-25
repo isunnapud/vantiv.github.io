@@ -1,13 +1,46 @@
 ---
-layout: default
-title: Litle & Co.
+layout: litle_blank
 ---
 
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-</div>
+{% include head.html %}
+
+<body>
+
+	{% include header.html %}
+	
+	<div class="container">
+		
+		<div class="row" id="dev-main">	
+			<div class="twocol" id="leftCol">
+				{% include menu.html %}
+			</div>
+			<div class="ninecol last" id="devContent">
+				<section class="panel twelvecol">
+					<p></p>				
+					<h1>Transact by Litle &amp; Co.</h1>
+					<p>Our payments integration platform does the heavy lifting so you don’t have to. Simply install the language-specific SDK you need to start transacting with Litle.</p>
+				</section>
+
+				{% include feature-blocks.html %}
+				<section class="panel twelvecol">
+					<article>
+						<h3>Integrations and Demos</h3>
+						<p>We are developing a set of integrations and demo applications that showcase our SDKs.</p>
+						<p>Check out these:</p>
+						<ul>
+							<li>Ruby on Rails Demo Application</li>
+							<li>Ruby Active Merchant Integration</li>
+							<li>PHP Cake Integration</li>
+							<li>PHP Open Cart Integration</li>
+						</ul>
+					</article>
+				</section>
+
+			</div>
+		</div> <!-- /#dev-main -->
+	</div><!-- /container -->
+	
+	{% include footer.html %}
+	
+</body>
+</html>
