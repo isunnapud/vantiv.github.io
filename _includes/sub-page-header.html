@@ -7,17 +7,15 @@
 			<div class="row">
 				<div id="logo"><a href="{path='developers'}">Transact</a></div>
 				<div id="logo-text">Payments Integration Platform</div>
-				<div id="company"><img src="{{site.litle_url | append: '/themes/site_themes/corp/images/DEV-credit.png' }}" border="0" alt="" /></div>	
+				<div id="company"><img src="{{site.litle_url | append: 'themes/site_themes/corp/images/DEV-credit.png' }}" border="0" alt="" /></div>	
 			</div>
 
 			<div class="row" id="devFeature">
 				<div id="title" class="twelvecol last">
-					{exp:channel:entries channel="developers"}
-					<h1>{title}</h1>
-					{/exp:channel:entries}
+					<h1>{{page.title}}</h1>
 				</div>
 			</div>
 
-			
+
 		</div>
 	</header>
