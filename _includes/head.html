@@ -11,7 +11,7 @@
 	<meta property="og:description" content="Litle &amp; Co. is the payments intelligence and processing platform that drives more efficient and profitable relationships between consumers and the leading digital and direct brands they?ve come to love. A platform designed to produce payments intelligence empowers you to better understand your customers, retain them, and create revenue generating solutions through improved payments performance.">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://www.litle.com/">
-	<meta property="og:image" content="/images/uploads/litle-128.png">
+	<meta property="og:image" content="{{ site.litle_url | append: 'images/uploads/litle-128.png' }}">
 	<script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-188961-1']);
@@ -48,7 +48,7 @@
 	</style>
 	<![endif]-->
 
-	<link media="screen" rel="stylesheet" type="text/css" href="https://www.litle.com/?css=global_embed/dev_css.v.1357923994">
+	<link media="screen" rel="stylesheet" type="text/css" href="{{site.litle_url | append: '?css=global_embed/dev_css.v.1357923994' }}">
 
 	<link href="{{site.litle_url | append: '/images/uploads/apple-touch-icon-114-precomposed.png' }}" sizes="114x114" rel="apple-touch-icon-precomposed">
     <link href="{{site.litle_url | append: '/images/uploads/apple-touch-icon-72-precomposed.png' }}" sizes="72x72" rel="apple-touch-icon-precomposed">
@@ -56,5 +56,5 @@
 
     <link href="{{site.litle_url | append: '/images/uploads/favicon.png' }}" rel="shortcut icon">
 		
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <!--{html_head_end}	-->
