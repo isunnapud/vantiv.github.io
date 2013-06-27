@@ -1,0 +1,6 @@
+name: Litle & Co.
+pygments: true
+
+litle_url: "http://www.litle.com/"
+#url: "http://litleco.github.com/"
+url: "http://localhost:4000/"

@@ -1,0 +1,38 @@
+<div class="span6">
+    <nav id="topleft" class="navi">
+        <ul>
+            <li class="litlecom"><a href="{{ site.litle_url }}" rel="tooltip" data-placement="bottom" title="Litle &amp; Co. - Home" alt="Litle &amp; Co. - Home">Litle &amp; Co. - Home</a></li>
+            <li class="merchants"><a href="{{ site.litle_url | append: 'merchant-care'}}" rel="tooltip" data-placement="bottom"  title="Merchant Care" alt="Merchant Care">Merchant Care</a></li>
+            <li class="blog"><a href="{{ site.litle_url | append: 'blog'}}" rel="tooltip" data-placement="bottom"  title="Litle Blog" alt="Litle Blog" >Litle Blog</a></li>   
+            <li class="devs"><a class="active" href="{{ site.url }}" rel="tooltip" data-placement="bottom"  title="Litle Developers API" alt="Litle Developers API">Litle Developers API</a></li>  
+            <li class="partners"><a href="{{ site.litle_url | append : 'partners'}}" rel="tooltip" data-placement="bottom"  title="Litle Partners" alt="Litle Partners">Litle Partners</a></li>
+            <li class="careers"><a href="{{ site.litle_url | append: 'careers'}}" rel="tooltip" data-placement="bottom"  title="Litle Careers" alt="Litle Careers">Litle Careers</a></li>
+            <li class="linkedin"></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="span6">
+    <div class="dt">
+        <nav id="topright">
+            <ul>
+                <li><a href="{{ site.litle_url | append: 'about-us'}}" title="About Litle &amp; Co." alt="About Litle &amp; Co.">About Us</a></li>
+                <li><a href="{{ site.litle_url | append: 'resources'}}" title="Resources" alt="Resources">Resources</a></li>
+                <li><a href="{{ site.litle_url | append: 'news-events'}}" title="News &amp; Events" alt="News &amp; Events">News &amp; Events</a></li>
+                <li><a href="{{ site.litle_url | append: 'about-us/contact-us'}}" title="Contact Litle &amp; Co." alt="Contact Litle &amp; Co.">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="mb" id="tr">
+        <form>
+            <div class="rowElem">
+                <select onchange="window.open(this.options[this.selectedIndex].value,'_top')">
+                    <option value="{{ site.litle_url | append: 'about-us' }}">About Us</option>
+                    <option value="{{ site.litle_url | append: 'resources' }}">Resources</option>
+                    <option value="{{ site.litle_url | append: 'news-events' }}">News &amp; Events</option>
+                    <option value="{{ site.litle_url | append: 'about-us/contact-us' }}">Contact</option>
+                </select>    
+            </div>
+        </form>
+    </div>
+</div>

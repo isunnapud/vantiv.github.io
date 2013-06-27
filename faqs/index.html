@@ -1,0 +1,418 @@
+---
+
+title: "FAQ’s"
+description: ""
+
+content-title: "Frequently Asked Questions"
+content-description: ""
+
+---
+
+{% include head.html %}
+
+<body>
+ <style type="text/css">
+      </style>
+   
+{% include sub-page-header.html %}
+	
+	<div class="container">
+		
+		<div class="row" id="dev-main">	
+			<div class="twocol" id="leftCol">
+				{% include menu.html %}
+			</div>
+			<div class="ninecol last" id="devContent">
+				<section class="panel twelvecol">
+						<h1 class="page-title">{{page.content-title}}</h1>
+						<p>{{page.content-description}}</p>		
+				<div class="faqs">
+    	
+					<ul>
+						<li><a href="#general">General</a></li>
+						<li><a href="#integration">Integration</a></li>
+			 			<li><a href="#paypage">PayPage</a></li>
+			 			<li><a href="#tokenization">Vault/Tokenization</a></li>
+			 			<li><a href="#recycling">Recycling</a></li>
+			 			<li><a href="#billmelater">BillMeLater</a></li>
+			 			<li><a href="#paypal">PayPal</a></li>
+			 			<li><a href="#payflow">PayFlow Pro</a></li>
+			 		</ul>
+			 		
+			 		<dl id="general">
+			
+						<dt>Can you refund a transaction for more than the amount of the deposit?</dt>
+						<dd>Yes. The Litle default will allow you to refund a transaction for more than the amount of the deposit. The ability to limit refunds is an option that must be requested per MID.</dd>
+						
+						<dt>Which Litle Transaction ID should I use in the XML for a Deposit/Refund?</dt>
+						<dd>For a Deposit transaction, you would link it to the Auth by using the transaction ID returned in the corresponding Auth response. For a Refund you would use the transaction ID returned in the corresponding Deposit transaction.</dd>
+						
+						<dt>Do you reject Auths based on address mismatches?</dt>
+						<dd>No. We return the responses from the card networks and they do not reject auths based on address. We recommend that you review the auth responses for address mismatches to determine if you would like to proceed with a deposit.</dd>
+						
+						<dt>Do I need an OrderSource on every auth?</dt>
+						<dd>Yes. The OrderSource Element is required for auth transactions.</dd>
+						
+						<dt>What changes are needed to send foreign currency?</dt>
+						<dd>You will need a new MID for foreign currency but the XML will remain the same. The MID will be set up to accept the currency that was specified so the XML would not need to change. You would only need to make sure you are sending to the correct MID.</dd>
+						
+						<dt>How long does it take to integrate with Litle?</dt>
+						<dd>Integration with us is very specific to each Merchant. What it really depends on is how fast you will be able to build your internal systems to integrate with us. The Implementation Consultant should be able to certify any transactions you send in a timely manner.</dd>
+						
+						<dt>How do I get a test account set up with Litle?</dt>
+						<dd>In order to have a test account set up with us, please provide your Implementation Consultant with a static IP you will be testing from. The Implementation Consultant will then set you up with a generic test account that you can request different features be turned on for. Typical turnaround for a test account to be set up is 1-2 business days after you have sent the static IP.</dd>
+						
+						<dt>I would like to Integrate with Litle, but will not be able to code directly, am I still able to integrate with Litle?</dt>
+						<dd>Absolutely, we are integrated with many different partners and gateways. If you are currently working with one or plan to, you can check with either your Sales Representative or Implementation Consultant to ensure we are integrated with them.</dd>
+						
+						<dt>Can I use a non-static IP to connect to Litle?</dt>
+						<dd>In order to connect to our system you must have a static IP. We are able to have a network range as long as that range is static as well. Without a static IP your IP may change causing your transactions to fail.</dd>
+						
+						<dt>We would like to code directly to Litle, but would like to go live as soon as possible. Can we go live using a gateway or presenter to start, and then code direct at a later point?</dt>
+						<dd>It is definitely possible to begin processing with us while utilizing a gateway or presenter to start and then code directly to us while you are processing live transactions.</dd>
+						
+						<dt>After I am live, if I decide to add another Merchant Division do I need to re-certify or do any other testing?</dt>
+						<dd>Once you have completed the certification process, you will only need to certify for new transaction types. For example if you have tested and certified for Authorizations, Captures, Refunds, and Voids you can add a new division without needed to certify or test again for those transactions. If you wanted to add in Conditional Deposits, you will need to test and certify for that.</dd>
+						
+						<dt>Are there any countries Litle does not support credit cards from?</dt>
+						<dd>We will allow you to accept credit cards from any countries you would like. We do have features such as International Card Filtering and Issuer Country Indicator, which can filter out international cards or inform you of which country issued the card.</dd>
+						
+						<dt>How quickly can Litle process transactions in a batch?</dt>
+						<dd>A batch of about 10000 transactions would take about 10 minutes to process.</dd>
+						
+						<dt>Where can I find a sample of Litle's XML for what we should send and what we will receive?</dt>
+						<dd>You should be able to find sample XML in the XML Reference Guide. If you do not have our XML Reference Guide, either ask your Sales Representative, Implementation Consultant, or Customer Experience Manager for a copy of the most recent XML Reference Guide.</dd>
+						
+						<dt>We are planning on utilizing a Partner or Gateway to connect to Litle, do we still need to test?</dt>
+						<dd>If you will be using a partner or gateway that is already directly integrated with Litle, you will not need to complete any certification testing. If you will be using a partner or gateway that is not integrated with Litle, they will need to perform certification testing.</dd>
+						
+						<dt>What is the Billing Descriptor Prefix?</dt>
+						<dd>The billing descriptor prefix is a visa requirement which helps your customers understand the charges on their statement. The prefix can be 3 or 7 characters and must be followed by an asterisk. After the prefix there is your usual billing descriptor. EX - ABC*ABC FIN CORP</dd>
+						
+						<dt>What is the difference between online and batch?</dt>
+						<dd>Online is considered "real-time", while batch transactions are sent in a batch at the end of the day.</dd>
+						
+						<dt>Difference between $0 and $X auths?</dt>
+						<dd>A $0 auth will confirm the card number exists, but does not prove that funds exist on the account. Not all card networks support $0 auths.</dd>
+						
+						<dt>Can I change my address?</dt>
+						<dd>You may, but if you settle in USD, you must have both a US address and a US bank account.</dd>
+						
+						<dt>Can I send any Billing Descriptor I want?</dt>
+						<dd>This depends on the risk assessment that was completed as part of your onboarding process. Ask your CEM to confirm for you. Some merchants may be eligible for completely unrestricted descriptors, while others may have a more limited list they can choose from (depending on business need).</dd>
+						
+						<dt>What is the Max Transaction amount for?</dt>
+						<dd>This will flag any transaction sent to us that is equal to or great than the amount you specify for the max transaction limit. This means your CEM will reach out to you to confirm whether or not you want to process the transaction in question. It is mainly used to prevent system errors from processing a transaction with an extra 0, for example.</dd>
+						
+						<dt>What is the difference between pre-paid filtering and pre-paid indicator?</dt>
+						<dd>The filter will automatically decline transactions based on whether or not the card is a pre-paid/reloadable card. The indicator returns information back to you to let you know the card is pre-paid, but does not make any determination beyond that (other than the result of the transaction request).</dd>
+						
+						<dt>Who do I contact for questions about chargebacks?</dt>
+						<dd>You should contact your CEM for questions related to your processing. They will be able to provide further information.</dd>
+						
+						<dt>How long does it take to get my funds?</dt>
+						<dd>Please refer to section 1 of your contract for the funds transfer timeline.</dd>
+						
+						<dt>How do I get an Amex #?</dt>
+						<dd>Unlike Discover, Visa, and Mastercard, Litle cannot register you for American Express. You will need to contact them directly.
+			    	
+			    	</dl>
+			    	
+			    	<dl id="integration">
+			    	
+						<dt>What number do I need to connect to you?</dt>
+						<dd>
+							<ol>
+								<li><strong>If you are connecting directly:</strong> Merchant ID, Login, Password, Transaction URL</li>
+								<li><strong>If you are connecting via a 3rd party presenter:</strong>  Merchant ID</li>
+								<li><strong>If you are connecting via Authorize.net:</strong>  Terminal ID, Bank ID, Platform</li>
+							</ol>
+						</dd>
+						
+						<dt>When can I have my merchant account number?</dt> 
+						<dd>In order for us to send out merchant-specific connection information, the merchant must have completed all of the requirements of the on-boarding process. This includes the profile setup (with implementations), the compliance review with our compliance team, and the risk assessment with our risk team.</dd>
+						
+						<dt>Why has my certification account stopped working?</dt>
+						<dd>In order to maintain the health and validity of the test environment we periodically wipe all data and rebuild with the latest configuration. While we do take steps to preserve and restore profiles, sometimes unforeseen circumstances require manual intervention for your connection to work. Please contact <a href="mailto:implementation@litle.com">implementations@litle.com</a> for more information.</dd>
+						
+						<dt>How do we test tokens?</dt>
+						<dd>It is recommended best-practice that you test normal transactions first to confirm connectivity before adding tokenization logic.</dd>
+						
+						<dt>How do I register for AAU?</dt>
+						<dd>We will assist you in AU registration. Please contact your Customer Experience Manager or Implementation Consultant to get started. Once this has been completed (depending on the card networks this could take anywhere from 1-6 weeks) we will enable this feature for you.</dd>
+						
+						<dt>What do I send for OrderId?</dt>
+						<dd>This element should represent some methodology that will allow you to track the order in other systems you may use in your environment. There is no right or wrong answer to this, but it should be unique enough to identify each order.</dd>
+						
+						<dt>What countries support AVS checking?</dt>
+						<dd>US, Canada, and Great Britain only at this time.</dd>
+						
+						<dt>What if I only have a few one-off transactions I want to process outside of my gateway or direct connection?</dt>
+						<dd>We offers you a Virtual Terminal to allow you to manually enter transactions. You will need to provide us with a static IP address for the computer(s) you are designating as transaction entry machines.</dd>
+						
+						<dt>What currencies can you support?</dt>
+						<dd>We can support customer purchasing in any currency, but you may only settle in USD, AUD, GBP, JPY, Euro, CAD, and HKD.</dd>
+						
+						<dt>I am starting out connecting via a gateway, but I may be switching. Can I do that?</dt>
+						<dd>You will always be able to change presenters or connection methods in the future. Please contact your CEM to get this change started at least 3-4 weeks in advance of any switchover.</dd>
+						
+						<dt>What is the purpose of the id XML Element?</dt> 
+						<dd>The purpose is to prevent duplicate transactions from being processed. For online transactions, the system compares transaction type, the id attribute from the request, and the credit card number against other online transactions processed within the previous two days. The id element should be unique enough to catch duplicate transactions.</dd>
+						
+						<dt>My transactions are failing on the test environment, how do I fix this?</dt>
+						<dd>Please send the XML to your Implementation Consultant you have been working with and they will be able to determine the problem. If you have not been working with anyone contact your Customer Experience Manager for the next steps you should take.</dd>
+						
+						<dt>I am getting an error saying “System Error - Call Litle &amp; Co"?</dt>
+						<dd>First, ensure you are using the correct username and password. Your password for the test environment should begin with ‘cert'. If that information is correct, confirm you are using the correct Merchant ID supplied by your Implementation Consultant. If you are still receiving the error, please contact your Implementation Consultant.</dd>
+						
+						<dt>What transactions do I need to test and certify for?</dt>
+						<dd>What we ask Merchants to test and certify for are any transactions you plan on potentially running in production. Typical transactions are Authorizations, Captures, Refunds, and Voids.</dd>
+						
+						<dt>Can I use customBilling for the transactions I am sending?</dt>
+						<dd>Custom Billing is an option Merchants have when sending transactions. This allows merchants to specify exactly what will show up on their customer's credit card statements. In order to use this, our Risk Department must approve the request. Please work with either your Sales Representative, Implementation Consultant, or Customer Experience Manager to put in that request.</dd>
+						
+						<dt>What is the difference between Conditional Deposits and Authorization/Capture transactions?</dt>
+						<dd>A Conditional Deposit is one transaction that groups an authorization and a capture together. If the card is valid the capture will take place. Conditional Deposits will not fail is address or CVV does not match. An Authorization and Capture are two separate transactions. First the authorization is performed and depending on the response a capture can be performed on that authorization.</dd>
+							
+						<dt>Are the XML elements case sensitive?</dt>
+						<dd>Yes all the XML Elements are case sensitive and you should follow the guide for the proper formatting.</dd>
+						
+						<dt>How do we test AVS or CVV check transactions?</dt>
+						<dd>In order to do address verification or check the CVV you will need to do an authorization transaction. Then look at the XML Response at the <avsResult> and <cardValidationResult> XML elements. To find a list of AVS Response Codes and Card Validation Response Codes and their meanings please refer to the XML Reference guide under the section Payment Transaction Response Codes.</dd>
+						
+						<dt>Can I use real credit cards in Litle's certification environment?</dt>
+						<dd>You should use the credit cards in the XML Reference guide to send test transactions to Litle. Our certification environment is not connected to the Credit Card Networks and therefor the responses you receive are coded to occur for the credit cards in the guide.</dd>
+						
+						<dt>What should I send for the reportGroup XML Element?</dt>
+						<dd>The reportGroup element defines how the transactions will show up in the Reporting UI. Depending on how you would like to group the transactions you send in will determine what you should send for the reportGroup element. While testing, it will not matter what you send; it is important for Live Production transactions.</dd>
+						
+						<dt>Where can I find test card data?</dt>
+						<dd>Test cards are located in the Litle XML Reference Guide_XMLx.xx_Vx.pdf in starting in section 2.4 Table 2-1
+						
+						<dt>Do I have to use the test card data provided?</dt>
+						<dd>The test system will approve any credit card number that passes the credit card standard MOD 10 validation check.  If you want to receive decline codes you must use the credit card numbers located in the Litle XML Reference Guide_XMLx.xx_Vx.pdf in starting in section 2.4 Table 2-1.    The orderId and amount values can be different if your system cannot pass the ones specified.</dd>
+						
+						<dt>Can I send live cards to the test system?</dt>
+						<dd>We do not recommend sending live card data to the test system.</dd>
+						
+						<dt>How long is the transactional test data available for?</dt>
+						<dd>The certification environment will be upgraded and re‐started typically during the third Tuesday maintenance window of every month. All transactional data, including sessions, batches and payment transactions, will be purged. Merchants and partners can therefore expect from zero to thirty days of transactional data to be present in the certification database.</dd>
+						
+						<dt>How do I obtain the test credentials to the certification environment?</dt>
+						<dd>Provide the following information to your assigned Implementation Consultant:
+							<ol>
+								<li>Connection Type(s)(on-line and/or batch)</li>
+								<li>Communication Protocol for online and batch (https post, tcp/ip, ftp, sftp, etc</li>
+							</ol>
+							We accept only HTTPS Post for online.  Batch you can choose. External IP addresses of the server(s) that will be sending the transactions.  Your consultant will setup a test account for you and provide you with the test URL, username, password, and merchantId.
+						</dd>
+						
+						<dt>Are there transaction volume limitations in the test environment?</dt>
+						<dd>Each IP address connecting to the certification environment receives 3 concurrent connections for real-time processing.  A maximum of 5 IPs can be granted access to the the certification environment. A maximum of 10,000 transactions can be sent in a batch file per day.</dd>
+						
+						<dt>Does my test account expire?</dt>
+						<dd>Your test account does not expire.  The account remains open after moving to the live environment.  We reserve the right to terminate a user's access to the certification environment if it is determined that usage falls outside of the realm of certification‐level testing, and whose subsequent misuse may adversely affect the overall health of the system and the ability of other merchants and/or partners to properly access and utilize the certification environment.</dd>
+			
+					</dl>
+			
+			    	<dl id="paypage">
+			
+						<dt>When trying to test for PayPage I am receiving a message: <i>"We are experiencing technical difficulties. Please try again later or call 555-555-1212 (timeout)"</i>. What should I do?</dt>
+						<dd>When creating the PayPage JavaScript make sure to check your line that says:<br />
+							<span style="font-family: Consolas,monospace;">sendToLitle(litleRequest, formFields, submitAfterLitle, onErrorAfterLitle, timeoutOnLitle, 5000);</span>
+							<br />and make sure the timeout limit is set to a number that is appropriate, for example 5000.</dd>
+						
+						<dt>Can PayPage be used without the Vault?</dt>
+						<dd>No, PayPage extends the functionality of Vault.</dd>
+						
+						<dt>Does a paypageRegistrationId expire?</dt>
+						<dd>The paypageRegistrationId returned is only valid for 24 hours.  You must submit the paypageRegistrationId with 24 hours of receiving it to obtain the token.</dd>
+						
+						<dt>How many paypageId values are needed?</dt>
+						<dd>Each merchant account will have its own unique paypageId to be used in the PayPage request.</dd>
+						
+						<dt>Is certification required for PayPage?</dt>
+						<dd>Yes, certification testing information for PayPage is located in the Litle_PayPage_Integration_Guide_XML8.7_V2.5.pdf.  There are several negative test cases that must be complete to handle all scenarios.</dd>
+						
+						<dt>Is JavaScript required?</dt>
+						<dd>Yes, JavaScript is required for processing the PayPage request.</dd>
+						
+						<dt>Does Litle host the checkout page?</dt>
+						<dd>No, you host the checkout page and control the content.  You would just need to add the JavaScript to the credit card number field in the checkout form.</dd>
+						
+						<dt>Is there a sample site to review?</dt>
+						<dd>We created a few simple sample pages to see how the code is used and executed:<br />
+							<ol>
+								<li><strong>Checkout Page without PayPage</strong>:<br /><a href="https://cert01.securepaypage.litle.com/checkout/before.html" target="_blank">https://cert01.securepaypage.litle.com/checkout/before.html</a></li>
+								<li><strong>Checkout Page with PayPage </strong>(will submit primary account number if PayPage encounters an error): <br /><a href="https://cert01.securepaypage.litle.com/checkout/yesSeeCard.html" target="_blank">https://cert01.securepaypage.litle.com/checkout/yesSeeCard.html</a></li>
+								<li><strong>Checkout Page with PayPage</strong> (will never submit primary account number): <br /><a href="https://cert01.securepaypage.litle.com/checkout/dontSeeCard.html" target="_blank">https://cert01.securepaypage.litle.com/checkout/dontSeeCard.html</a></li>
+							</ol>
+						</dd>
+			
+					</dl>
+			
+			    	<dl id="tokenization">
+			
+						<dt>If I am billing my customers monthly how will I show them what credit card I am using to bill them with if I am using tokens?</dt>
+						<dd>The tokens last four digits is the same as the credit cards last four digits and therefore you can show the last four digits of the token for your customers to identify their card.</dd>
+						
+						<dt>Is there any way to un-tokenize a card once it's been tokenized?</dt>
+						<dd>Through the UI you are able to view the actual card number if you have the permissions to do so. Also, there is an option of a bulk extraction if you would like a large number of tokens un-tokenized. </dd>
+						
+						<dt>Does the expiration date need to be sent with a token?</dt>
+						<dd>The expiration date must be sent in with a token.  We only tokenize the card number.  The token does not include the expiration date or card validation number.  When the card expires you can simply send in the new expiration date without replacing the token.</dd>
+						
+						<dt>Do tokens expire?</dt>
+						<dd>The token does not expire.  It can be used until the cardholder changes the account number.</dd>
+						
+						<dt>Can tokens be entered or returned in the Litle Virtual Terminal?</dt>
+						<dd>Currently the Litle Virtual Terminal does not allow tokens to be entered for process and does not return a token if a credit card number is entered.</dd> 
+						
+						<dt>Does Auto Account Updater work with the Vault?</dt>
+						<dd>The Litle Vault works in conjunction with the auto account updater product.  If you are receiving updated information in your response and the account number changes, you will receive a new token in your response.</dd>
+						
+						<dt>Is PayPage required if using the Vault?</dt>
+						<dd>PayPage is not required when using the vault.  The PayPage extends the vault functionality so that credit card numbers never touch a merchants system.</dd>
+						
+						<dt>Is there a way to determine if the number is a token or a credit card?</dt>
+						<dd>The token is created using a mod 10 plus 1 algorithm.   The credit cards use the industry standard mod 10 algorithm.  We recommend that all values are validated for the industry standard mod 10 algorithm and the ones that fail will be tokens if all current credit cards pass the mod 10 check.</dd>
+						
+						<dt>What is the format of the token for a credit card?</dt>
+						<dd>For credit cards, in an effort to minimize development requirements on the merchant side, we have elected to use a format-preserving tokenization scheme. In simple terms this means that the length of the original card number is reflected in the token, so a submitted 16-digit number results in a 16-digit token. Also, all tokens use only numeric characters, so you do not have to change your systems to accept alpha-numeric characters. The credit card token numbers themselves have two parts. The last four digits match the last four digits of the card number. The remaining digits (length can vary based upon original card number length) are a randomly generated. Unlike credit card numbers, which are Mod 10 compliant, tokens are Mod 10 + 1 compliant.</dd>
+						
+						<dt>What is the format of the token for an echeck?</dt>
+						<dd>For an eCheck token, since the account number length can vary widely, Litle & Co. elected to make the tokens a uniform length of 17 digits. Unlike card tokens, the entire eCheck token number is a randomly generated. The system supplies the last three characters of the account number in a separate element. As with credit card tokens, eCheck tokens are Mod 10 + 1 compliant.</dd>
+						
+						<dt>How are tokens charged?</dt>
+						<dd>You are only charged when a token is registered for the first time.</dd>
+			
+					</dl>
+					
+			    	<dl id="recycling">
+						
+						<dt>What is the format of the filename that contains the recycled responses?</dt>
+						<dd>The file name format is: merchantId.MMddyyyy.sessionId.response</dd>
+						
+						<dt>What signature should be set if a merchant is also using Account Updater?</dt>
+						<dd>Signature 4: Order ID. You would use Order ID alone to avoid a change in card restarting the sequence.</dd>
+						
+						<dt>What version of the Litle XML do I need to be on to get Recycling Advice?</dt>
+						<dd>You must be on Litle XML version 8.6 or higher to receive recycle advice.</dd>
+						
+						<dt>What version of the Litle XML do I need to be on to use the Recycling Engine?</dt>
+						<dd>You can be on any version of the Litle XML to take advantage of the Recycling Engine, but to receive recycle specific responses; you will need to be on version 8.6.</dd>
+						
+						<dt>Can I use the PTI format with Recycling Engine?</dt>
+						<dd>Yes, but you would not be able to get advice in the response using any PTI format.</dd>
+						
+						<dt>What is the format of the filename that contains the recycled responses?</dt>
+						<dd>The file name format is: merchantId.MMddyyyy.sessionId.response</dd>
+						
+						<dt>What signature should be set if a merchant is also using Account Updater?</dt>
+						<dd>Signature 4: Order ID. You would use Order ID alone to avoid a change in card 	restarting the sequence.</dd>
+						
+						<dt>What version of the Litle XML do I need to be on to get Recycling Advice?</dt>
+						<dd>You must be on Litle XML version 8.6 or higher to receive recycle advice.</dd>
+						
+						<dt>What version of the Litle XML do I need to be on to use the Recycling Engine?</dt>
+						<dd>You can be on any version of the Litle XML to take advantage of the Recycling Engine, but to receive recycle specific responses; you will need to be on version 8.6</dd>
+						
+						<dt>Can I use the PTI format with Recycling Engine?</dt>
+						<dd>Yes, but you would not be able to get advice in the response using any PTI format.</dd>
+			
+					</dl>
+					
+			    	<dl id="billmelater">
+			
+						<dt>Can you send custom billing for BML transactions?</dt>
+						<dd>Yes, BML accepts custom billing but they only in the deposit. Taking that into account, Litle holds the custom billing information that is sent in the auth and then provides it to BML in the following deposit.</dd>
+						
+						<dt>Can you send auth reversals as a BML transaction?</dt>
+						<dd>No. BML does not accept auth reversals.</dd>
+						
+						<dt>How does the certification for BLM transactions differ  from credit card transaction?</dt>
+						<dd>BML transactions are certified by BML. There is a direct connection between Litle and BML's certification systems. The transactions will pass through the Litle schema and be passed on to BML for their review and certification. We work with BML to assure all requirements are met on both systems.</dd>
+						
+						<dt>What version of the Litle XML do you need to be on to send BML transactions?</dt>
+						<dd>You must be on Litle XML version 6.1 or higher to send BML transactions.</dd>
+						
+						<dt>What are the 3 types of BML Authorization transactions?</dt>
+						<dd>They are as follows:<br />
+							<ol>
+								<li><strong>New Customer Auth:</strong> Where there is no existing BML account present</li>
+								<li><strong>Authenticated:</strong> Existing BML customer</li>
+								<li><strong>Not Authenticated:</strong> These are Call Center transactions where there is no prior verification available, such as a login or password.</li>
+							</ol>
+						</dd>
+						
+						<dt>Do I need a separate MID for BML transactions?</dt>
+						<dd>No. You can send BML transactions using the same MID as your Credit Card transactions</dd>
+						
+						<dt>What is the "Invalid Data" error?</dt>
+						<dd>"Invalid Data" is an error message that is returned from the BML system. This occurs when the information in the transactions passes the Litle schema, but there is an issue on the BML side. You would need to contact BML for more information.</dd>
+						
+			
+					</dl>
+					
+			    	<dl id="paypal">
+			
+						<dt>What is the subject?</dt>
+						<dd>The subject links your API account to the Litle account.  Without the subject transactions cannot be processed by Litle.</dd>
+						
+						<dt>Are funds guaranteed?</dt>
+						<dd>Funds are guaranteed for 3 days after an authorization is completed.</dd>
+						
+						<dt>How do I void an order?</dt>
+						<dd>To void an order completely you must send the void direct to PayPal via an expressCheckOut call.</dd>
+						
+						<dt>Why do capture transactions reject?</dt>
+						<dd>Captures can reject if something changes with the PayPal account after the authorization request has taken place.  In the credit card world these rejects do not happen at the time of capture.  They are rejected via a chargeback.  With PayPal they are rejected at the time of capture.</dd>
+						
+						<dt>What is the orderComplete element used for?</dt>
+						<dd>Orders can stay open up to 360 days on a customer's PayPal account unless the amount is fully consumed.  To release the funds a orderComplete sent on a capture will close the order even if there are funds remaining.</dd>
+						
+						<dt>Do refunds always have to be linked to a capture?</dt>
+						<dd>A PayPal refund must always be linked to the original capture.  We do not support a orphan refund for PayPal.</dd>
+						
+						<dt>What is a billing agreement?</dt>
+						<dd>The billing agreement is a way for a recurring charge to be setup with a PayPal account.</dd>
+			
+					</dl>
+			    	<dl id="payflow">
+			
+				    	<dt>Using PayFlow Pro as a gateway to Litle can we perform transactions using Reference Transactions?</dt>
+						<dd>The current integration with Litle and PayFlow Pro does not allow for Reference Transactions to be sent.</dd>
+			
+					</dl>
+			    	
+			    </div>
+				</section>
+			
+			</div>
+		</div> <!-- /#dev-main -->
+	</div><!-- /container -->
+	
+	<div class="row" id="footer">
+		{% include footer.html %}
+	</div>
+	    <script type="text/javascript">
+        $(document).ready(function () {
+			$('.faqs dd').hide(); 
+			$('.faqs dt').hover(function(){$(this).addClass('hover')},function(){$(this).removeClass('hover')}).click(function(){ 
+				$(this).next().slideToggle('normal'); 
+			});
+			$('.faqs dl').hide();
+			$('.faqs dl:first').show();
+			$('.faqs ul li:first').addClass('active');
+ 			$('.faqs ul li a').click(function(){
+				$('.faqs ul li').removeClass('active');
+				$(this).parent().addClass('active');
+				var currentTab = $(this).attr('href');
+				$('.faqs dl').hide();
+				$(currentTab).show();
+				return false;
+			});
+		});
+	</script>	
+</body>
+</html>
