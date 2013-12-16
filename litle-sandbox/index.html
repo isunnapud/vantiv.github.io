@@ -15,6 +15,65 @@ content-description: ""
 	<p>The Litle Sandbox environment is easily accessible to all users, simply configure your SDK and choose the “sandbox” option.&nbsp; The sandbox is the default option, so it will be chosen automatically if you haven't chosen a destination.</p>
 	<p><em><strong>URL:</strong></em> <a href="https://www.testlitle.com/sandbox/communicator/online">https://www.testlitle.com/sandbox/communicator/online</a></p>
 	<p><em><strong>Note: Selecting the URL above will result in an error, the sandbox expects xml in the HTTP POST body.</strong></em></p>
+	<p>This environment is a production simulator. It can only handle online XML and needs at least version 8. It has no state, and doesn't support tied transactions by actually tying the transaction.</p>
+	<p>For sale and auth, the last 3 digits of the credit card will be used for the response reason code.  Some sample numbers/responses include:</p>
+	<table>
+		<tr>
+			<th>Desired Response</th>
+			<th>Credit Card Number</th>
+		</tr>
+		<tr>
+			<td>000: Approved</td>
+			<td>4470330769941000</td>
+		</tr>
+		<tr>
+			<td>010: Partially Approved</td>
+			<td>4658512425423010</td>
+		</tr>
+		<tr>
+			<td>100: Processing Network Unavailable</td>
+			<td>4886883711815100</td>
+		</tr>
+		<tr>
+			<td>101: Issuer Unavailable</td>
+			<td>4215176886320101</td>
+		</tr>
+		<tr>
+			<td>110: Insufficient Funds</td>
+			<td>4488282659650110</td>
+		</tr>
+	</table>
+	<p>Other numbers in the credit card can be used to emulate a variety of features, including avs, cvv, auto au, etc</p>
+		<table>
+		<tr>
+			<th>Feature</th>
+			<th>Credit Card Number</th>
+		</tr>
+		<tr>
+			<td>Account Updater</td>
+			<td>4100117890123000</td>
+		</tr>
+		<tr>
+			<td>Vault/Tokenization</td>
+			<td>4100280190123000</td>
+		</tr>
+		<tr>
+			<td>Enhanced Authorizations</td>
+			<td>4100322111199000</td>
+		</tr>
+		<tr>
+			<td>Address Verification</td>
+			<td>4215176886320101</td>
+		</tr>
+		<tr>
+			<td>Card Security Code Validation</td>
+			<td>4100500000000000</td>
+		</tr>
+	</table>
+
+	<p>On tied transactions, the last 3 digits of the litleTxnId are used as the response reason code.</p>
+	<p>This environment is on the public internet and requires no username or password. 
+	<p>It is typically used by merchants as their first test environment, while their merchant profile is being created.  Some of our merchants continue to use it during development and maintenance as it provides consistent response codes. 
 	<p>The sandbox uses the request to calculate the response.&nbsp; This is done so that any response that Litle's systems can generate can be retrieved through the sandbox as well.&nbsp; The last 3 digits of a request field will be used to determine the response reason code.</p>
 	<p>Authorizations, Sales and all eCheck transactions use the amount.&nbsp; To receive an approval, use an amount that ends with 000.</p>
 	<p>Captures, Voids, Credits and Reversals use the litleTxnId.&nbsp; To receive an approval, use a litleTxnId that ends with 000.</p>
