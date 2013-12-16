@@ -16,6 +16,7 @@ content-description: ""
 	<p><em><strong>URL:</strong></em> <a href="https://www.testlitle.com/sandbox/communicator/online">https://www.testlitle.com/sandbox/communicator/online</a></p>
 	<p><em><strong>Note: Selecting the URL above will result in an error, the sandbox expects xml in the HTTP POST body.</strong></em></p>
 	<p>This environment is a production simulator. It can only handle online XML and needs at least version 8. It has no state, and doesn't support tied transactions by actually tying the transaction.</p>
+	<p>The sandbox uses the request to calculate the response.&nbsp; This is done so that any response that Litle's systems can generate can be retrieved through the sandbox as well.</p>
 	<p>For sale and auth, the last 3 digits of the credit card will be used for the response reason code.  Some sample numbers/responses include:</p>
 	<table>
 		<tr>
@@ -74,9 +75,6 @@ content-description: ""
 	<p>On tied transactions, the last 3 digits of the litleTxnId are used as the response reason code.</p>
 	<p>This environment is on the public internet and requires no username or password. 
 	<p>It is typically used by merchants as their first test environment, while their merchant profile is being created.  Some of our merchants continue to use it during development and maintenance as it provides consistent response codes. 
-	<p>The sandbox uses the request to calculate the response.&nbsp; This is done so that any response that Litle's systems can generate can be retrieved through the sandbox as well.&nbsp; The last 3 digits of a request field will be used to determine the response reason code.</p>
-	<p>Authorizations, Sales and all eCheck transactions use the amount.&nbsp; To receive an approval, use an amount that ends with 000.</p>
-	<p>Captures, Voids, Credits and Reversals use the litleTxnId.&nbsp; To receive an approval, use a litleTxnId that ends with 000.</p>
 </article>
 
 <article>
