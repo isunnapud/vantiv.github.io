@@ -8,118 +8,189 @@ description: ""
 content-title: "Litle Sandbox"
 content-description: ""
 
----		
-<article>
-	<h4>Accessing the Litle Sandbox</h4>
-	<p>The Litle Sandbox functions as an emulator of our production environment.&nbsp; You send your transactions to our sandbox environment the exact same way you’d send them to our certification or &nbsp;production systems.&nbsp; The sandbox validates the transaction format and approves it if it matches our requirements.&nbsp; The Sandbox server makes it easy to get started using our SDK’s.&nbsp; <strong>There are no forms to fill out, no credentials required, and no special access needed!</strong></p>
-	<p>The Litle Sandbox environment is easily accessible to all users, simply configure your SDK and choose the “sandbox” option.&nbsp; The sandbox is the default option, so it will be chosen automatically if you haven't chosen a destination.</p>
-	<p><em><strong>URL:</strong></em> <a href="https://www.testlitle.com/sandbox/communicator/online">https://www.testlitle.com/sandbox/communicator/online</a></p>
-	<p><em><strong>Note: Selecting the URL above will result in an error, the sandbox expects xml in the HTTP POST body.</strong></em></p>
-	<p>This environment is a production simulator. It can only handle online XML and needs at least version 8. It has no state, and doesn't support tied transactions by actually tying the transaction.</p>
-	<p>The sandbox uses the request to calculate the response.&nbsp; This is done so that any response that Litle's systems can generate can be retrieved through the sandbox as well.</p>
-	<p>For sale and auth, the last 3 digits of the credit card will be used for the response reason code.  Some sample numbers/responses include:</p>
-	<table>
-		<tr>
-			<th>Desired Response</th>
-			<th>Credit Card Number</th>
-		</tr>
-		<tr>
-			<td>000: Approved</td>
-			<td>4470330769941000</td>
-		</tr>
-		<tr>
-			<td>010: Partially Approved</td>
-			<td>4658512425423010</td>
-		</tr>
-		<tr>
-			<td>100: Processing Network Unavailable</td>
-			<td>4886883711815100</td>
-		</tr>
-		<tr>
-			<td>101: Issuer Unavailable</td>
-			<td>4215176886320101</td>
-		</tr>
-		<tr>
-			<td>110: Insufficient Funds</td>
-			<td>4488282659650110</td>
-		</tr>
-	</table>
-	<p>Other numbers in the credit card can be used to emulate a variety of features, including avs, cvv, auto au, etc</p>
-		<table>
-		<tr>
-			<th>Feature</th>
-			<th>Credit Card Number</th>
-			<th>Varient Details</th>
-		</tr>
-		<tr>
-			<td><a id="accountUpdater"></a>Account Updater</td>
-			<td>4100117890123000</td>
-		</tr>
-		<tr>
-			<td><a id="vault"></a>Vault/Tokenization</td>
-			<td>41<font color="green">002</font><font color="red">801</font>90123<font color="blue">000</font></td>
-			<td>The green characters specify the feature (vault).  The red characters specify the token response code.  The blue digits specify the response reason code.
-		</tr>
-		<tr>
-			<td><a id="enhancedAuths"></a>Enhanced Authorizations</td>
-			<td>4100322111199000</td>
-		</tr>
-		<tr>
-			<td><a id="avs"></a>Address Verification</td>
-			<td>4215176886320101</td>
-		</tr>
-		<tr>
-			<td><a id="cvv"></a>Card Security Code Validation</td>
-			<td>4100500000000000</td>
-		</tr>
-	</table>
+---
 
-	<p>On tied transactions, the last 3 digits of the litleTxnId are used as the response reason code.</p>
-	<p>This environment is on the public internet and requires no username or password. 
-	<p>It is typically used by merchants as their first test environment, while their merchant profile is being created.  Some of our merchants continue to use it during development and maintenance as it provides consistent response codes. 
-</article>
+<section id="dev-main" class="pad70 gray">
+	<div class="container">
+		
+		<div class="row">
+			<div class="col-md-12">
+				<div class="section-title">PHP SDK</div>
+			</div>
+		</div>
+		
+		<div class="row">
 
-<article>
-	
-	<h4>Testing with CURL - Transaction Processing</h4>
-	<p><strong>1.) Save a file containing properly formatted Litle XML</strong></p>
-	{% gist 2120199 %}
+			<div class="col-md-3">
+				<div id="fixedMenu" class="navbar-spy" data-spy="affix" data-offset-top="280">
+					<ul class="nav nav-bordered nav-stacked" role="tablist">
+						<li class="active"><a href="#whatIs" data-toggle="tab">What is the Sandbox?</a></li>
+						<li><a href="#howItWorks" data-toggle="tab">How does it work</a></li>
+						<li><a href="#features" data-toggle="tab">Available features</a></li>
+						<li><a href="#gettingStarted" data-toggle="tab">Getting Started</a></li>
+					</ul>
+					<a href="#top">Back to the top</a>
+				</div>
+			</div>
+			
 
-	<p><strong>2.) Run the file using curl</strong></p>
-	{% gist 2120291 %}
+			<div class="col-md-9" id="ex">
+				<h3 id="whatIs">What is the Sandbox?</h3>
+				<p>
+					The Sandbox functions as a simulator of our production environment. 
+					You send your transactions to our sandbox environment the exact same way you’d send them to our certification or production systems.
+					The sandbox validates the transaction format and approves it if it matches our requirements.
+					The Sandbox server makes it easy to get started using our SDK’s.
+					<strong>There are no forms to fill out, no credentials required, and no special access needed!</strong>
+				</p>
+				
+				<p>
+					For now the Sandbox only supports online transactions and needs at least version 8.
+					It has no state and doesn't actually tie the transactions with one another, but it does simulate responses for tied transactions.
+					To test your batch transactions you'll need access to our prelive environment. 
+				</p>
+				
+				<h3 id="howItWorks">How does it work</h3>
+				
+				<p>
+					The sandbox uses the request to calculate the response.  
+					This is done so that any response that Litle's systems can generate can be retrieved through the sandbox as well.
+					For sale and auth, the last 3 digits of the credit card will be used for the response reason code. Some sample numbers/responses include:
+				</p>
+				
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Desired Response</th>
+							<th>Credit Card Number</th>
+						</tr>
+					</thead>
+					<tbody style="font-family: monospace">
+						<tr>
+							<td><span class="dullgoldtext">000</span>: Approved</td>
+							<td>4470330769941<span class="dullgoldtext">000</span></td>
+						</tr>
+						<tr>
+							<td><span class="dullgoldtext">010</span>: Partially Approved</td>
+							<td>4658512425423<span class="dullgoldtext">010</span></td>
+						</tr>
+						<tr>
+							<td><span class="dullgoldtext">100</span>: Processing Network Unavailable</td>
+							<td>4886883711815<span class="dullgoldtext">100</span></td>
+						</tr>
+						<tr>
+							<td><span class="dullgoldtext">101</span>: Issuer Unavailable</td>
+							<td>4215176886320<span class="dullgoldtext">101</span></td>
+						</tr>
+						<tr>
+							<td><span class="dullgoldtext">110</span>: Insufficient Funds</td>
+							<td>4488282659650<span class="dullgoldtext">110</span></td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<p>
+					Other numbers in the credit card can be used to simulate a variety of features, including AVS, CVV, Auto AU, etc.
+					To identify the feature, characters 2-4 are used and depending on the feature, other characters will be used.
+					The following shows how we count the characters from the card number and highlighted in <font color="#00CC00">red</font> are the three feature identifiers.
+				</p>
+				<p>
+					A simple example is the following card number: 
+				</p>
+				<pre>
+Characters: 0123456789012345
+            41<font color="#00CC00">002</font>80190123000</pre>
+            	
+				<p>
+					The <font color="#00CC00">green</font> characters specify the feature (in this case Vault).
+					The <font color="red">red</font> characters specify the token response code.
+					The <font color="blue">blue</font> digits specify the response reason code, as explained above.
+				</p>
+				
+				<h3 id="features">Available Features</h3>
+				<p>
+					The following table shows all the features available and the meaning for the special characters.
+					You can try with different values for each one of them and check what are the responses that you get back.	
+				</p>
+				
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Example Card Number</th>
+							<th>Feature Identification</th>
+							<th>Feature</th>
+							<th>Other characters</th>
+						</tr>
+					</thead>
+					<tbody style="font-family: monospace">
+						<tr>
+							<td>41<font color="#00CC00">001</font>17890123000</td>
+							<td><font color="#00CC00">001</font></td>
+							<td>Account Updater</td>
+							<td>Nothing needed, new randomly generated card number will be returned</td>
+						</tr>
+						<tr>
+							<td>41<font color="#00CC00">002</font><font color="red">801</font>90123000</td>
+							<td><font color="#00CC00">002</font></td>
+							<td>Vault/Tokenization</td>
+							<td><font color="red">5-7</font> - Token response code</td>
+						</tr>
+						<tr>
+							<td>41<font color="#00CC00">003</font><font color="red">2</font><font color="blue">2</font><font color="#AABB00">3</font><font color="#00BBAA">1</font><font color="#AA00BB">1</font>199000</td>
+							<td><font color="#00CC00">003</font></td>
+							<td>Enhanced Authorizations</td>
+							<td>
+								<font color="red">5</font> - Funding Source Type<br />
+								<font color="blue">6</font> - Reloadable<br />
+								<font color="#AABB00">7</font> - Prepaid card type<br />
+								<font color="#00BBAA">8</font> - Affluence<br />
+								<font color="#AA00BB">9</font> - Issuer Country
+							</td>
+						</tr>
+						<tr>
+							<td>42<font color="red">004</font><font color="blue">10</font>886320101</td>
+							<td><font color="#00CC00">004</font></td>
+							<td>Address Verification (AVS)</td>
+							<td><font color="red">5-7</font> - AVS response code</td>
+						</tr>
+						<tr>
+							<td>41<font color="#00CC00">005</font><font color="red">2</font>1234567000</td>
+							<td><font color="#00CC00">005</font></td>
+							<td>Card Security Code Validation</td>
+							<td><font color="red">5</font> - Card validation result</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<h3 id="gettingStarted">Getting started</h3>
+				
+				<p>
+					The URL to send your transactions to our Sandbox is the following:
+				</p>
+				
+				<div class="panel panel-success">
+					<div class="panel-heading text-center">Sandbox URL</div>
+  					<div class="panel-body text-center">
+						https://www.testlitle.com/sandbox/communicator/online
+					</div>
+				</div>
+				
+				<p>
+					You can test with any tool that can generate HTTP requests, curl is one example.
+					To start you can save the following in an xml file:
+				</p>
+				
+				<script src="https://gist.github.com/2120199.js"></script>
+				
+				<p>
+					And then send the file to Sandbox using your HTTP tool.
+					You need to add the header <code>Content-Type: text/xml</code> so that we know you're requesting an XML.
+					The following would be the <a href="http://en.wikipedia.org/wiki/CURL">curl</a> command to submit the previous XML:
+				</p>
+				
+				<script src="https://gist.github.com/2120291.js"> </script>
+			</div>
 
-
-</article>
-
-<article>
-	
-	<h4>Testing with CURL - PayFac&trade; API </h4>
-	<p><strong>1.) Save a file containing properly formatted Litle XML</strong></p>
-	{% gist 9374738 %}
-
-	<p><strong>2.) Run the file using curl</strong></p>
-	{% gist 9511252 %}
-	<p><h4>More Test Cases from the PayFac&trade; API Reference Guide<h4></p>
-	Reference Guide available on <a href="https://github.com/LitleCo/litle-xml/tree/master/reference_guides/">Github</a>
-	<ul>
-		<li><a href="https://gist.github.com/litleSDK/9374738">Test Case #1 - Create Legal Entity</a></li>
-		<li><a href="https://gist.github.com/litleSDK/9374766">Test Case #2 - Create Legal Entity</a></li>
-		<li><a href="https://gist.github.com/litleSDK/9374789">Test Case #3 - Create Legal Entity</a></li>
-		<li><a href="https://gist.github.com/litleSDK/9374808">Test Case #4 - Update Legal Entity</a></li>
-		<li><a href="https://gist.github.com/litleSDK/9374830">Test Case #5 - Create Legal Entity</a></li>
-		<li><a href="https://gist.github.com/litleSDK/9374864">Test Case #6 - Retrieve Legal Entity</a></li>
-		<li><a href="https://gist.github.com/litleSDK/9374876">Test Case #7 - Retrieve Legal Entity</a></li>
-		<li><a href="https://gist.github.com/litleSDK/9374893">Test Case #8 - Create Submerchant</a></li>
-		<li><a href="https://gist.github.com/litleSDK/9374906">Test Case #9 - Create Submerchant</a></li>
-		<li><a href="https://gist.github.com/litleSDK/9374930">Test Case #10 - Create Submerchant</a></li>
-		<li><a href="https://gist.github.com/litleSDK/9374993">Test Case #11 - Update Submerchant</a></li>
-		<li><a href="https://gist.github.com/litleSDK/9375043">Test Case #12 - Update Submerchant</a></li>
-		<li><a href="https://gist.github.com/litleSDK/9375063">Test Case #13 - Update Submerchant</a></li>
-		<li><a href="https://gist.github.com/litleSDK/9375085">Test Case #14 - Retrieve Submerchant</a></li>
-		<li><a href="https://gist.github.com/litleSDK/9375093">Test Case #15 - Retrieve Submerchant</a></li>
-		<li><a href="https://gist.github.com/litleSDK/9375111">Test Case #16 - Retrieve Submerchant</a></li>
-		<li><a href="https://gist.github.com/litleSDK/9375131">Test Case #17 - Retrieve Approved MCCs</a></li>
-	</ul>
-
-
-</article>
+		</div>
+	</div>
+</section>

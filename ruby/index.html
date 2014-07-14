@@ -10,20 +10,75 @@ content-description: ""
 
 ---
 
-<article>
-	<p>Initially, Matz looked at other languages to find an ideal syntax. Recalling his search, he said, “I wanted a scripting language that was more powerful than Perl, and more object-oriented than Python3.”</p>
-	<p>In Ruby, everything is an object. Every bit of information and code can be given their own properties and actions. Object-oriented programming calls properties by the name instance variables and actions are known as methods.</p>
-	<p>The Litle Ruby SDK follows the above principles providing a simple Ruby implementation of the Litle XML API.  This SDK was created to make it as simple as possible to connect process your payments with Litle. This SDK utilizes the HTTPS protocol to securely connect to Litle, you can start right away by connecting to our Sandbox environment.</p>
-	<p>Our Ruby SDK supports all of the functionality present in Litle XML v8. Please see the online copy of our <a href="https://github.com/LitleCo/litle-xml/tree/master/xml_schemas">XSD</a> for Litle XML to get more details on what is supported by the Litle payments engine.</p>
-	<p>The Litle Ruby SDK is availble from <a href="https://rubygems.org/gems/LitleOnline">RubyGems.org</a> and is also open source on Github.  <a href="https://github.com/LitleCo/litle-sdk-for-ruby">Ruby SDK Source Code</a></p>
-</article>
+<section id="dev-main" class="pad70 gray">
+	<div class="container">
+		
+		<div class="row">
+			<div class="col-md-12">
+				<div class="section-title">PHP SDK</div>
+			</div>
+		</div>
+		
+		<div class="row">
 
-<article>
-	<h4>Installing the SDK</h4>
-	<p>Running the Litle SDK is as simple as installing the "LitleOnline" gem and starting with our <a href="http://www.litle.com/developers/ruby/ruby-examples">SDK examples</a> &gt;gem install LitleOnline</p>
-</article>
+			<div class="col-md-3">
+				<div id="fixedMenu" class="navbar-spy" data-spy="affix" data-offset-top="280">
+					<ul class="nav nav-bordered nav-stacked" role="tablist">
+						<li class="active"><a href="#gettingStarted" data-toggle="tab">Getting Started</a></li>
+						<li><a href="#auth" data-toggle="tab">Auth Example</a></li>
+						<li><a href="#capture" data-toggle="tab">Capture Example</a></li>
+						<li><a href="#credit" data-toggle="tab">Credit Example</a></li>
+						<li><a href="#partial" data-toggle="tab">Partial Capture Example</a></li>
+						<li><a href="#sale" data-toggle="tab">Sale Example</a></li>
+					</ul>
+					<a href="#top">Back to the top</a>
+				</div>
+			</div>
+			
 
-<article>
-	<h4>QuickStart Sale Example</h4>
-	{% gist 1941267 %}
-</article>
+			<div class="col-md-9" id="ex">
+				<h3 id="gettingStarted">Getting started</h3>
+				
+				<p>
+					Initially, Matz looked at other languages to find an ideal syntax. Recalling his search, he said, “I wanted a scripting language that was more powerful than Perl, and more object-oriented than Python3.”
+				</p>
+				<p>
+					In Ruby, everything is an object. Every bit of information and code can be given their own properties and actions. Object-oriented programming calls properties by the name instance variables and actions are known as methods.
+				</p>
+				<p>
+					The Litle Ruby SDK follows the above principles providing a simple Ruby implementation of the Litle XML API.  This SDK was created to make it as simple as possible to connect process your payments with Litle. This SDK utilizes the HTTPS protocol to securely connect to Litle, you can start right away by connecting to our Sandbox environment.
+				</p>
+				<p>
+					The Litle Ruby SDK is availble from <a href="https://rubygems.org/gems/LitleOnline">RubyGems.org</a> and is also open source on Github. <a href="">Ruby SDK Source Code</a>
+				</p>
+				
+				<div class="text-center">
+					<a href="https://github.com/LitleCo/litle-sdk-for-ruby" target="_blank" class="btn btn-default btn-lg">
+						<span class="fa fa-github fa-lg"></span>
+						Fork us on GitHub
+					</a>
+					or
+					<a href="https://rubygems.org/gems/LitleOnline" target="_blank" class="btn btn-default btn-lg">
+						<img src="/images/rubygem-logo.gif" height="25px"/>
+						Use it from RubyGem
+					</a>
+				</div>
+				
+				<h3 id="auth">Auth Example</h3>
+				<div class="tab-pane"><script src="https://gist.github.com/1941298.js"></script></div>
+				
+				<h3 id="capture">Capture Example</h3>
+				<div class="tab-pane"><script src="https://gist.github.com/1941575.js"></script></div>
+				
+				<h3 id="credit">Credit Example</h3>
+				<div class="tab-pane"><script src="https://gist.github.com/1941621.js"></script></div>
+				
+				<h3 id="partial">Partial Capture Example</h3>
+				<div class="tab-pane"><script src="https://gist.github.com/1941662.js"></script></div>
+				
+				<h3 id="sale">Sale Example</h3>
+				<div class="tab-pane"><script src="https://gist.github.com/1941267.js"></script></div>
+			</div>
+		</div>
+	</div>	
+</section>

@@ -1,24 +1,11 @@
----
-
-layout: litle
-
----
-<style type="text/css">
-</style>
-
-{% include sub-page-header.html %}
-
-<div class="container">
-
-<div class="row" id="dev-main"> 
-<div class="twocol" id="leftCol">
-{% include menu.html %}
-</div>
-<div class="ninecol last" id="devContent">
-<section class="panel twelvecol">
-<h1 class="page-title">{{page.content-title}}</h1>
-<p>{{page.content-description}}</p> 
-{{content}}
-</div>
-</div> <!-- /#dev-main -->
-</div><!-- /container -->
+<!DOCTYPE html>
+<html>
+	{% include head.html %}
+	<body id="top" class="preload" data-spy="scroll" data-target=".navbar-spy" style="position: relative;">
+		{% include header.html %}
+		{% include subnav.html %}
+        
+		{{content}}
+		{% include footer.html %}
+	</body>
+</html>

@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html>
 	{% include head.html %}
-	<body>
-        {% include global-top-nav.html %}
+	<body class="preload">
+		{% include header.html %}
+		<section id="large-hero" >
+			<div class="container">
+		         <h2><small>Vantiv</small><br />Developers API</h2>
+			</div>
+		</section>
+		{% include subnav.html %}
+        
 		{{content}}
 		{% include footer.html %}
 	</body>
