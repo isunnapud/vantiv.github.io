@@ -85,3 +85,33 @@ _elqQ.push(['elqTrackPageView']);
 })();
 </script>
 <!-- /JS -->
+
+<!--  Lightbox -->
+<style>#message-container{display:none;}#overlay{position:fixed;top:0;left:0;background:rgba(0,0,0,0.4);z-index:10000;width:100%;height:100%;display:none;}#notification{position:absolute;top:200px;z-index:10001;display:block;width:100%;text-align:center;}#notification h2{font-weight:900;color:#333;}#notification p{margin-left:5%; margin-right:5%;font-size:1.25rem;}#notification img{margin:15px;}</style>
+<div id="message-container">
+	<div id="overlay" class="closeIt"></div>
+	<div id="notification" class="closeIt">
+		 <div class="container">
+			  <div class="row">
+				   <div class="col-md-10 col-md-offset-1">
+						<div class="boxed">
+							 <button type="button" class="close closeIt"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							 <img src="https://www.litle.com/images/uploads/vantiv-logo.png" width="175" alt="Vantiv" />
+							 <img src="https://www.litle.com/images/theme/litle-logo.svg" height="65" width="65" alt="Litle & Co.">
+							 <h2>Two Great Names, One Powerful Company</h2>
+							 <p>On August 4, 2014, Litle &amp; Co. will fully become part of the Vantiv brand family. As a result, the Litle name, brand and website will be replaced with Vantiv's.</p>
+							 <p>We remain committed to delivering you timely, relevant information on the payments industry and our solutions at <a href="http://www.vantiv.com">vantiv.com</a>.</p>
+							 <p>Visit <a href="http://www.vantiv.com">vantiv.com</a></p>
+						</div>
+				   </div>
+			  </div>
+		 </div>
+	</div>
+</div>
+<script src="https://www.litle.com/js/jquery.firstVisitPopup"></script>
+<script>
+	$(function () {
+		$('#message-container').firstVisitPopup();
+	});
+</script>
+<!-- /Lightbox -->
