@@ -52,6 +52,50 @@ content-description: ""
 					with the configuration settings for Litle's SDK.  You can regenerate this file anytime by rerunning, or you may edit the settings here manually.
 				</p>
 
+				<h3>Maven or Gradle</h3>
+				
+				<ol>
+					<li>
+						<p>
+							Add JCenter repository to your Maven or Gradle build:
+						</p>
+						
+						<ul>
+							<li>For Maven, please read instructions at <a href="https://bintray.com/bintray/jcenter">Bintray's JCenter</a></li>
+							<li>For Gradle, add jcenter() to your <code>repositories { ... }</code></li>
+						</ul>
+					</li>
+					<li>
+						<p>
+							Add the dependency:
+						</p>
+		
+						<ul>
+							<li>
+								<span>For Maven:</span>
+								<pre>&lt;dependency&gt;
+			&lt;groupId&gt;com.litle&lt;/groupId&gt;
+			&lt;artifactId&gt;litle-sdk-for-java&lt;/artifactId&gt;
+			&lt;version&gt;8.25.4&lt;/version&gt;
+		&lt;/dependency&gt;</pre>
+							</li>
+							<li>
+								<span>For Gradle:</span>
+								<pre>compile(group: 'com.litle', name: 'litle-sdk-for-java', version: '8.25.4')</pre>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<p>
+							Create your configuration file with one of the following
+						</p>
+						<ul>
+							<li>Run <code>java -jar /path/to/litle-sdk-for-java.jar</code> and answer the questions, or</li>
+							<li>Add a file <code>.litle_SDK_config.properties</code> to your home directory with the correct properties in it</li>
+						</ul>
+					</li>
+				</ol>
+				
 				<div class="text-center">
 					<a href="https://github.com/LitleCo/litle-sdk-for-java" target="_blank" class="btn btn-default btn-lg">
 						<span class="fa fa-github fa-lg"></span>
