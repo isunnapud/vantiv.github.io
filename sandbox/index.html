@@ -1,0 +1,196 @@
+---
+
+layout: "litle-sub"
+
+title: "Litle Sandbox"
+description: ""
+
+content-title: "Litle Sandbox"
+content-description: ""
+
+---
+
+<section id="dev-main" class="pad70 gray">
+	<div class="container">
+		
+		<div class="row">
+			<div class="col-md-12">
+				<div class="section-title">PHP SDK</div>
+			</div>
+		</div>
+		
+		<div class="row">
+
+			<div class="col-md-3">
+				<div id="fixedMenu" class="navbar-spy" data-spy="affix" data-offset-top="280">
+					<ul class="nav nav-bordered nav-stacked" role="tablist">
+						<li class="active"><a href="#whatIs" data-toggle="tab">What is the Sandbox?</a></li>
+						<li><a href="#howItWorks" data-toggle="tab">How does it work</a></li>
+						<li><a href="#features" data-toggle="tab">Available features</a></li>
+						<li><a href="#gettingStarted" data-toggle="tab">Getting Started</a></li>
+					</ul>
+					<a href="#top">Back to the top</a>
+				</div>
+			</div>
+			
+
+			<div class="col-md-9" id="ex">
+				<h3 id="whatIs">What is the Sandbox?</h3>
+				<p>
+					The Sandbox functions as a simulator of our production environment. 
+					You send your transactions to our sandbox environment the exact same way you’d send them to our certification or production systems.
+					The sandbox validates the transaction format and approves it if it matches our requirements.
+					The Sandbox server makes it easy to get started using our SDK’s.
+					<strong>There are no forms to fill out, no credentials required, and no special access needed!</strong>
+				</p>
+				
+				<p>
+					For now the Sandbox only supports online transactions and needs at least version 8.
+					It has no state and doesn't actually tie the transactions with one another, but it does simulate responses for tied transactions.
+					To test your batch transactions you'll need access to our prelive environment. 
+				</p>
+				
+				<h3 id="howItWorks">How does it work</h3>
+				
+				<p>
+					The sandbox uses the request to calculate the response.  
+					This is done so that any response that Litle's systems can generate can be retrieved through the sandbox as well.
+					For sale and auth, the last 3 digits of the credit card will be used for the response reason code. Some sample numbers/responses include:
+				</p>
+				
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Desired Response</th>
+							<th>Credit Card Number</th>
+						</tr>
+					</thead>
+					<tbody style="font-family: monospace">
+						<tr>
+							<td><span class="dullgoldtext">000</span>: Approved</td>
+							<td>4470330769941<span class="dullgoldtext">000</span></td>
+						</tr>
+						<tr>
+							<td><span class="dullgoldtext">010</span>: Partially Approved</td>
+							<td>4658512425423<span class="dullgoldtext">010</span></td>
+						</tr>
+						<tr>
+							<td><span class="dullgoldtext">100</span>: Processing Network Unavailable</td>
+							<td>4886883711815<span class="dullgoldtext">100</span></td>
+						</tr>
+						<tr>
+							<td><span class="dullgoldtext">101</span>: Issuer Unavailable</td>
+							<td>4215176886320<span class="dullgoldtext">101</span></td>
+						</tr>
+						<tr>
+							<td><span class="dullgoldtext">110</span>: Insufficient Funds</td>
+							<td>4488282659650<span class="dullgoldtext">110</span></td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<p>
+					Other numbers in the credit card can be used to simulate a variety of features, including AVS, CVV, Auto AU, etc.
+					To identify the feature, characters 2-4 are used and depending on the feature, other characters will be used.
+					The following shows how we count the characters from the card number and highlighted in <font color="#00CC00">red</font> are the three feature identifiers.
+				</p>
+				<p>
+					A simple example is the following card number: 
+				</p>
+				<pre>
+Characters: 0123456789012345
+            41<font color="#00CC00">002</font><font color="red">801</font>90123<font color="blue">000</font></pre>
+            	
+				<p>
+					The <font color="#00CC00">green</font> characters specify the feature (in this case Vault).
+					The <font color="red">red</font> characters specify the token response code.
+					The <font color="blue">blue</font> digits specify the response reason code, as explained above.
+				</p>
+				
+				<h3 id="features">Available Features</h3>
+				<p>
+					The following table shows all the features available and the meaning for the special characters.
+					You can try with different values for each one of them and check what are the responses that you get back.	
+				</p>
+				
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Example Card Number</th>
+							<th>Feature Identification</th>
+							<th>Feature</th>
+							<th>Other characters</th>
+						</tr>
+					</thead>
+					<tbody style="font-family: monospace">
+						<tr>
+							<td>41<font color="#00CC00">001</font>17890123000</td>
+							<td><font color="#00CC00">001</font></td>
+							<td>Account Updater</td>
+							<td>Nothing needed, new randomly generated card number will be returned</td>
+						</tr>
+						<tr>
+							<td>41<font color="#00CC00">002</font><font color="red">801</font>90123000</td>
+							<td><font color="#00CC00">002</font></td>
+							<td>Vault/Tokenization</td>
+							<td><font color="red">5-7</font> - Token response code</td>
+						</tr>
+						<tr>
+							<td>41<font color="#00CC00">003</font><font color="red">2</font><font color="blue">2</font><font color="#AABB00">3</font><font color="#00BBAA">1</font><font color="#AA00BB">1</font>199000</td>
+							<td><font color="#00CC00">003</font></td>
+							<td>Enhanced Authorizations</td>
+							<td>
+								<font color="red">5</font> - Funding Source Type<br />
+								<font color="blue">6</font> - Reloadable<br />
+								<font color="#AABB00">7</font> - Prepaid card type<br />
+								<font color="#00BBAA">8</font> - Affluence<br />
+								<font color="#AA00BB">9</font> - Issuer Country
+							</td>
+						</tr>
+						<tr>
+							<td>42<font color="#00CC00">004</font><font color="red">10</font>886320101</td>
+							<td><font color="#00CC00">004</font></td>
+							<td>Address Verification (AVS)</td>
+							<td><font color="red">5-7</font> - AVS response code</td>
+						</tr>
+						<tr>
+							<td>41<font color="#00CC00">005</font><font color="red">2</font>1234567000</td>
+							<td><font color="#00CC00">005</font></td>
+							<td>Card Security Code Validation</td>
+							<td><font color="red">5</font> - Card validation result</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<h3 id="gettingStarted">Getting started</h3>
+				
+				<p>
+					The URL to send your transactions to our Sandbox is the following:
+				</p>
+				
+				<div class="panel panel-success">
+					<div class="panel-heading text-center">Sandbox URL</div>
+  					<div class="panel-body text-center">
+						https://www.testlitle.com/sandbox/communicator/online
+					</div>
+				</div>
+				
+				<p>
+					You can test with any tool that can generate HTTP requests, curl is one example.
+					To start you can save the following in an xml file:
+				</p>
+				
+				<script src="https://gist.github.com/2120199.js"></script>
+				
+				<p>
+					And then send the file to Sandbox using your HTTP tool.
+					You need to add the header <code>Content-Type: text/xml</code> so that we know you're requesting an XML.
+					The following would be the <a href="http://en.wikipedia.org/wiki/CURL">curl</a> command to submit the previous XML:
+				</p>
+				
+				<script src="https://gist.github.com/2120291.js"> </script>
+			</div>
+
+		</div>
+	</div>
+</section>

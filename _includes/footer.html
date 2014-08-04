@@ -1,49 +1,117 @@
-<section id="subfooter">
-  <div class="container">
-    <div class="row">
-      <div class="twelvecol">
-        <div class="legal text-center">
-          <a href="https://www.litle.com/terms-of-use">Terms of Use</a> | <a href="https://www.litle.com/privacy-policy"
-            class="center">Privacy Policy</a> | <a href="https://www.litle.com/sitemap">Sitemap</a>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="twelvecol">
-        <div class="copyright text-center pad5">
-          Copyright &copy; 2014 Litle & Co., <a href="http://www.vantiv.com" target="_blank">a Vantiv company</a> | All
-          rights reserved
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="twelvecol">
-        <div class="text-center">
-          <small>Litle & Co. is a registered ISO/MSP of Wells Fargo Bank NA, Walnut Creek CA. | Litle & Co. is a
-            registered ISO/MSP of Fifth Third Bank, Cincinnati, OH.<br />Litle & Co. is a registered ISO/MSP of Peoples
-            Trust Company, Vancouver, BC.
-          </small>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+	<section id="subfooter">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="copyright pad5">Copyright © 2014 Vantiv | All rights reserved</div>
+				</div>
+				<div class="col-md-6">
+					<div class="legal text-right ">
+						<a href="#">Terms of Use</a> | <a href="#" class="center">Privacy Policy</a> | <a href="#">Sitemap</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!-- JS -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/plugins.min.js"></script>
+<script src="/js/application.js"></script>
+<script type="text/javascript" src="/js/svgeezy.min.js"></script>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<script>
-	(function(i, s, o, g, r, a, m) {
-		i['GoogleAnalyticsObject'] = r;
-		i[r] = i[r] || function() {
-			(i[r].q = i[r].q || []).push(arguments)
-		}, i[r].l = 1 * new Date();
-		a = s.createElement(o), m = s.getElementsByTagName(o)[0];
-		a.async = 1;
-		a.src = g;
-		m.parentNode.insertBefore(a, m)
-	})(window, document, 'script', '//www.google-analytics.com/analytics.js',
-			'ga');
 
-	ga('create', 'UA-188961-8', 'litleco.github.io');
-	ga('send', 'pageview');
+<script type="text/javascript">
+svgeezy.init(false, 'png');
+ 
+$("window").load(function() {
+  	$("body").removeClass("preload");
+});
+
+
+$(function(){
+ 
+  $('#codeBtn').popover({
+   	html: true,
+   	trigger: 'click'
+  });
+  $('.var').popover({
+   	trigger:'hover'
+  })
+});
+$(function(){
+	$('.navbar-toggle').on('click',function(){
+		$('body').toggleClass('in');
+	});
+});
 </script>
+<script>
+(function(i, s, o, g, r, a, m) {
+  i['GoogleAnalyticsObject'] = r;
+  i[r] = i[r] || function() {
+    (i[r].q = i[r].q || []).push(arguments)
+  }, i[r].l = 1 * new Date();
+  a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+  a.async = 1;
+  a.src = g;
+  m.parentNode.insertBefore(a, m)
+})(window, document, 'script', '//www.google-analytics.com/analytics.js',
+    'ga');
+
+ga('create', 'UA-188961-8', 'litleco.github.io');
+ga('send', 'pageview');
+</script>
+<script type="text/javascript">
+var _elqQ = _elqQ || [];
+_elqQ.push(['elqSetSiteId', '2167']);
+_elqQ.push(['elqTrackPageView']);
+
+(function () {
+  function async_load() {
+    var s = document.createElement('script'); s.type = 'text/javascript';
+    s.async = true; s.src = '//img.en25.com/i/elqCfg.min.js';
+    var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+  }
+  if (window.addEventListener) window.addEventListener('DOMContentLoaded', async_load, false);
+  else if (window.attachEvent) window.attachEvent('onload', async_load);
+})();
+
+(function () {
+	var fixWidth = function () {
+		$('#fixedMenu')
+			.width($('#fixedMenu').parent().width() - parseInt($('#fixedMenu').css('paddingLeft')));
+	}
+	$(window).resize(fixWidth).load(fixWidth);
+})();
+</script>
+<!-- /JS -->
+
+<!--  Lightbox -->
+<style>#message-container{display:none;}#overlay{position:fixed;top:0;left:0;background:rgba(0,0,0,0.4);z-index:10000;width:100%;height:100%;display:none;}#notification{position:absolute;top:200px;z-index:10001;display:block;width:100%;text-align:center;}#notification h2{font-weight:900;color:#333;}#notification p{margin-left:5%; margin-right:5%;font-size:1.25rem;}#notification img{margin:15px;}</style>
+<div id="message-container">
+	<div id="overlay" class="closeIt"></div>
+	<div id="notification" class="closeIt">
+		 <div class="container">
+			  <div class="row">
+				   <div class="col-md-10 col-md-offset-1">
+						<div class="boxed">
+							 <button type="button" class="close closeIt"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							 <img src="https://www.litle.com/images/uploads/vantiv-logo.png" width="175" alt="Vantiv" />
+							 <img src="https://www.litle.com/images/theme/litle-logo.svg" height="65" width="65" alt="Litle & Co.">
+							 <h2>Two Great Names, One Powerful Company</h2>
+							 <p>On August 4, 2014, Litle &amp; Co. will fully become part of the Vantiv brand family. As a result, the Litle name, brand and website will be replaced with Vantiv's.</p>
+							 <p>We remain committed to delivering you timely, relevant information on the payments industry and our solutions at <a href="http://www.vantiv.com">vantiv.com</a>.</p>
+							 <p>Visit <a href="http://www.vantiv.com">vantiv.com</a></p>
+						</div>
+				   </div>
+			  </div>
+		 </div>
+	</div>
+</div>
+<script src="https://www.litle.com/js/jquery.firstVisitPopup"></script>
+<script>
+	$(function () {
+		$('#message-container').firstVisitPopup();
+	});
+</script>
+<!-- /Lightbox -->

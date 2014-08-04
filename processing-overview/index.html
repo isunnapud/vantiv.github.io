@@ -9,74 +9,105 @@ content-title: "Processing Overview"
 content-description: "The sections below provide a brief description of each transaction type supported by the Litle SDK's, these transaction type"
 
 ---
+<section id="dev-main" class="pad70 gray">
+	<div class="container">
 
-<article>
-	<h4>Authorization Transaction</h4>
-	<p>The Authorization transaction enables you to confirm that a customer has submitted a valid payment method with their order and has sufficient funds to purchase the goods or services they ordered. Setting the &lt; allowPartialAuth &gt; element to true in the Authorization request enables the system to return authorizations for a portion of the order amount for cases where the card does not have an adequate credit limit or balance available for the full amount.</p>
-	<p>An approved Authorization reduces the customer's credit limit (or bank balance, in the case of a debit card) by the amount of the approval by placing the amount on hold. If you have the Prepaid Indicator feature enabled, the Authorization response also includes an element that indicates if the card is Prepaid, as well as an element indicating the available balance on the card.</p>
-	<p><strong>| <a href="https://gist.github.com/1941298">Ruby Example</a> | <a href="https://gist.github.com/2007176">PHP Example</a> | <a href="https://gist.github.com/2139120">Java Example</a> |<a href="https://gist.github.com/2377153">.NET Example</a> |</strong></p>
-</article>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="section-title">Processing Overview</div>
+			</div>
+		</div>
 
-<article>
-	<h4>AVS Only Transaction</h4>
-	<p>An AVS Only transaction is a variation of an Authorization transaction that uses the Address Verification System to enable you to verify that a customer supplied address matches the billing address associated with the card. To submit an AVS Only transaction, submit an Authorization transaction with the &lt;amount&gt; element set to 000 and the optional billToAddress element with appropriate child values.</p>
-	<p><strong>| <a href="https://gist.github.com/2230398">Ruby Example</a> | <a href="https://gist.github.com/2230571">PHP Example</a> | <a href="https://gist.github.com/2230712">Java Example</a> |<a href="https://gist.github.com/2377759">.NET Example</a> |</strong></p>
-</article>
+		<div class="row">
+			<div class="col-md-3">
+				<div id="fixedMenu" class="navbar-spy" data-spy="affix" data-offset-top="280">
+					<ul class="nav nav-bordered nav-stacked" role="tablist">
+						<li class="active"><a href="#authorization">Authorization</a></li>
+						<li><a href="#reversal">Authorization Reversal</a></li>
+						<li><a href="#avs">AVS</a></li>
+						<li><a href="#captureTransaction">Capture</a></li>
+						<li><a href="#credit">Credit</a></li>
+						<li><a href="#forceCapture">Force Capture</a></li>
+						<li><a href="#sale">Sale</a></li>
+						<li><a href="#void">Void</a></li>
+						<li><a href="#referenceGuide">Reference Guide</a></li>
+					</ul>
+					<a href="#top">Back to the top</a>
+				</div>
+			</div>
+			
+			<div class="col-md-9">
+				<div class="boxed">
+					<h3 id="authorization">Authorization Transaction</h3>
+					<p>The Authorization transaction enables you to confirm that a customer has submitted a valid payment method with their order and has sufficient funds to purchase the goods or services they ordered. Setting the &lt; allowPartialAuth &gt; element to true in the Authorization request enables the system to return authorizations for a portion of the order amount for cases where the card does not have an adequate credit limit or balance available for the full amount.</p>
+					<p>An approved Authorization reduces the customer's credit limit (or bank balance, in the case of a debit card) by the amount of the approval by placing the amount on hold. If you have the Prepaid Indicator feature enabled, the Authorization response also includes an element that indicates if the card is Prepaid, as well as an element indicating the available balance on the card.</p>
+					<p><strong>| <a href="https://gist.github.com/1941298" target="_blank">Ruby Example</a> | <a href="https://gist.github.com/2007176" target="_blank">PHP Example</a> | <a href="https://gist.github.com/2139120" target="_blank">Java Example</a> |<a href="https://gist.github.com/2377153" target="_blank">.NET Example</a> |</strong></p>
+				</div>
 
-<article>
-	<h4>Authorization Reversal Transactions</h4>
-	<p>The primary use of Authorization Reversal transactions is to eliminate any unused amount on an unexpired Authorization. Issuing an Authorization Reversal has the benefit of freeing any remaining held amount that reduces the buying power of your customer. Potentially, this both increases customer satisfaction and can allow them to proceed with additional purchases that may otherwise be blocked by credit limits. It also helps you avoid any misuse of Auth fees imposed by the card associations.</p>
-	<p><em><strong>Note:</strong> For American Express transactions, the reversal amount must match the authorization amount. Partial reversals and reversals against remaining amount after a partial capture are not allowed. Attempts to perform these types of reversals result in a Response Code of 336 - Reversal amount does not match Authorization amount.</em></p>
-	<p><strong>| <a href="https://gist.github.com/2230415">Ruby Example</a> | <a href="https://gist.github.com/2230606">PHP Example</a>  | <a href="https://gist.github.com/2174863">Java Example</a> |<a href="https://gist.github.com/2377687">.NET Example</a> |</strong></p>
-</article>
+				<div class="boxed">
+					<h3 id="reversal">Authorization Reversal Transactions</h3>
+					<p>The primary use of Authorization Reversal transactions is to eliminate any unused amount on an unexpired Authorization. Issuing an Authorization Reversal has the benefit of freeing any remaining held amount that reduces the buying power of your customer. Potentially, this both increases customer satisfaction and can allow them to proceed with additional purchases that may otherwise be blocked by credit limits. It also helps you avoid any misuse of Auth fees imposed by the card associations.</p>
+					<p><em><strong>Note:</strong> For American Express transactions, the reversal amount must match the authorization amount. Partial reversals and reversals against remaining amount after a partial capture are not allowed. Attempts to perform these types of reversals result in a Response Code of 336 - Reversal amount does not match Authorization amount.</em></p>
+					<p><strong>| <a href="https://gist.github.com/2230415" target="_blank">Ruby Example</a> | <a href="https://gist.github.com/2230606" target="_blank">PHP Example</a>  | <a href="https://gist.github.com/2174863" target="_blank">Java Example</a> |<a href="https://gist.github.com/2377687" target="_blank">.NET Example</a> |</strong></p>
+				</div>
 
-<article>
-	<h4>Capture Transaction</h4>
-	<p>You use a Capture transaction to transfer previously authorized funds from the customer to you after order fulfillment. You can submit a Capture transaction for the full amount of the Authorization, or for a lesser amount by setting the partial attribute to true.&nbsp;</p>
-	<p><strong>| <a href="https://gist.github.com/1941575">Ruby Example</a> | <a href="https://gist.github.com/2007140">PHP Example</a>  | <a href="https://gist.github.com/2139736">Java Example</a> |<a href="https://gist.github.com/2377061">.NET Example</a> |</strong></p>
-</article>
+				<div class="boxed">
+					<h3 id="avs">AVS Only Transaction</h3>
+					<p>An AVS Only transaction is a variation of an Authorization transaction that uses the Address Verification System to enable you to verify that a customer supplied address matches the billing address associated with the card. To submit an AVS Only transaction, submit an Authorization transaction with the &lt;amount&gt; element set to 000 and the optional billToAddress element with appropriate child values.</p>
+					<p><strong>| <a href="https://gist.github.com/2230398" target="_blank">Ruby Example</a> | <a href="https://gist.github.com/2230571" target="_blank">PHP Example</a> | <a href="https://gist.github.com/2230712" target="_blank">Java Example</a> |<a href="https://gist.github.com/2377759" target="_blank">.NET Example</a> |</strong></p>
+				</div>
 
-<article>
-	<h4>Capture Given Auth Transaction</h4>
-	<p>Similar to a Capture transaction, you use a Capture Given Auth transaction to transfer previously authorized funds from the customer to you after fulfillment. However, you typically use a Capture Given Auth transaction if the associated Authorization occurred outside of the Litle &amp; Co. system (for example, if you received a telephone Authorization). Another possible use for a Capture Given Auth transaction is if the Authorization transaction occurred within the Litle system, but the litletxnId is unknown by the submitting party (for example, if the Auth was submitted by a merchant, but a fulfiller submits a Capture Given Auth).</p>
-	<p><strong>| <a href="https://gist.github.com/2230439">Ruby Example</a> | <a href="https://gist.github.com/2230641">PHP Example</a>  | <a href="https://gist.github.com/2139803">Java Example</a>|<a href="https://gist.github.com/2378036">.NET Example</a>  |</strong></p>
-</article>
+				<div class="boxed">
+					<h3 id="captureAuth">Capture Given Auth Transaction</h3>
+					<p>Similar to a Capture transaction, you use a Capture Given Auth transaction to transfer previously authorized funds from the customer to you after fulfillment. However, you typically use a Capture Given Auth transaction if the associated Authorization occurred outside of the Litle &amp; Co. system (for example, if you received a telephone Authorization). Another possible use for a Capture Given Auth transaction is if the Authorization transaction occurred within the Litle system, but the litletxnId is unknown by the submitting party (for example, if the Auth was submitted by a merchant, but a fulfiller submits a Capture Given Auth).</p>
+					<p><strong>| <a href="https://gist.github.com/2230439" target="_blank">Ruby Example</a> | <a href="https://gist.github.com/2230641" target="_blank">PHP Example</a>  | <a href="https://gist.github.com/2139803" target="_blank">Java Example</a>|<a href="https://gist.github.com/2378036" target="_blank">.NET Example</a>  |</strong></p>
+				</div>
 
-<article>
-	<h4>Credit Transaction</h4>
-	<p>You use a Credit transaction to refund money to a customer, even if the original transaction occurred outside of the Litle &amp; Co. system. You can submit refunds against any of the following payment transactions:</p>
-	<ul>
-		<li>Capture Transaction</li>
-		<li>Capture Given Auth Transaction</li>
-		<li>Force Capture Transaction</li>
-		<li>Sale Transaction</li>
-		<li>External Sale or Capture</li>
-	</ul>
-	<p><strong>| <a href="https://gist.github.com/1941621">Ruby Example</a> | <a href="https://gist.github.com/2007013">PHP Example</a>  | <a href="https://gist.github.com/2139739">Java Example</a> |<a href="https://gist.github.com/2377081">.NET Example</a> |</strong></p>
-</article>
+				<div class="boxed">
+					<h3 id="captureTransaction">Capture Transaction</h3>
+					<p>You use a Capture transaction to transfer previously authorized funds from the customer to you after order fulfillment. You can submit a Capture transaction for the full amount of the Authorization, or for a lesser amount by setting the partial attribute to true.&nbsp;</p>
+					<p><strong>| <a href="https://gist.github.com/1941575" target="_blank">Ruby Example</a> | <a href="https://gist.github.com/2007140" target="_blank">PHP Example</a>  | <a href="https://gist.github.com/2139736" target="_blank">Java Example</a> |<a href="https://gist.github.com/2377061" target="_blank">.NET Example</a> |</strong></p>
+				</div>
 
-<article>
-	<h4>Force Capture Transaction</h4>
-	<p>A Force Capture transaction is a Capture transaction used when you do not have a valid Authorization for the order, but have fulfilled the order and wish to transfer funds.</p>
-	<p><em><strong>Caution: </strong>Merchants must be authorized by Litle &amp; Co. before processing this transaction. In some instances, using a Force Capture transaction can lead to chargebacks and fines.</em></p>
-	<p><strong>| <a href="https://gist.github.com/2230451">Ruby Example</a> | <a href="https://gist.github.com/2230664">PHP Example</a>  | <a href="https://gist.github.com/2174943">Java Example</a> |<a href="https://gist.github.com/2378013">.NET Example</a> |</strong></p>
-</article>
+				<div class="boxed">
+					<h3 id="credit">Credit Transaction</h3>
+					<p>You use a Credit transaction to refund money to a customer, even if the original transaction occurred outside of the Litle &amp; Co. system. You can submit refunds against any of the following payment transactions:</p>
+					<ul>
+						<li>Capture Transaction</li>
+						<li>Capture Given Auth Transaction</li>
+						<li>Force Capture Transaction</li>
+						<li>Sale Transaction</li>
+						<li>External Sale or Capture</li>
+					</ul>
+					<p><strong>| <a href="https://gist.github.com/1941621" target="_blank">Ruby Example</a> | <a href="https://gist.github.com/2007013" target="_blank">PHP Example</a>  | <a href="https://gist.github.com/2139739" target="_blank">Java Example</a> |<a href="https://gist.github.com/2377081" target="_blank">.NET Example</a> |</strong></p>
+				</div>
 
-<article>
-	<h4>Sale Transaction</h4>
-	<p>The Sale transaction enables you to both authorize fund availability and deposit those funds by means of a single transaction. The Sale transaction is also known as a conditional deposit, because the deposit takes place only if the authorization succeeds. If the authorization is declined, the deposit will not be processed.</p>
-	<p><strong>| <a href="https://gist.github.com/1941267">Ruby Example</a> | <a href="https://gist.github.com/2007219">PHP Example</a>  | <a href="https://gist.github.com/2139304">Java Example</a> |<a href="https://gist.github.com/2377143">.NET Example</a> |</strong></p>
-	<p><em><strong>Note:</strong> If the authorization succeeds, the deposit will be processed automatically, regardless of the AVS or CVV2 response.</em></p>
-</article>
+				<div class="boxed">
+					<h3 id="forceCapture">Force Capture Transaction</h3>
+					<p>A Force Capture transaction is a Capture transaction used when you do not have a valid Authorization for the order, but have fulfilled the order and wish to transfer funds.</p>
+					<p><em><strong>Caution: </strong>Merchants must be authorized by Litle &amp; Co. before processing this transaction. In some instances, using a Force Capture transaction can lead to chargebacks and fines.</em></p>
+					<p><strong>| <a href="https://gist.github.com/2230451" target="_blank">Ruby Example</a> | <a href="https://gist.github.com/2230664" target="_blank">PHP Example</a>  | <a href="https://gist.github.com/2174943" target="_blank">Java Example</a> |<a href="https://gist.github.com/2378013" target="_blank">.NET Example</a> |</strong></p>
+				</div>
 
-<article>
-	<h4>Void Transaction</h4>
-	<p>The Void transaction enables you to cancel any settlement transaction as long as the transaction has not yet settled.  Voids require a reference to a litleTxnId.  Example transactions that can be referenced by a Void include Sale, Capture and Refund.</p>
-	<p><strong>| <a href="https://gist.github.com/2230512">Ruby Example</a> | <a href="https://gist.github.com/litleSDK/2242972">PHP Example</a> | <a href="https://gist.github.com/2139880">Java Example</a> |<a href="https://gist.github.com/2377710">.NET Example</a> |</strong></p>
-	<p><em><strong>Note: </strong>&nbsp;Do not use Void transactions to void an Authorization. To remove an Authorization send an Authorization reversal transaction (see Authorization Reversal Transaction above)</em></p>
-</article>
+				<div class="boxed">
+					<h3 id="sale">Sale Transaction</h3>
+					<p>The Sale transaction enables you to both authorize fund availability and deposit those funds by means of a single transaction. The Sale transaction is also known as a conditional deposit, because the deposit takes place only if the authorization succeeds. If the authorization is declined, the deposit will not be processed.</p>
+					<p><strong>| <a href="https://gist.github.com/1941267" target="_blank">Ruby Example</a> | <a href="https://gist.github.com/2007219" target="_blank">PHP Example</a>  | <a href="https://gist.github.com/2139304" target="_blank">Java Example</a> |<a href="https://gist.github.com/2377143" target="_blank">.NET Example</a> |</strong></p>
+					<p><em><strong>Note:</strong> If the authorization succeeds, the deposit will be processed automatically, regardless of the AVS or CVV2 response.</em></p>
+				</div>
 
-<article>
-	<h4>Field level documentation</h4>
-	<p>Each field or attribute in our sdk can be found in Chapter 4 of our <a href="https://github.com/LitleCo/litle-xml/tree/master/reference_guides">integration guide</a></p>
-</article>
+				<div class="boxed">
+					<h3 id="void">Void Transaction</h3>
+					<p>The Void transaction enables you to cancel any settlement transaction as long as the transaction has not yet settled.  Voids require a reference to a litleTxnId.  Example transactions that can be referenced by a Void include Sale, Capture and Refund.</p>
+					<p><strong>| <a href="https://gist.github.com/2230512" target="_blank">Ruby Example</a> | <a href="https://gist.github.com/litleSDK/2242972" target="_blank">PHP Example</a> | <a href="https://gist.github.com/2139880" target="_blank">Java Example</a> |<a href="https://gist.github.com/2377710" target="_blank">.NET Example</a> |</strong></p>
+					<p><em><strong>Note: </strong>&nbsp;Do not use Void transactions to void an Authorization. To remove an Authorization send an Authorization reversal transaction (see Authorization Reversal Transaction above)</em></p>
+				</div>
+
+				<div class="boxed">
+					<h3 id="referenceGuide">Reference Guide</h3>
+					<p>You can find detailed information about our API in our <a href="https://github.com/LitleCo/litle-xml/tree/master/reference_guides">integration guide</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

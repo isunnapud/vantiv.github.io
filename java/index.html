@@ -10,19 +10,120 @@ content-description: ""
 
 ---
 
-<article>
-	<p>Java is a widely-used general purpose programming language.</p>
-	<p>Litle's Java SDK makes it quick and easy to connect your Java back-office system or ecommerce website to Litle's payment platform.  Download our SDK, install it, and start testing against our sandbox environment right away.</p>
-	<p>The SDK can be downloaded from <a href="https://github.com/LitleCo/litle-sdk-for-java/releases">Sourceforge</a>.</p>
-	<p>Our source code is located on <a href="https://github.com/LitleCo/litle-sdk-for-java">Github</a> too.</p>
-	<p>To install it, run <code>java -jar litle-sdk-for-java-8.13.0.jar</code> and answer the questions.  If you are just trying it out, the username, password and merchant id don't matter, and you should choose sandbox.  This process will create a file in your home directory called <code>.litle_SDK_config.properties</code> with the configuration settings for Litle's SDK.  You can regenerate this file anytime by rerunning, or you may edit the settings here manually.</p>
-	<p>Our Java SDK supports all of the functionality present in Litle XML v8. Please see the online copy of our <a href="https://github.com/LitleCo/litle-xml/tree/master/xml_schemas">XSD</a> for Litle XML to get more details on what is supported by the Litle payments engine.</p>
-</article>
+<section id="dev-main" class="pad70 gray">
+	<div class="container">
+		
+		<div class="row">
+			<div class="col-md-12">
+				<div class="section-title">PHP SDK</div>
+			</div>
+		</div>
+		
+		<div class="row">
 
-<article>
-	<h4>QuickStart Sale Example</h4>
-	{% gist 2139304 %}
-</article>
+			<div class="col-md-3">
+				<div id="fixedMenu" class="navbar-spy" data-spy="affix" data-offset-top="280">
+					<ul class="nav nav-bordered nav-stacked" role="tablist">
+						<li class="active"><a href="#gettingStarted" data-toggle="tab">Getting Started</a></li>
+						<li><a href="#auth" data-toggle="tab">Auth Example</a></li>
+						<li><a href="#capture" data-toggle="tab">Capture Example</a></li>
+						<li><a href="#credit" data-toggle="tab">Credit Example</a></li>
+						<li><a href="#partial" data-toggle="tab">Partial Capture Example</a></li>
+						<li><a href="#sale" data-toggle="tab">Sale Example</a></li>
+					</ul>
+					<a href="#top">Back to the top</a>
+				</div>
+			</div>
+			
 
-<h4>Java Integrations</h4>
-<p><strong>Coming Soon</strong> --- Litle OFBiz Integration </p>
+			<div class="col-md-9" id="ex">
+				<h3 id="gettingStarted">Getting started</h3>
+				
+				<p>
+					Java is a widely-used general purpose programming language.
+				</p>
+				<p>
+					Litle's Java SDK makes it quick and easy to connect your Java back-office system or ecommerce website to Litle's payment platform.  Download our SDK, install it, and start testing against our sandbox environment right away.
+				</p>
+					To install it, run <code>
+						java -jar litle-sdk-for-java-8.13.0.jar</code>
+					and answer the questions.  If you are just trying it out, the username, password and merchant id don't matter, and you should choose sandbox.  This process will create a file in your home directory called <code>
+						.litle_SDK_config.properties</code>
+					with the configuration settings for Litle's SDK.  You can regenerate this file anytime by rerunning, or you may edit the settings here manually.
+				</p>
+
+				<h3>Maven or Gradle</h3>
+				
+				<ol>
+					<li>
+						<p>
+							Add JCenter repository to your Maven or Gradle build:
+						</p>
+						
+						<ul>
+							<li>For Maven, please read instructions at <a href="https://bintray.com/bintray/jcenter">Bintray's JCenter</a></li>
+							<li>For Gradle, add jcenter() to your <code>repositories { ... }</code></li>
+						</ul>
+					</li>
+					<li>
+						<p>
+							Add the dependency:
+						</p>
+		
+						<ul>
+							<li>
+								<span>For Maven:</span>
+								<pre>&lt;dependency&gt;
+			&lt;groupId&gt;com.litle&lt;/groupId&gt;
+			&lt;artifactId&gt;litle-sdk-for-java&lt;/artifactId&gt;
+			&lt;version&gt;8.25.4&lt;/version&gt;
+		&lt;/dependency&gt;</pre>
+							</li>
+							<li>
+								<span>For Gradle:</span>
+								<pre>compile(group: 'com.litle', name: 'litle-sdk-for-java', version: '8.25.4')</pre>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<p>
+							Create your configuration file with one of the following
+						</p>
+						<ul>
+							<li>Run <code>java -jar /path/to/litle-sdk-for-java.jar</code> and answer the questions, or</li>
+							<li>Add a file <code>.litle_SDK_config.properties</code> to your home directory with the correct properties in it</li>
+						</ul>
+					</li>
+				</ol>
+				
+				<div class="text-center">
+					<a href="https://github.com/LitleCo/litle-sdk-for-java" target="_blank" class="btn btn-default btn-lg">
+						<span class="fa fa-github fa-lg"></span>
+						Fork us on GitHub
+					</a>
+					or
+					<a href="https://github.com/LitleCo/litle-sdk-for-java/releases" target="_blank" class="btn btn-default btn-lg">
+						<span class="fa fa-github fa-lg"></span>
+						Download from GitHub
+					</a>
+				</div>
+				
+				<h3 id="auth">Auth Example</h3>
+				<div><script src="https://gist.github.com/2139120.js"></script></div>
+				
+				<h3 id="capture">Capture Example</h3>
+				<div><script src="https://gist.github.com/2139736.js"></script></div>
+				
+				<h3 id="credit">Credit Example</h3>
+				<div><script src="https://gist.github.com/2139739.js"></script></div>
+				
+				<h3 id="partial">Partial Capture Example</h3>
+				<div><script src="https://gist.github.com/2139742.js"></script></div>
+				
+				<h3 id="sale">Sale Example</h3>
+				<div><script src="https://gist.github.com/2139304.js"></script></div>
+			</div>
+
+		</div>
+	</div>
+</section>
