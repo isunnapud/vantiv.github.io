@@ -6,7 +6,7 @@ title: "Processing Overview"
 description: ""
 
 content-title: "Processing Overview"
-content-description: "The sections below provide a brief description of each transaction type supported by the Litle SDK's, these transaction type"
+content-description: "The sections below provide a brief description of each transaction type supported by the our SDK's"
 
 ---
 <section id="dev-main" class="pad70 gray">
@@ -59,7 +59,7 @@ content-description: "The sections below provide a brief description of each tra
 
 				<div class="boxed">
 					<h3 id="captureAuth">Capture Given Auth Transaction</h3>
-					<p>Similar to a Capture transaction, you use a Capture Given Auth transaction to transfer previously authorized funds from the customer to you after fulfillment. However, you typically use a Capture Given Auth transaction if the associated Authorization occurred outside of the Litle &amp; Co. system (for example, if you received a telephone Authorization). Another possible use for a Capture Given Auth transaction is if the Authorization transaction occurred within the Litle system, but the litletxnId is unknown by the submitting party (for example, if the Auth was submitted by a merchant, but a fulfiller submits a Capture Given Auth).</p>
+					<p>Similar to a Capture transaction, you use a Capture Given Auth transaction to transfer previously authorized funds from the customer to you after fulfillment. However, you typically use a Capture Given Auth transaction if the associated Authorization occurred outside of the our system (for example, if you received a telephone Authorization). Another possible use for a Capture Given Auth transaction is if the Authorization transaction occurred within our system, but the litletxnId is unknown by the submitting party (for example, if the Auth was submitted by a merchant, but a fulfiller submits a Capture Given Auth).</p>
 					<p><strong>| <a href="https://gist.github.com/2230439" target="_blank">Ruby Example</a> | <a href="https://gist.github.com/2230641" target="_blank">PHP Example</a>  | <a href="https://gist.github.com/2139803" target="_blank">Java Example</a>|<a href="https://gist.github.com/2378036" target="_blank">.NET Example</a>  |</strong></p>
 				</div>
 
@@ -71,7 +71,7 @@ content-description: "The sections below provide a brief description of each tra
 
 				<div class="boxed">
 					<h3 id="credit">Credit Transaction</h3>
-					<p>You use a Credit transaction to refund money to a customer, even if the original transaction occurred outside of the Litle &amp; Co. system. You can submit refunds against any of the following payment transactions:</p>
+					<p>You use a Credit transaction to refund money to a customer, even if the original transaction occurred outside of our system. You can submit refunds against any of the following payment transactions:</p>
 					<ul>
 						<li>Capture Transaction</li>
 						<li>Capture Given Auth Transaction</li>
@@ -85,7 +85,7 @@ content-description: "The sections below provide a brief description of each tra
 				<div class="boxed">
 					<h3 id="forceCapture">Force Capture Transaction</h3>
 					<p>A Force Capture transaction is a Capture transaction used when you do not have a valid Authorization for the order, but have fulfilled the order and wish to transfer funds.</p>
-					<p><em><strong>Caution: </strong>Merchants must be authorized by Litle &amp; Co. before processing this transaction. In some instances, using a Force Capture transaction can lead to chargebacks and fines.</em></p>
+					<p><em><strong>Caution: </strong>Merchants must be authorized by us before processing this transaction. In some instances, using a Force Capture transaction can lead to chargebacks and fines.</em></p>
 					<p><strong>| <a href="https://gist.github.com/2230451" target="_blank">Ruby Example</a> | <a href="https://gist.github.com/2230664" target="_blank">PHP Example</a>  | <a href="https://gist.github.com/2174943" target="_blank">Java Example</a> |<a href="https://gist.github.com/2378013" target="_blank">.NET Example</a> |</strong></p>
 				</div>
 
