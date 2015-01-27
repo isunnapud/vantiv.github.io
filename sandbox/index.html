@@ -11,7 +11,7 @@ content-description: ""
 ---
 
 <section id="dev-main" class="pad70 gray">
-	<div class="container">
+	</section><div class="container">
 		
 		<div class="row">
 			<div class="col-md-12">
@@ -38,7 +38,7 @@ content-description: ""
 				<h3 id="whatIs">What is the Sandbox?</h3>
 				<p>
 					The Sandbox functions as a simulator of our production environment. 
-					You send your transactions to our sandbox environment the exact same way youâ€™d send them to our certification or production systems.
+					You send your transactions to our sandbox environment the exact same way youâ¬"d send them to our certification or production systems.
 					The sandbox validates the transaction format and approves it if it matches our requirements.
 					The Sandbox server makes it easy to get started using our SDKs.
 					<strong>There are no forms to fill out, no credentials required, and no special access needed!</strong>
@@ -54,8 +54,7 @@ content-description: ""
 				
 				<p>
 					The sandbox uses the request to calculate the response.  
-					This is done so that any response that our systems can generate can be retrieved through the sandbox as well.
-					For sale and auth, the last 3 digits of the credit card will be used for the response reason code. Some sample numbers/responses include:
+					This is done so that any response that our systems can generate can be retrieved through the sandbox as well. <br></p><h3 id="features">For sale and auth<br></h3><p>The last 3 digits of the credit card will be used for the response reason code. Some sample numbers/responses include:
 				</p>
 				
 				<table class="table">
@@ -65,7 +64,7 @@ content-description: ""
 							<th>Credit Card Number</th>
 						</tr>
 					</thead>
-					<tbody style="font-family: monospace">
+					<tbody style="font-family: monospace;">
 						<tr>
 							<td><span class="dullgoldtext">000</span>: Approved</td>
 							<td>4470330769941<span class="dullgoldtext">000</span></td>
@@ -92,23 +91,21 @@ content-description: ""
 				<p>
 					Other numbers in the credit card can be used to simulate a variety of features, including AVS, CVV, Auto AU, etc.
 					To identify the feature, characters 2-4 are used and depending on the feature, other characters will be used.
-					The following shows how we count the characters from the card number and highlighted in <font color="#00CC00">red</font> are the three feature identifiers.
+					The following shows how we count the characters from the card number and highlighted in <font color="#00cc00">red</font> are the three feature identifiers.
 				</p>
 				<p>
 					A simple example is the following card number: 
 				</p>
-				<pre>
-Characters: 0123456789012345
-            41<font color="#00CC00">002</font><font color="red">801</font>90123<font color="blue">000</font></pre>
+				<pre>Characters: 0123456789012345<br>            41<font color="#00cc00">002</font><font color="red">801</font>90123<font color="blue">000</font></pre>
             	
 				<p>
-					The <font color="#00CC00">green</font> characters specify the feature (in this case Vault).
+					The <font color="#00cc00">green</font> characters specify the feature (in this case Vault).
 					The <font color="red">red</font> characters specify the token response code.
 					The <font color="blue">blue</font> digits specify the response reason code, as explained above.
 				</p>
 				
-				<h3 id="features">Available Features</h3>
-				<p>
+				
+				<p><span style="font-weight: bold;">Available Features<br></span></p><p>
 					The following table shows all the features available and the meaning for the special characters.
 					You can try with different values for each one of them and check what are the responses that you get back.	
 				</p>
@@ -122,45 +119,80 @@ Characters: 0123456789012345
 							<th>Other characters</th>
 						</tr>
 					</thead>
-					<tbody style="font-family: monospace">
+					<tbody style="font-family: monospace;">
 						<tr>
-							<td>41<font color="#00CC00">001</font>17890123000</td>
-							<td><font color="#00CC00">001</font></td>
+							<td>41<font color="#00cc00">001</font>17890123000</td>
+							<td><font color="#00cc00">001</font></td>
 							<td>Account Updater</td>
 							<td>Nothing needed, new randomly generated card number will be returned</td>
 						</tr>
 						<tr>
-							<td>41<font color="#00CC00">002</font><font color="red">801</font>4012300</td>
-							<td><font color="#00CC00">002</font></td>
+							<td>41<font color="#00cc00">002</font><font color="red">801</font>4012300</td>
+							<td><font color="#00cc00">002</font></td>
 							<td>Vault/Tokenization</td>
 							<td><font color="red">5-7</font> - Token response code</td>
 						</tr>
 						<tr>
-							<td>41<font color="#00CC00">003</font><font color="red">2</font><font color="blue">2</font><font color="#AABB00">3</font><font color="#00BBAA">1</font><font color="#AA00BB">1</font>199000</td>
-							<td><font color="#00CC00">003</font></td>
+							<td>41<font color="#00cc00">003</font><font color="red">2</font><font color="blue">2</font><font color="#aabb00">3</font><font color="#00bbaa">1</font><font color="#aa00bb">1</font>199000</td>
+							<td><font color="#00cc00">003</font></td>
 							<td>Enhanced Authorizations</td>
 							<td>
-								<font color="red">5</font> - Funding Source Type<br />
-								<font color="blue">6</font> - Reloadable<br />
-								<font color="#AABB00">7</font> - Prepaid card type<br />
-								<font color="#00BBAA">8</font> - Affluence<br />
-								<font color="#AA00BB">9</font> - Issuer Country
+								<font color="red">5</font> - Funding Source Type<br>
+								<font color="blue">6</font> - Reloadable<br>
+								<font color="#aabb00">7</font> - Prepaid card type<br>
+								<font color="#00bbaa">8</font> - Affluence<br>
+								<font color="#aa00bb">9</font> - Issuer Country
 							</td>
 						</tr>
 						<tr>
-							<td>42<font color="#00CC00">004</font><font color="red">10</font>886320101</td>
-							<td><font color="#00CC00">004</font></td>
+							<td>42<font color="#00cc00">004</font><font color="red">10</font>886320101</td>
+							<td><font color="#00cc00">004</font></td>
 							<td>Address Verification (AVS)</td>
 							<td><font color="red">5-7</font> - AVS response code</td>
 						</tr>
 						<tr>
-							<td>41<font color="#00CC00">005</font><font color="red">2</font>1234567000</td>
-							<td><font color="#00CC00">005</font></td>
+							<td>41<font color="#00cc00">005</font><font color="red">2</font>1234567000</td>
+							<td><font color="#00cc00">005</font></td>
 							<td>Card Security Code Validation</td>
 							<td><font color="red">5</font> - Card validation result</td>
 						</tr>
 					</tbody>
 				</table>
+				
+				<h3 id="features">For Echeck and Applepay<br></h3>Use 3-digit amount to specify the desired responses, Some sample numbers/responses include:<br><br>
+				
+
+				
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Desired Response</th>
+							<th>Transaction Amount<br></th>
+						</tr>
+					</thead>
+					<tbody style="font-family: monospace;">
+						<tr>
+							<td><span class="dullgoldtext">000</span>: Approved</td>
+							<td>000<span class="dullgoldtext"></span></td>
+						</tr>
+						<tr>
+							<td><span class="dullgoldtext">010</span>: Partially Approved</td>
+							<td>010<span class="dullgoldtext"></span></td>
+						</tr>
+						<tr>
+							<td><span class="dullgoldtext">100</span>: Processing Network Unavailable</td>
+							<td><span class="dullgoldtext">100</span></td>
+						</tr>
+						<tr>
+							<td><span class="dullgoldtext">101</span>: Issuer Unavailable</td>
+							<td><span class="dullgoldtext">101</span></td>
+						</tr>
+						<tr>
+							<td><span class="dullgoldtext">110</span>: Insufficient Funds</td>
+							<td><span class="dullgoldtext">110</span></td>
+						</tr>
+					</tbody>
+				</table><br>Note: There is a subtle difference in response generation process between Echeck and Applepay. <br>For Echeck, if the amount is less than 3 digits, it will be automatically prepend '0' at the beginning. If the amount is more than 3 digits, the last 3 digits will be used as identifier. If this 3-digit identifier is in the table, it will return '000' as the response code, and 'Add me please' as the message.<br>For Applepay, when the amount is not in this table or not a 3-digit number, the transaction will automatically be approved and return '000' as the response code, 'Approved' as the response message.<br>
 				
 				<h3 id="gettingStarted">Getting started</h3>
 				
@@ -199,4 +231,4 @@ Characters: 0123456789012345
 
 		</div>
 	</div>
-</section>
+
