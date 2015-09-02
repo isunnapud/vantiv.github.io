@@ -38,62 +38,7 @@ content-description: ""
 			</div>
 
 			<div class="col-md-9">
-				<div class="boxed">
-					<h3 id="poodle">SSLv3/POODLE</h3>
-					
-					<div class="panel-group">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" data-target="#poodle1" href="#">What is POODLE and what does it have to do with SSLv3?</a></h4>
-							</div>
-							<div id="poodle1" class="panel-collapse collapse">
-								<div class="panel-body">
-									In October 2014, security researchers discovered and published a vulnerability known as POODLE (CVE-2014-3566), which affects the Secure Sockets Layer version 3 (SSLv3) protocol.  This protocol is currently one of several encryption protocols supported by Vantiv eCommerce, but it can be exploited by a malicious party to extract sensitive information from secure traffic.  Beginning January 9, 2015, Vantiv’s production servers will  limit SSLv3 traffic and as of January 27, 2015, we will no longer accept any SSLv3 traffic.  Only traffic using newer encryption protocols including TLS v1 and later will be accepted.
-								</div>
-							</div>
-						</div>
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" data-target="#poodle2" href="#">What SDK versions are affected by Vantiv no longer accepting SSLv3 traffic?</a></h4>
-							</div>
-							<div id="poodle2" class="panel-collapse collapse">
-								<div class="panel-body">
-									All versions of the 8.X PHP SDK prior to version 8.27.1, as well as version 9.0.0 are written to use only SSLv3 by default. These, along with the OpenCart versions prior to 8.24.1 and Magento prior to 8.15.2 extensions, are the only affected SDKs.  PHP SDK versions 8.27.1 and 9.0.1 have been released that are written to use TLSv1.x as the encryption protocol.  The required code change is also simple to apply to your existing PHP SDK if you choose to make the code change yourself without upgrading to the latest SDK version.
-								</div>
-							</div>
-						</div>
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" data-target="#poodle3" href="#">Are the OpenCart and Magento Extensions affected?</a></h4>
-							</div>
-							<div id="poodle3" class="panel-collapse collapse">
-								<div class="panel-body">
-									Yes.  Since both the OpenCart and Magento extensions include an embedded PHP SDK, the extensions for OpenCart versions prior to 8.24.1 and Magento versions prior to 8.15.2 are affected.  OpenCart extension version 8.24.1 and Magento extension version 8.15.2 have been released that are written to use TLSv1.x as the encrption protocol.  The required code change is also simple to apply to your existing OpenCart or Magento extension.  If you choose to make the code change yourself without upgrading to the latest extension version, please see the "How do I correctly edit my PHP SDK to send TLS instead of SSLv3" question below for instructions on how to edit the PHP SDK embedded in OpenCart and Magento extensions to send TLS instead of SSLv3 traffic.
-								</div>
-							</div>
-						</div>
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" data-target="#poodle4" href="#">How do I correctly edit my PHP SDK to send TLS instead of SSLv3?</a></h4>
-							</div>
-							<div id="poodle4" class="panel-collapse collapse">
-								<div class="panel-body">
-									In the Communications.php module of your PHP SDK, find the line that sets CURLOPT_SSLVERSION to 3. By changing the value to 1 (use TLSv1), you will be able to ensure that your application will send TLS traffic to Vantiv.
-								</div>
-							</div>
-						</div>
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" data-target="#poodle5" href="#">How can I test my application usage to ensure my SDK version is not using SSLv3?</a></h4>
-							</div>
-							<div id="poodle5" class="panel-collapse collapse">
-								<div class="panel-body">
-									The Sandbox, as well as the Vantiv Pre-Live and Post-Live certification environments have been patched to disallow SSLv3
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				
 				<div class="boxed">
 					<h3 id="general">General</h3>
 					
