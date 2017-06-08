@@ -40,16 +40,13 @@ content-description: ""
                     <strong>There are no forms to fill out, no credentials required, and no special access
                         needed!</strong>
                 </p>
-
                 <p>
                     For now the Sandbox only supports online transactions and needs at least version 8.
                     It has no state and doesn't actually tie the transactions with one another, but it does simulate
                     responses for tied transactions.
                     To test your batch transactions you'll need access to our prelive environment.
                 </p>
-
                 <h3 id="howItWorks">How does it work</h3>
-
                 <p>
                     The sandbox uses the request to calculate the response.
                     This is done so that any response that our systems can generate can be retrieved through the sandbox
@@ -57,7 +54,6 @@ content-description: ""
                     For sale and auth, the last 3 digits of the credit card will be used for the response reason code.
                     Some sample numbers/responses include:
                 </p>
-
                 <table class="table">
                     <thead>
                     <tr>
@@ -94,15 +90,15 @@ content-description: ""
                     To identify the feature, characters 2-4 are used and depending on the feature, other characters will
                     be used.
                     The following shows how we count the characters from the card number and highlighted in <span
-                        style="color: #00CC00; ">red</span> are the three feature identifiers.
+                        style="color: red">red</span> are the three feature identifiers.
                 </p>
                 <p>
                     A simple example is the following card number:
                 </p>
                 <pre>
-Characters: 0123456789012345
-            41<span style="color: #00CC00; ">002</span><span style="color: red; ">801</span>90123<span
-                        style="color: blue; ">000</span></pre>
+Characters: 01 234 567 89012 345
+            41 <span style="color: #00CC00; ">002 </span><span style="color: red; ">801 </span>90123 <span style="color: blue; ">000</span>
+                </pre>
 
                 <p>
                     The <span style="color: #00CC00; ">green</span> characters specify the feature (in this case Vault).
@@ -179,13 +175,13 @@ Characters: 0123456789012345
                     </tbody>
                 </table>
 
-                <h3 id="applepay-features">Applepay<br></h3>Use 3-digit amount to specify the desired responses, Some
-                sample numbers/responses include:<br><br>
+                <h3 id="applepay-features">Applepay<br /></h3>Use 3-digit amount to specify the desired responses, Some
+                sample numbers/responses include:<br /><br />
                 <table class="table">
                     <thead>
                     <tr>
                         <th>Desired Response</th>
-                        <th>Transaction Amount<br></th>
+                        <th>Transaction Amount<br /></th>
                     </tr>
                     </thead>
                     <tbody style="font-family: monospace;">
@@ -211,16 +207,16 @@ Characters: 0123456789012345
                     </tr>
                     </tbody>
                 </table>
-                <br>For Applepay, when the amount is not in this table or not a 3-digit number, the transaction will
-                automatically be approved and return '000' as the response code, 'Approved' as the response message.<br>
+                <br />For Applepay, when the amount is not in this table or not a 3-digit number, the transaction will
+                automatically be approved and return '000' as the response code, 'Approved' as the response message.<br />
 
-                <h3 id="androidpay-features">Androidpay<br></h3>Use 3-digit amount to specify the desired responses,
-                Some sample numbers/responses include:<br><br>
+                <h3 id="androidpay-features">Androidpay<br /></h3>Use 3-digit amount to specify the desired responses,
+                Some sample numbers/responses include:<br /><br />
                 <table class="table">
                     <thead>
                     <tr>
                         <th>Desired Response</th>
-                        <th>Transaction Amount<br></th>
+                        <th>Transaction Amount<br /></th>
                     </tr>
                     </thead>
                     <tbody style="font-family: monospace;">
@@ -246,11 +242,11 @@ Characters: 0123456789012345
                     </tr>
                     </tbody>
                 </table>
-                <br>For Androidpay, when the amount is not in this table or not a 3-digit number, the transaction will
-                automatically be approved and return '000' as the response code, 'Approved' as the response message.<br>
+                <br />For Androidpay, when the amount is not in this table or not a 3-digit number, the transaction will
+                automatically be approved and return '000' as the response code, 'Approved' as the response message.<br />
 
-                <h3 id="fraudcheck-features">Standalone Fraud Check<br></h3>Use the first three customAttribute tags to
-                dictate the desired responses.<br><br>
+                <h3 id="fraudcheck-features">Standalone Fraud Check<br /></h3>Use the first three customAttribute tags to
+                dictate the desired responses.<br /><br />
                 <table class="table">
                     <thead>
                     <tr>
@@ -281,10 +277,46 @@ Characters: 0123456789012345
                     </tr>
                     </tbody>
                 </table>
-                <br>
+                <br />
                 <p>For standalone fraud checks the customAttribute3 tag is used to dictate the number of triggeredRule
                     tags returned in the response. One triggeredRule tag will always be returned by default from the
-                    Sandbox and a maximum of 11 triggeredRule tags will be returned.</p><br>
+                    Sandbox and a maximum of 11 triggeredRule tags will be returned.
+                </p>
+                <br />
+                <h3 id="eProtect-features">eProtect<br /></h3>Use 3-digit amount to specify the desired responses, Some
+                sample numbers/responses include:
+                <br /><br />
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Desired Response</th>
+                        <th>Transaction Amount<br /></th>
+                    </tr>
+                    </thead>
+                    <tbody style="font-family: monospace;">
+                    <tr>
+                        <td><span class="dullgoldtext">000</span>: Approved</td>
+                        <td><span class="dullgoldtext">000</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="dullgoldtext">010</span>: Partially Approved</td>
+                        <td><span class="dullgoldtext">010</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="dullgoldtext">100</span>: Processing Network Unavailable</td>
+                        <td><span class="dullgoldtext">100</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="dullgoldtext">101</span>: Issuer Unavailable</td>
+                        <td><span class="dullgoldtext">101</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="dullgoldtext">110</span>: Insufficient Funds</td>
+                        <td><span class="dullgoldtext">110</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <br />
                 <h3 id="gettingStarted">Getting started</h3>
                 <p>
                     The URL to send your transactions to our Sandbox is the following:
