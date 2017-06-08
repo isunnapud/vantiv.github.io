@@ -11,83 +11,93 @@ content-description: ""
 ---
 
 <section id="dev-main" class="pad70 gray">
-	<div class="container">
-
-		<div class="row">
-			<div class="col-md-12">
-				<div class="section-title">.Net SDK</div>
-			</div>
-		</div>
-
-		<div class="row">
-
-			<div class="col-md-3">
-				<div id="fixedMenu" class="navbar-spy" data-spy="affix" data-offset-top="280">
-					<ul class="nav nav-bordered nav-stacked" role="tablist">
-						<li class="active"><a href="#gettingStarted" data-toggle="tab">Getting Started</a></li>
-						<li><a href="#auth" data-toggle="tab">Auth Example</a></li>
-						<li><a href="#capture" data-toggle="tab">Capture Example</a></li>
-						<li><a href="#credit" data-toggle="tab">Credit Example</a></li>
-						<li><a href="#partial" data-toggle="tab">Partial Capture Example</a></li>
-						<li><a href="#sale" data-toggle="tab">Sale Example</a></li>
-					</ul>
-					<a href="#top">Back to the top</a>
-				</div>
-			</div>
-
-
-			<div class="col-md-9" id="ex">
-				<h3 id="gettingStarted">Getting started</h3>
-
-				<p>The .NET framework is a family of languages and runtime that is a widely-used as a general purpose programming language.</p>
-				<p>
-					Our .NET SDK makes it quick and easy to connect your VB.NET, C# or Managed C++ back-office system or ecommerce website to our payment platform.  Download our SDK, install it, and start testing against our sandbox environment right away.
-				</p>
-				<p>
-					Please contact either your Vantiv Implementation Consultant, or <a href="mailto:sdksupport@Vantiv.com">sdksupport</a> for help in determining which SDK version will best support your business needs.
-				</p>
-				<p>
-					To install it, just copy <code>
-						LitleSdkForDotNet.dll</code>
-					into your Visual Studio referernces.   You can configure it statically by modifying LitleSdkForDotNet.dll.config or at runtime using the <code>
-						LitleOnline(Dictionary)</code>
-					constructor.  If you are just trying it out, the username, password and merchant id don't matter, and you should choose sandbox.
-				</p>
-				<p>
-					Our .NET SDK supports all of the functionality present in Litle XML v8. Please see the online copy of our <a href="https://github.com/LitleCo/litle-xml/tree/master/xml_schemas">XSD</a> for Litle XML to get more details on what is supported by our payments engine.
-				</p>
-				<p>
-					It has been tested to be link-compatible with .NET 2.5, 3 and 4.  In order to run the unit tests, we require moq, which has a dependency on .NET 3.  Release 10.1 is dependent on .NET 4.5 for TLS v1.2 compatibility.
-				</p>
-
-				<div class="text-center">
-					<a href="https://github.com/LitleCo/litle-sdk-for-dotNet" target="_blank" class="btn btn-default btn-lg">
-						<span class="fa fa-github fa-lg"></span>
-						Fork us on GitHub
-					</a>
-					or
-					<a href="https://github.com/LitleCo/litle-sdk-for-dotNet/releases" target="_blank" class="btn btn-default btn-lg">
-						<span class="fa fa-github fa-lg"></span>
-						Download from GitHub
-					</a>
-				</div>
-
-				<h3 id="auth">Auth Example</h3>
-				<div><script src="https://gist.github.com/2377153.js"></script></div>
-
-				<h3 id="capture">Capture Example</h3>
-				<div><script src="https://gist.github.com/2377061.js"></script></div>
-
-				<h3 id="credit">Credit Example</h3>
-				<div><script src="https://gist.github.com/2377251.js"></script></div>
-
-				<h3 id="partial">Partial Capture Example</h3>
-				<div><script src="https://gist.github.com/2377213.js"></script></div>
-
-				<h3 id="sale">Sale Example</h3>
-				<div><script src="https://gist.github.com/2377081.js"></script></div>
-			</div>
-
-		</div>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title">.Net SDK</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div id="fixedMenu" class="navbar-spy" data-spy="affix" data-offset-top="280">
+                    <ul class="nav nav-bordered nav-stacked" role="tablist">
+                        <li class="active"><a href="#gettingStarted" data-toggle="tab">Getting Started</a></li>
+                        <li><a href="#auth" data-toggle="tab">Auth Example</a></li>
+                        <li><a href="#capture" data-toggle="tab">Capture Example</a></li>
+                        <li><a href="#credit" data-toggle="tab">Credit Example</a></li>
+                        <li><a href="#partial" data-toggle="tab">Partial Capture Example</a></li>
+                        <li><a href="#sale" data-toggle="tab">Sale Example</a></li>
+                    </ul>
+                    <a href="#top">Back to the top</a>
+                </div>
+            </div>
+            <div class="col-md-9" id="ex">
+                <h3 id="gettingStarted">Getting started</h3>
+                <p>The .NET framework is a family of languages and runtime that is a widely-used as a general purpose
+                    programming language.</p>
+                <p>
+                    Our .NET SDK makes it quick and easy to connect your VB.NET, C# or Managed C++ back-office system or
+                    ecommerce website to our payment platform. Download our SDK, install it, and start testing against
+                    our sandbox environment right away.
+                </p>
+                <p>
+                    Please contact either your Vantiv Implementation Consultant, or <a
+                        href="mailto:sdksupport@Vantiv.com">sdksupport</a> for help in determining which SDK version
+                    will best support your business needs.
+                </p>
+                <p>
+                    To install it, just copy <code>
+                    LitleSdkForDotNet.dll</code>
+                    into your Visual Studio referernces. You can configure it statically by modifying
+                    LitleSdkForDotNet.dll.config or at runtime using the <code>
+                    LitleOnline(Dictionary)</code>
+                    constructor. If you are just trying it out, the username, password and merchant id don't matter, and
+                    you should choose sandbox.
+                </p>
+                <p>
+                    Our .NET SDK supports all of the functionality present in Vantiv eCommerce XML v8. Please see the
+                    online copy of our <a href="https://github.com/LitleCo/litle-xml/tree/master/xml_schemas">XSD</a>
+                    for Vantiv eCommerce XML to get more details on what is supported by our payments engine.
+                </p>
+                <p>
+                    It has been tested to be link-compatible with .NET 2.5, 3 and 4. In order to run the unit tests, we
+                    require moq, which has a dependency on .NET 3. Release 10.1 is dependent on .NET 4.5 for TLS v1.2
+                    compatibility.
+                </p>
+                <div class="text-center">
+                    <a href="https://github.com/LitleCo/litle-sdk-for-dotNet" target="_blank"
+                       class="btn btn-default btn-lg">
+                        <span class="fa fa-github fa-lg"></span>
+                        Fork us on GitHub
+                    </a>
+                    or
+                    <a href="https://github.com/LitleCo/litle-sdk-for-dotNet/releases" target="_blank"
+                       class="btn btn-default btn-lg">
+                        <span class="fa fa-github fa-lg"></span>
+                        Download from GitHub
+                    </a>
+                </div>
+                <h3 id="auth">Auth Example</h3>
+                <div>
+                    <script src="https://gist.github.com/2377153.js"></script>
+                </div>
+                <h3 id="capture">Capture Example</h3>
+                <div>
+                    <script src="https://gist.github.com/2377061.js"></script>
+                </div>
+                <h3 id="credit">Credit Example</h3>
+                <div>
+                    <script src="https://gist.github.com/2377251.js"></script>
+                </div>
+                <h3 id="partial">Partial Capture Example</h3>
+                <div>
+                    <script src="https://gist.github.com/2377213.js"></script>
+                </div>
+                <h3 id="sale">Sale Example</h3>
+                <div>
+                    <script src="https://gist.github.com/2377081.js"></script>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

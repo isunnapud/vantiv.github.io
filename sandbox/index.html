@@ -11,301 +11,312 @@ content-description: ""
 ---
 
 <section id="dev-main" class="pad70 gray">
-	<div class="container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title">Sandbox</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div id="fixedMenu" class="navbar-spy" data-spy="affix" data-offset-top="280">
+                    <ul class="nav nav-bordered nav-stacked" role="tablist">
+                        <li class="active"><a href="#whatIs" data-toggle="tab">What is the Sandbox?</a></li>
+                        <li><a href="#howItWorks" data-toggle="tab">How does it work</a></li>
+                        <li><a href="#available-features" data-toggle="tab">Available features</a></li>
+                        <li><a href="#gettingStarted" data-toggle="tab">Getting Started</a></li>
+                    </ul>
+                    <a href="#top">Back to the top</a>
+                </div>
+            </div>
+            <div class="col-md-9" id="ex">
+                <h3 id="whatIs">What is the Sandbox?</h3>
+                <p>
+                    The Sandbox functions as a simulator of our production environment.
+                    You send your transactions to our sandbox environment the exact same way you'd send them to our
+                    certification or production systems.
+                    The sandbox validates the transaction format and approves it if it matches our requirements.
+                    The Sandbox server makes it easy to get started using our SDKs.
+                    <strong>There are no forms to fill out, no credentials required, and no special access
+                        needed!</strong>
+                </p>
 
-		<div class="row">
-			<div class="col-md-12">
-				<div class="section-title">Sandbox</div>
-			</div>
-		</div>
+                <p>
+                    For now the Sandbox only supports online transactions and needs at least version 8.
+                    It has no state and doesn't actually tie the transactions with one another, but it does simulate
+                    responses for tied transactions.
+                    To test your batch transactions you'll need access to our prelive environment.
+                </p>
 
-		<div class="row">
+                <h3 id="howItWorks">How does it work</h3>
 
-			<div class="col-md-3">
-				<div id="fixedMenu" class="navbar-spy" data-spy="affix" data-offset-top="280">
-					<ul class="nav nav-bordered nav-stacked" role="tablist">
-						<li class="active"><a href="#whatIs" data-toggle="tab">What is the Sandbox?</a></li>
-						<li><a href="#howItWorks" data-toggle="tab">How does it work</a></li>
-						<li><a href="#available-features" data-toggle="tab">Available features</a></li>
-						<li><a href="#gettingStarted" data-toggle="tab">Getting Started</a></li>
-					</ul>
-					<a href="#top">Back to the top</a>
-				</div>
-			</div>
+                <p>
+                    The sandbox uses the request to calculate the response.
+                    This is done so that any response that our systems can generate can be retrieved through the sandbox
+                    as well.
+                    For sale and auth, the last 3 digits of the credit card will be used for the response reason code.
+                    Some sample numbers/responses include:
+                </p>
 
-
-			<div class="col-md-9" id="ex">
-				<h3 id="whatIs">What is the Sandbox?</h3>
-				<p>
-					The Sandbox functions as a simulator of our production environment.
-					You send your transactions to our sandbox environment the exact same way you'd send them to our certification or production systems.
-					The sandbox validates the transaction format and approves it if it matches our requirements.
-					The Sandbox server makes it easy to get started using our SDKs.
-					<strong>There are no forms to fill out, no credentials required, and no special access needed!</strong>
-				</p>
-
-				<p>
-					For now the Sandbox only supports online transactions and needs at least version 8.
-					It has no state and doesn't actually tie the transactions with one another, but it does simulate responses for tied transactions.
-					To test your batch transactions you'll need access to our prelive environment.
-				</p>
-
-				<h3 id="howItWorks">How does it work</h3>
-
-				<p>
-					The sandbox uses the request to calculate the response.
-					This is done so that any response that our systems can generate can be retrieved through the sandbox as well.
-					For sale and auth, the last 3 digits of the credit card will be used for the response reason code. Some sample numbers/responses include:
-				</p>
-
-				<table class="table">
-					<thead>
-						<tr>
-							<th>Desired Response</th>
-							<th>Credit Card Number</th>
-						</tr>
-					</thead>
-					<tbody style="font-family: monospace">
-						<tr>
-							<td><span class="dullgoldtext">000</span>: Approved</td>
-							<td>4470330769941<span class="dullgoldtext">000</span></td>
-						</tr>
-						<tr>
-							<td><span class="dullgoldtext">010</span>: Partially Approved</td>
-							<td>4658512425423<span class="dullgoldtext">010</span></td>
-						</tr>
-						<tr>
-							<td><span class="dullgoldtext">100</span>: Processing Network Unavailable</td>
-							<td>4886883711815<span class="dullgoldtext">100</span></td>
-						</tr>
-						<tr>
-							<td><span class="dullgoldtext">101</span>: Issuer Unavailable</td>
-							<td>4215176886320<span class="dullgoldtext">101</span></td>
-						</tr>
-						<tr>
-							<td><span class="dullgoldtext">110</span>: Insufficient Funds</td>
-							<td>4488282659650<span class="dullgoldtext">110</span></td>
-						</tr>
-					</tbody>
-				</table>
-
-				<p>
-					Other numbers in the credit card can be used to simulate a variety of features, including AVS, CVV, Auto AU, etc.
-					To identify the feature, characters 2-4 are used and depending on the feature, other characters will be used.
-					The following shows how we count the characters from the card number and highlighted in <span
-						style="color: #00CC00; ">red</span> are the three feature identifiers.
-				</p>
-				<p>
-					A simple example is the following card number:
-				</p>
-				<pre>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Desired Response</th>
+                        <th>Credit Card Number</th>
+                    </tr>
+                    </thead>
+                    <tbody style="font-family: monospace">
+                    <tr>
+                        <td><span class="dullgoldtext">000</span>: Approved</td>
+                        <td>4470330769941<span class="dullgoldtext">000</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="dullgoldtext">010</span>: Partially Approved</td>
+                        <td>4658512425423<span class="dullgoldtext">010</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="dullgoldtext">100</span>: Processing Network Unavailable</td>
+                        <td>4886883711815<span class="dullgoldtext">100</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="dullgoldtext">101</span>: Issuer Unavailable</td>
+                        <td>4215176886320<span class="dullgoldtext">101</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="dullgoldtext">110</span>: Insufficient Funds</td>
+                        <td>4488282659650<span class="dullgoldtext">110</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p>
+                    Other numbers in the credit card can be used to simulate a variety of features, including AVS, CVV,
+                    Auto AU, etc.
+                    To identify the feature, characters 2-4 are used and depending on the feature, other characters will
+                    be used.
+                    The following shows how we count the characters from the card number and highlighted in <span
+                        style="color: #00CC00; ">red</span> are the three feature identifiers.
+                </p>
+                <p>
+                    A simple example is the following card number:
+                </p>
+                <pre>
 Characters: 0123456789012345
             41<span style="color: #00CC00; ">002</span><span style="color: red; ">801</span>90123<span
-						style="color: blue; ">000</span></pre>
+                        style="color: blue; ">000</span></pre>
 
-				<p>
-					The <span style="color: #00CC00; ">green</span> characters specify the feature (in this case Vault).
-					The <span style="color: red; ">red</span> characters specify the token response code.
-					The <span style="color: blue; ">blue</span> digits specify the response reason code, as explained above.
-				</p>
+                <p>
+                    The <span style="color: #00CC00; ">green</span> characters specify the feature (in this case Vault).
+                    The <span style="color: red; ">red</span> characters specify the token response code.
+                    The <span style="color: blue; ">blue</span> digits specify the response reason code, as explained
+                    above.
+                </p>
 
-				<h3 id="available-features">Available Features</h3>
-				<p>
-					The following table shows all the features available and the meaning for the special characters.
-					You can try with different values for each one of them and check what are the responses that you get back.
-				</p>
+                <h3 id="available-features">Available Features</h3>
+                <p>
+                    The following table shows all the features available and the meaning for the special characters.
+                    You can try with different values for each one of them and check what are the responses that you get
+                    back.
+                </p>
 
-				<table class="table">
-					<thead>
-						<tr>
-							<th>Example Card Number</th>
-							<th>Feature Identification</th>
-							<th>Feature</th>
-							<th>Other characters</th>
-						</tr>
-					</thead>
-					<tbody style="font-family: monospace">
-						<tr>
-							<td>41<span style="color: #00CC00; ">001</span>17890123000</td>
-							<td><span style="color: #00CC00; ">001</span></td>
-							<td>Account Updater</td>
-							<td>Nothing needed, new randomly generated card number will be returned</td>
-						</tr>
-						<tr>
-							<td>41<span style="color: #00CC00; ">002</span><span style="color: red; ">801</span>40123000</td>
-							<td><span style="color: #00CC00; ">002</span></td>
-							<td>Vault/Tokenization</td>
-							<td><span style="color: red; ">5-7</span> - Token response code</td>
-						</tr>
-						<tr>
-							<td>41<span style="color: #00CC00; ">003</span><span style="color: red; ">2</span><span
-									style="color: blue; ">2</span><span style="color: #AABB00; ">3</span><span
-									style="color: #00BBAA; ">1</span><span style="color: #AA00BB; ">1</span>199000</td>
-							<td><span style="color: #00CC00; ">003</span></td>
-							<td>Enhanced Authorizations</td>
-							<td>
-								<span style="color: red; ">5</span> - Funding Source Type<br />
-								<span style="color: blue; ">6</span> - Reloadable<br />
-								<span style="color: #AABB00; ">7</span> - Prepaid card type<br />
-								<span style="color: #00BBAA; ">8</span> - Affluence<br />
-								<span style="color: #AA00BB; ">9</span> - Issuer Country
-							</td>
-						</tr>
-						<tr>
-							<td>42<span style="color: #00CC00; ">004</span><span style="color: red; ">10</span>886320101</td>
-							<td><span style="color: #00CC00; ">004</span></td>
-							<td>Address Verification (AVS)</td>
-							<td><span style="color: red; ">5-7</span> - AVS response code</td>
-						</tr>
-						<tr>
-							<td>41<span style="color: #00CC00; ">005</span><span style="color: red; ">2</span>1234567000</td>
-							<td><span style="color: #00CC00; ">005</span></td>
-							<td>Card Security Code Validation</td>
-							<td>Card validation result</br>
-								<span style="color: red; ">0</span> - 'M'</br>
-								<span style="color: red; ">1</span> - 'N'</br>
-								<span style="color: red; ">2</span> - 'P'</br>
-								<span style="color: red; ">3</span> - 'S'</br>
-								<span style="color: red; ">4</span> - 'U'</td>
-						</tr>
-					</tbody>
-				</table>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Example Card Number</th>
+                        <th>Feature Identification</th>
+                        <th>Feature</th>
+                        <th>Other characters</th>
+                    </tr>
+                    </thead>
+                    <tbody style="font-family: monospace">
+                    <tr>
+                        <td>41<span style="color: #00CC00; ">001</span>17890123000</td>
+                        <td><span style="color: #00CC00; ">001</span></td>
+                        <td>Account Updater</td>
+                        <td>Nothing needed, new randomly generated card number will be returned</td>
+                    </tr>
+                    <tr>
+                        <td>41<span style="color: #00CC00; ">002</span><span style="color: red; ">801</span>40123000
+                        </td>
+                        <td><span style="color: #00CC00; ">002</span></td>
+                        <td>Vault/Tokenization</td>
+                        <td><span style="color: red; ">5-7</span> - Token response code</td>
+                    </tr>
+                    <tr>
+                        <td>41<span style="color: #00CC00; ">003</span><span style="color: red; ">2</span><span
+                                style="color: blue; ">2</span><span style="color: #AABB00; ">3</span><span
+                                style="color: #00BBAA; ">1</span><span style="color: #AA00BB; ">1</span>199000
+                        </td>
+                        <td><span style="color: #00CC00; ">003</span></td>
+                        <td>Enhanced Authorizations</td>
+                        <td>
+                            <span style="color: red; ">5</span> - Funding Source Type<br/>
+                            <span style="color: blue; ">6</span> - Reloadable<br/>
+                            <span style="color: #AABB00; ">7</span> - Prepaid card type<br/>
+                            <span style="color: #00BBAA; ">8</span> - Affluence<br/>
+                            <span style="color: #AA00BB; ">9</span> - Issuer Country
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>42<span style="color: #00CC00; ">004</span><span style="color: red; ">10</span>886320101
+                        </td>
+                        <td><span style="color: #00CC00; ">004</span></td>
+                        <td>Address Verification (AVS)</td>
+                        <td><span style="color: red; ">5-7</span> - AVS response code</td>
+                    </tr>
+                    <tr>
+                        <td>41<span style="color: #00CC00; ">005</span><span style="color: red; ">2</span>1234567000
+                        </td>
+                        <td><span style="color: #00CC00; ">005</span></td>
+                        <td>Card Security Code Validation</td>
+                        <td>Card validation result</br>
+                            <span style="color: red; ">0</span> - 'M'</br>
+                            <span style="color: red; ">1</span> - 'N'</br>
+                            <span style="color: red; ">2</span> - 'P'</br>
+                            <span style="color: red; ">3</span> - 'S'</br>
+                            <span style="color: red; ">4</span> - 'U'
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
 
-				<h3 id="applepay-features">Applepay<br></h3>Use 3-digit amount to specify the desired responses, Some sample numbers/responses include:<br><br>
-				<table class="table">
-					<thead>
-						<tr>
-							<th>Desired Response</th>
-							<th>Transaction Amount<br></th>
-						</tr>
-					</thead>
-					<tbody style="font-family: monospace;">
-						<tr>
-							<td><span class="dullgoldtext">000</span>: Approved</td>
-							<td><span class="dullgoldtext">000</span></td>
-						</tr>
-						<tr>
-							<td><span class="dullgoldtext">010</span>: Partially Approved</td>
-							<td><span class="dullgoldtext">010</span></td>
-						</tr>
-						<tr>
-							<td><span class="dullgoldtext">100</span>: Processing Network Unavailable</td>
-							<td><span class="dullgoldtext">100</span></td>
-						</tr>
-						<tr>
-							<td><span class="dullgoldtext">101</span>: Issuer Unavailable</td>
-							<td><span class="dullgoldtext">101</span></td>
-						</tr>
-						<tr>
-							<td><span class="dullgoldtext">110</span>: Insufficient Funds</td>
-							<td><span class="dullgoldtext">110</span></td>
-						</tr>
-					</tbody>
-				</table>
-				<br>For Applepay, when the amount is not in this table or not a 3-digit number, the transaction will automatically be approved and return '000' as the response code, 'Approved' as the response message.<br>
+                <h3 id="applepay-features">Applepay<br></h3>Use 3-digit amount to specify the desired responses, Some
+                sample numbers/responses include:<br><br>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Desired Response</th>
+                        <th>Transaction Amount<br></th>
+                    </tr>
+                    </thead>
+                    <tbody style="font-family: monospace;">
+                    <tr>
+                        <td><span class="dullgoldtext">000</span>: Approved</td>
+                        <td><span class="dullgoldtext">000</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="dullgoldtext">010</span>: Partially Approved</td>
+                        <td><span class="dullgoldtext">010</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="dullgoldtext">100</span>: Processing Network Unavailable</td>
+                        <td><span class="dullgoldtext">100</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="dullgoldtext">101</span>: Issuer Unavailable</td>
+                        <td><span class="dullgoldtext">101</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="dullgoldtext">110</span>: Insufficient Funds</td>
+                        <td><span class="dullgoldtext">110</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <br>For Applepay, when the amount is not in this table or not a 3-digit number, the transaction will
+                automatically be approved and return '000' as the response code, 'Approved' as the response message.<br>
 
-				<h3 id="androidpay-features">Androidpay<br></h3>Use 3-digit amount to specify the desired responses, Some sample numbers/responses include:<br><br>
-				<table class="table">
-					<thead>
-						<tr>
-							<th>Desired Response</th>
-							<th>Transaction Amount<br></th>
-						</tr>
-					</thead>
-					<tbody style="font-family: monospace;">
-						<tr>
-							<td><span class="dullgoldtext">000</span>: Approved</td>
-							<td><span class="dullgoldtext">000</span></td>
-						</tr>
-						<tr>
-							<td><span class="dullgoldtext">010</span>: Partially Approved</td>
-							<td><span class="dullgoldtext">010</span></td>
-						</tr>
-						<tr>
-							<td><span class="dullgoldtext">100</span>: Processing Network Unavailable</td>
-							<td><span class="dullgoldtext">100</span></td>
-						</tr>
-						<tr>
-							<td><span class="dullgoldtext">101</span>: Issuer Unavailable</td>
-							<td><span class="dullgoldtext">101</span></td>
-						</tr>
-						<tr>
-							<td><span class="dullgoldtext">110</span>: Insufficient Funds</td>
-							<td><span class="dullgoldtext">110</span></td>
-						</tr>
-					</tbody>
-				</table>
-				<br>For Androidpay, when the amount is not in this table or not a 3-digit number, the transaction will automatically be approved and return '000' as the response code, 'Approved' as the response message.<br>
+                <h3 id="androidpay-features">Androidpay<br></h3>Use 3-digit amount to specify the desired responses,
+                Some sample numbers/responses include:<br><br>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Desired Response</th>
+                        <th>Transaction Amount<br></th>
+                    </tr>
+                    </thead>
+                    <tbody style="font-family: monospace;">
+                    <tr>
+                        <td><span class="dullgoldtext">000</span>: Approved</td>
+                        <td><span class="dullgoldtext">000</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="dullgoldtext">010</span>: Partially Approved</td>
+                        <td><span class="dullgoldtext">010</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="dullgoldtext">100</span>: Processing Network Unavailable</td>
+                        <td><span class="dullgoldtext">100</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="dullgoldtext">101</span>: Issuer Unavailable</td>
+                        <td><span class="dullgoldtext">101</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="dullgoldtext">110</span>: Insufficient Funds</td>
+                        <td><span class="dullgoldtext">110</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <br>For Androidpay, when the amount is not in this table or not a 3-digit number, the transaction will
+                automatically be approved and return '000' as the response code, 'Approved' as the response message.<br>
 
-				<h3 id="fraudcheck-features">Standalone Fraud Check<br></h3>Use the first three customAttribute tags to dictate the desired responses.<br><br>
-				<table class="table">
-					<thead>
-						<tr>
-							<th>Response Attribute</th>
-							<th>Desired Response</th>
-							<th>Custom Attribute Number</th>
-							<th>Attribute Value</br></th>
-						</tr>
-					</thead>
-					<tbody style="font-family: monospace;">
-						<tr>
-							<td>deviceReviewStatus</td>
-							<td><span class="dullgoldtext">pass</span></td>
-							<td>customAttribute1</td>
-							<td><span class="dullgoldtext">pass</span></td>
-						</tr>
-						<tr>
-							<td>deviceReputationScore</td>
-							<td><span class="dullgoldtext">42</span></td>
-							<td>customAttribute2</td>
-							<td><span class="dullgoldtext">42</span></td>
-						</tr>
-						<tr>
-							<td>triggeredRule</td>
-							<td><span class="dullgoldtext">1 to 11</span></td>
-							<td>customAttribute3</td>
-							<td><span class="dullgoldtext">number of triggeredRule tags returned</span></td>
-						</tr>
-					</tbody>
-				</table>
-				<br><p>For standalone fraud checks the customAttribute3 tag is used to dictate the number of triggeredRule tags returned in the response. One triggeredRule tag will always be returned by default from the Sandbox and a maximum of 11 triggeredRule tags will be returned.</p><br>
-				<h3 id="gettingStarted">Getting started</h3>
-
-				<p>
-					The URL to send your transactions to our Sandbox is the following:
-				</p>
-
-				<div class="panel panel-success">
-					<div class="panel-heading text-center">Sandbox URL</div>
-  					<div class="panel-body text-center">
-						https://www.testlitle.com/sandbox/communicator/online
-					</div>
-				</div>
-
-				<p>NOTE: Requests made to the Sandbox environment require the connection be TLS v1.1 or 1.2</p>
-
-				<p>
-					You can test with any tool that can generate HTTP requests, curl is one example.
-					To start you can save the following in an xml file:
-				</p>
-
-				<script src="https://gist.github.com/2120199.js"></script>
-
-				<p>
-					And then send the file to Sandbox using your HTTP tool.
-					You need to add the header <code>Content-Type: text/xml</code> so that we know you're requesting an XML.
-					The following would be the <a href="http://en.wikipedia.org/wiki/CURL">curl</a> command to submit the previous XML:
-				</p>
-
-				<script src="https://gist.github.com/2120291.js"> </script>
-
-				<p>
-					Please check that you don't have proxy setup. If you have proxy setup, the command to submit the previous XML with Proxy:
-				</p>
-
-				<script src="https://gist.github.com/litleSDK/a46f59e04b272af95e67.js"></script>
-			</div>
-
-		</div>
-	</div>
+                <h3 id="fraudcheck-features">Standalone Fraud Check<br></h3>Use the first three customAttribute tags to
+                dictate the desired responses.<br><br>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Response Attribute</th>
+                        <th>Desired Response</th>
+                        <th>Custom Attribute Number</th>
+                        <th>Attribute Value</br></th>
+                    </tr>
+                    </thead>
+                    <tbody style="font-family: monospace;">
+                    <tr>
+                        <td>deviceReviewStatus</td>
+                        <td><span class="dullgoldtext">pass</span></td>
+                        <td>customAttribute1</td>
+                        <td><span class="dullgoldtext">pass</span></td>
+                    </tr>
+                    <tr>
+                        <td>deviceReputationScore</td>
+                        <td><span class="dullgoldtext">42</span></td>
+                        <td>customAttribute2</td>
+                        <td><span class="dullgoldtext">42</span></td>
+                    </tr>
+                    <tr>
+                        <td>triggeredRule</td>
+                        <td><span class="dullgoldtext">1 to 11</span></td>
+                        <td>customAttribute3</td>
+                        <td><span class="dullgoldtext">number of triggeredRule tags returned</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <br>
+                <p>For standalone fraud checks the customAttribute3 tag is used to dictate the number of triggeredRule
+                    tags returned in the response. One triggeredRule tag will always be returned by default from the
+                    Sandbox and a maximum of 11 triggeredRule tags will be returned.</p><br>
+                <h3 id="gettingStarted">Getting started</h3>
+                <p>
+                    The URL to send your transactions to our Sandbox is the following:
+                </p>
+                <div class="panel panel-success">
+                    <div class="panel-heading text-center">Sandbox URL</div>
+                    <div class="panel-body text-center">
+                        https://www.testlitle.com/sandbox/communicator/online
+                    </div>
+                </div>
+                <p>NOTE: Requests made to the Sandbox environment require the connection be TLS v1.1 or 1.2</p>
+                <p>
+                    You can test with any tool that can generate HTTP requests, curl is one example.
+                    To start you can save the following in an xml file:
+                </p>
+                <script src="https://gist.github.com/2120199.js"></script>
+                <p>
+                    And then send the file to Sandbox using your HTTP tool.
+                    You need to add the header <code>Content-Type: text/xml</code> so that we know you're requesting an
+                    XML.
+                    The following would be the <a href="http://en.wikipedia.org/wiki/CURL">curl</a> command to submit
+                    the previous XML:
+                </p>
+                <script src="https://gist.github.com/2120291.js"></script>
+                <p>
+                    Please check that you don't have a proxy setup. If you do have a proxy setup, the command to submit
+                    the previous XML with Proxy:
+                </p>
+                <div>
+                    <script src="https://gist.github.com/litleSDK/a46f59e04b272af95e67.js"></script>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

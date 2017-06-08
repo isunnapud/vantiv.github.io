@@ -11,78 +11,90 @@ content-description: ""
 ---
 
 <section id="dev-main" class="pad70 gray">
-	<div class="container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title">Python SDK</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div id="fixedMenu" class="navbar-spy" data-spy="affix" data-offset-top="280">
+                    <ul class="nav nav-bordered nav-stacked" role="tablist">
+                        <li class="active"><a href="#gettingStarted" data-toggle="tab">Getting Started</a></li>
+                        <li><a href="#auth" data-toggle="tab">Auth Example</a></li>
+                        <li><a href="#capture" data-toggle="tab">Capture Example</a></li>
+                        <li><a href="#credit" data-toggle="tab">Credit Example</a></li>
+                        <li><a href="#partial" data-toggle="tab">Partial Capture Example</a></li>
+                        <li><a href="#sale" data-toggle="tab">Sale Example</a></li>
+                    </ul>
+                    <a href="#top">Back to the top</a>
+                </div>
+            </div>
+            <div class="col-md-9" id="ex">
+                <h3 id="gettingStarted">Getting started</h3>
+                <p>
+                    Python is a widely-used general-purpose language that allows for simple integration into a variety
+                    of systems. Python's language design allows for greater productivity with lower maintainance costs.
+                </p>
+                <p>
+                    The Python SDK makes it quick and easy to connect your site to our payment platform. Download our
+                    SDK, install it, and start testing against our sandbox environment right away.
+                </p>
+                <p>
+                    Please contact either your Vantiv Implementation Consultant, or <a
+                        href="mailto:sdksupport@Vantiv.com">sdksupport</a> for help in determining which SDK version
+                    will best support your business needs.
+                </p>
+                <p>
+                    To install the sdk, you can use pip: <code>pip install LitleSdkPython</code>.
+                </p>
+                <p>
+                    Our Python SDK has a dependency on PyXB, which is installed automatically if it is not already
+                    installed. You can find out more information about PyXB at <a
+                        href="http://pyxb.sourceforge.net/overview_how.html">PyXB</a>. If you would like to run our unit
+                    tests, you must also install the <a href="http://pypi.python.org/pypi/mock">mock</a> library.
+                </p>
+                <div class="text-center">
+                    <a href="https://github.com/Vantiv/litle-sdk-for-python" target="_blank"
+                       class="btn btn-default btn-lg">
+                        <span class="fa fa-github fa-lg"></span>
+                        Fork us on GitHub
+                    </a>
+                    or
+                    <a href="https://pypi.python.org/pypi/LitleSdkPython" target="_blank"
+                       class="btn btn-default btn-lg">
+                        <img src="/images/python-logo.png" height="25px"/>
+                        Use it from PIP
+                    </a>
+                </div>
 
-		<div class="row">
-			<div class="col-md-12">
-				<div class="section-title">Python SDK</div>
-			</div>
-		</div>
+                <h3 id="auth">Auth Example</h3>
+                <div>
+                    <script src="https://gist.github.com/2896307.js"></script>
+                </div>
 
-		<div class="row">
+                <h3 id="capture">Capture Example</h3>
+                <div>
+                    <script src="https://gist.github.com/2890384.js"></script>
+                </div>
 
-			<div class="col-md-3">
-				<div id="fixedMenu" class="navbar-spy" data-spy="affix" data-offset-top="280">
-					<ul class="nav nav-bordered nav-stacked" role="tablist">
-						<li class="active"><a href="#gettingStarted" data-toggle="tab">Getting Started</a></li>
-						<li><a href="#auth" data-toggle="tab">Auth Example</a></li>
-						<li><a href="#capture" data-toggle="tab">Capture Example</a></li>
-						<li><a href="#credit" data-toggle="tab">Credit Example</a></li>
-						<li><a href="#partial" data-toggle="tab">Partial Capture Example</a></li>
-						<li><a href="#sale" data-toggle="tab">Sale Example</a></li>
-					</ul>
-					<a href="#top">Back to the top</a>
-				</div>
-			</div>
+                <h3 id="credit">Credit Example</h3>
+                <div>
+                    <script src="https://gist.github.com/2890044.js"></script>
+                </div>
 
+                <h3 id="partial">Partial Capture Example</h3>
+                <div>
+                    <script src="https://gist.github.com/2896256.js"></script>
+                </div>
 
-			<div class="col-md-9" id="ex">
-				<h3 id="gettingStarted">Getting started</h3>
+                <h3 id="sale">Sale Example</h3>
+                <div>
+                    <script src="https://gist.github.com/2890278.js"></script>
+                </div>
+            </div>
 
-				<p>
-					Python is a widely-used general-purpose language that allows for simple integration into a variety of systems. Python's language design allows for greater productivity with lower maintainance costs.
-				</p>
-				<p>
-					The Python SDK makes it quick and easy to connect your site to our payment platform. Download our SDK, install it, and start testing against our sandbox environment right away.
-				</p>
-				<p>
-					Please contact either your Vantiv Implementation Consultant, or <a href="mailto:sdksupport@Vantiv.com">sdksupport</a> for help in determining which SDK version will best support your business needs.
-				</p>
-				<p>
-					To install the sdk, you can use pip: <code>pip install LitleSdkPython</code>.
-				</p>
-				<p>
-					Our Python SDK has a dependency on PyXB, which is installed automatically if it is not already installed.  You can find out more information about PyXB at <a href="http://pyxb.sourceforge.net/overview_how.html">PyXB</a>. If you would like to run our unit tests, you must also install the <a href="http://pypi.python.org/pypi/mock">mock</a> library.
-				</p>
-
-				<div class="text-center">
-					<a href="https://github.com/LitleCo/litle-sdk-for-python" target="_blank" class="btn btn-default btn-lg">
-						<span class="fa fa-github fa-lg"></span>
-						Fork us on GitHub
-					</a>
-					or
-					<a href="https://pypi.python.org/pypi/LitleSdkPython" target="_blank" class="btn btn-default btn-lg">
-						<img src="/images/python-logo.png" height="25px"/>
-						Use it from PIP
-					</a>
-				</div>
-
-				<h3 id="auth">Auth Example</h3>
-				<div><script src="https://gist.github.com/2896307.js"></script></div>
-
-				<h3 id="capture">Capture Example</h3>
-				<div><script src="https://gist.github.com/2890384.js"></script></div>
-
-				<h3 id="credit">Credit Example</h3>
-				<div><script src="https://gist.github.com/2890044.js"></script></div>
-
-				<h3 id="partial">Partial Capture Example</h3>
-				<div><script src="https://gist.github.com/2896256.js"></script></div>
-
-				<h3 id="sale">Sale Example</h3>
-				<div><script src="https://gist.github.com/2890278.js"></script></div>
-			</div>
-
-		</div>
-	</div>
+        </div>
+    </div>
 </section>
