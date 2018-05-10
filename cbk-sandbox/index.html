@@ -1,0 +1,271 @@
+---
+
+layout: "cnp-sub"
+
+title: "Sandbox"
+description: ""
+
+content-title: "Sandbox"
+content-description: ""
+
+---
+
+<section id="dev-main" class="pad70 gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title">Sandbox - Chargebacks</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div id="fixedMenu" class="navbar-spy" data-spy="affix" data-offset-top="280">
+                    <ul class="nav nav-bordered nav-stacked" role="tablist">
+                        <li class="active"><a href="#whatIs" data-toggle="tab">What is the Sandbox?</a></li>
+                        <li><a href="#howItWorks" data-toggle="tab">How does it work</a></li>
+                        <li><a href="#gettingStarted" data-toggle="tab">Getting Started</a></li>
+                        <li><a href="#cbk" data-toggle="tab">Chargeback API</a></li>
+                        <li><a href="#cbkDocumentation" data-toggle="tab">Chargeback Documentation API</a></li>
+                    </ul>
+                    <a href="#top">Back to the top</a>
+                </div>
+            </div>
+            <div class="col-md-9" id="ex">
+                <h3 id="whatIs">What is the Sandbox?</h3>
+                <p>
+                    The sandbox functions as a simulator of our production environment.
+                    You send your chargeback requests to our sandbox environment the exact same way you'd send them to our
+                    certification or production systems.
+                    The sandbox validates the request format and approves it if it matches our requirements.
+                    The sandbox server makes it easy to get started using our SDKs.
+                    <strong>There are no forms to fill out, no credentials required, and no special access
+                        needed!</strong>
+                </p>
+                <p>
+                    For now, the sandbox only supports chargeback API requests version 2.1.
+                    It has no state and doesn't actually change the state of a chargeback, but it does simulate
+                    responses for the various behaviours supported by the Chargeback API.
+                </p>
+                <h3 id="howItWorks">How does it work</h3>
+                <p>
+                    The sandbox uses the request to calculate the response.
+                    This is done so that any response that our systems can generate can be retrieved through the sandbox
+                    as well.
+                </p>
+                <h3 id="gettingStarted">Getting started</h3>
+                <p>
+                    The URL to send your chargeback requests to sandbox is the following:
+                </p>
+                <div class="panel panel-success">
+                    <div class="panel-heading text-center">Sandbox URL</div>
+                    <div class="panel-body text-center">
+                        https://www.testvantivcnp.com/sandbox/new/services/chargebacks
+                    </div>
+                </div>
+                <p>NOTE: Requests made to the Sandbox environment require the connection be TLS 1.2</p>
+                <p>
+                    Send a simple GET request to sandbox using your HTTP tool.
+                    The following would be the <a href="http://en.wikipedia.org/wiki/CURL">curl</a> command to submit
+                    the GET request:
+                </p>
+                <script src="https://gist.github.com/VantivSDK/1a12efd942c12b606f7569b0000c71ff.js"></script>
+                <p>
+                    Please check that you don't have a proxy setup. If you do have a proxy setup, the command to submit
+                    the previous XML with Proxy:
+                </p>
+                <script src="https://gist.github.com/VantivSDK/a96868b69eef16a2e861712304eee78d.js"></script>
+                <h3 id="cbk">Chargeback API Sandbox</h3>
+                <p>
+                    The following HTTP request methods of Chargeback API are supported in sandbox.
+                </p>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>URI/ Query</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody style="font-family: monospace;">
+                    <tr>
+                        <td>PUT</td>
+                        <td><code>/&lt;caseId&gt;/</code></td>
+                        <td>Used for following actions
+                            <ul>
+                                <li>Assign case to User</li>
+                                <li>Add Note to case</li>
+                                <li>Assume Liability</li>
+                                <li>Represent</li>
+                                <li>Respond to Retrieval Request</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td><code>?date=yyyy-mm-dd</code></td>
+                        <td>Retrieve all chargebacks for specified activity date</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td><code>?date=yyyy-mm-dd&financialOnly=True</code></td>
+                        <td>Retrieve all chargebacks with financial impact for specified activity date</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td><code>?actionable=true</code></td>
+                        <td>Retrieve activity for all chargebacks that are actionable</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td><code>/&lt;caseId&gt;/</code></td>
+                        <td>Retrieve activity for specified case</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td><code>?token=&lt;value&gt;</code></td>
+                        <td>Retrieve activity for specified token</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td><code>?cardNumber=&lt;value&gt;&expirationDate=&lt;mmyy&gt;</code></td>
+                        <td>Retrieve activity for specified card number</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td><code>?arn=&lt;value&gt;</code></td>
+                        <td>Retrieve activity for specified ARN</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <h3>Examples</h3>
+                <p>
+                    A <code>chargebackUpdateRequest</code> can be sent to sandbox to receive a <code>chargebackUpdateResponse</code> containing a random transactionId of length 14.
+                </p>
+                <p>
+                    An example of such a request is below.
+                </p>
+                <script src="https://gist.github.com/VantivSDK/3d62ab464a26ee00b6b35cf44fa86b43.js"></script>
+
+                <p>
+                    Send the below request to the above URL in a HTTP PUT request.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/bd73ce4673d0524e0e9dd7074833551d.js"></script>
+
+                <p>
+                    Sandbox will respond with a response similar to below.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/1c210fdf0aa667737b3feaf53b9ec603.js"></script>
+
+                <p>
+                    An example of a <code>chargebackRetrievalRequest</code> request is below.
+                </p>
+                <script src="https://gist.github.com/VantivSDK/320f8b04996f3e3a1f48fd225b9caaa9.js"></script>
+                <p>
+                    Sandbox will respond with a <code>chargebackRetrievalResponse</code> as below
+                </p>
+                <script src="https://gist.github.com/VantivSDK/331a19850060fe4d4bd603d5ccbefdbf.js"></script>
+
+
+                <h3 id="cbkDocumentation">Chargeback Documentation API Sandbox</h3>
+                <p>
+                    The following features are supported in sandbox for Chargeback documentation API.
+                </p>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>URI</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody style="font-family: monospace;">
+                    <tr>
+                        <td>POST</td>
+                        <td><code>/upload/&lt;caseId&gt;/&lt;documentId&gt;</code></td>
+                        <td>To upload a support document for a specific case.</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td><code>/retrieve/&lt;caseId&gt;/&lt;documentId&gt;</code></td>
+                        <td>To retrieve a support document for a specific case.</td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td><code>/replace/&lt;caseId&gt;/&lt;documentId&gt;</code></td>
+                        <td>To replace a support document for a specific case.</td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td><code>/delete/&lt;caseId&gt;/&lt;documentId&gt;</code></td>
+                        <td>To delete a previously uploaded support document for a specific case.</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td><code>/list/&lt;caseId&gt;</code></td>
+                        <td>To list all documents attached to a specific case.</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p>
+                    Use the last three characters in the caseId to generate the responses listed below.
+                </p>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody style="font-family: monospace;">
+                    <tr>
+                        <td>Chargeback Success</td>
+                        <td><span style="color: green; ">000</span> - Success </td>
+                    </tr>
+                    <tr>
+                        <td>Chargeback Error</td>
+                        <td>
+                            <span style="color: blue; ">001</span> - Invalid Merchant <br />
+                            <span style="color: blue; ">002</span> - Future Use <br />
+                            <span style="color: blue; ">003</span> - Case Not Found <br />
+                            <span style="color: blue; ">004</span> - Case not in Merchant Queue <br />
+                            <span style="color: blue; ">005</span> - Document Already Exists <br />
+                            <span style="color: blue; ">006</span> - Internal Error <br />
+                            <span style="color: blue; ">007</span> - Future Use <br />
+                            <span style="color: blue; ">008</span> - Max Document Limit Per Case Reached <br />
+                            <span style="color: blue; ">009</span> - Document Not Found <br />
+                            <span style="color: blue; ">010</span> - Case not in a valid cycle <br />
+                            <span style="color: blue; ">011</span> - Server is busy. Please try again in a few minutes. <br />
+                            <span style="color: blue; ">012</span> - File size exceeds limit of 2MB <br />
+                            <span style="color: blue; ">013</span> - Invalid File Content <br />
+                            <span style="color: blue; ">014</span> - Unable to convert; Vantiv has saved your file and will attempt to fix the error on your behalf. Your chargeback analyst will contact you if we are unable to resolve the error. <br />
+                            <span style="color: blue; ">015</span> - Invalid image size, source image exceeds size tolerances <br />
+                            <span style="color: blue; ">016</span> - Max Document Page Count Limit Per Case Reached <br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>HTTP Error</td>
+                        <td>
+                            <span style="color: red; ">500</span> - Internal Error. This error has already been escalated to Vantiv for resolution. Please contact support with questions. <br />
+                            <span style="color: red; ">404</span> - Could not find requested object. <br />
+                            <span style="color: red; ">403</span> - You are not authorized to access this resource. Please check your credentials. <br />
+                            <span style="color: red; ">401</span> - You are not authorized to access this resource. Please check your credentials. <br />
+                            <span style="color: red; ">400</span> - Bad Request. Error in request. Poorly formatted header/xml or cannot perform activity. <br />
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <h3>Examples</h3>
+                <p>
+                    To get a list of documents for a chargeback case, a request like below can be sent to sandbox.
+                </p>
+                <script src="https://gist.github.com/VantivSDK/1c7bc73ed7201eae2262e8f1ea026ac4.js"></script>
+                <p>
+                    Sandbox should respond with a <code>chargebackDocumentUploadResponse</code>
+                </p>
+                <script src="https://gist.github.com/VantivSDK/9bd4a0cc593b4a61247538f23cf1ea44.js"></script>
+            </div>
+        </div>
+    </div>
+</section>
