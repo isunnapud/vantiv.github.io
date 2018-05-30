@@ -137,6 +137,205 @@ content-description: ""
                     </tr>
                     </tbody>
                 </table>
+                <h3 id="cbk">Chargeback Responses</h3>
+                <p>
+                    Use the <code>last three characters</code> in the <code>caseId</code> to generate the responses listed below.
+                </p>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody style="font-family: monospace;">
+                    <tr>
+                        <td>Chargeback Success</td>
+                        <td><span style="color: green; ">000</span> - Success </td>
+                    </tr>
+                    <tr>
+                        <td>Chargeback Error</td>
+                        <td>
+                            <span style="color: blue; ">001</span> - Invalid Merchant <br />
+                            <span style="color: blue; ">002</span> - Future Use <br />
+                            <span style="color: blue; ">003</span> - Case Not Found <br />
+                            <span style="color: blue; ">004</span> - Case not in Merchant Queue <br />
+                            <span style="color: blue; ">005</span> - Document Already Exists <br />
+                            <span style="color: blue; ">006</span> - Internal Error <br />
+                            <span style="color: blue; ">007</span> - Future Use <br />
+                            <span style="color: blue; ">008</span> - Max Document Limit Per Case Reached <br />
+                            <span style="color: blue; ">009</span> - Document Not Found <br />
+                            <span style="color: blue; ">010</span> - Case not in a valid cycle <br />
+                            <span style="color: blue; ">011</span> - Server is busy. Please try again in a few minutes. <br />
+                            <span style="color: blue; ">012</span> - File size exceeds limit of 2MB <br />
+                            <span style="color: blue; ">013</span> - Invalid File Content <br />
+                            <span style="color: blue; ">014</span> - Unable to convert; Vantiv has saved your file and will attempt to fix the error on your behalf. Your chargeback analyst will contact you if we are unable to resolve the error. <br />
+                            <span style="color: blue; ">015</span> - Invalid image size, source image exceeds size tolerances <br />
+                            <span style="color: blue; ">016</span> - Max Document Page Count Limit Per Case Reached <br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>HTTP Error</td>
+                        <td>
+                            <span style="color: red; ">500</span> - Internal Error. This error has already been escalated to Vantiv for resolution. Please contact support with questions. <br />
+                            <span style="color: red; ">404</span> - Could not find requested object. <br />
+                            <span style="color: red; ">403</span> - You are not authorized to access this resource. Please check your credentials. <br />
+                            <span style="color: red; ">401</span> - You are not authorized to access this resource. Please check your credentials. <br />
+                            <span style="color: red; ">400</span> - Bad Request. Error in request. Poorly formatted header/xml or cannot perform activity. <br />
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <h3 id="cbk">Chargeback Cycles</h3>
+                <p>
+                    Use the <code>4th and 5th</code> characters from the right in the <code>caseId</code> to generate the cycle types listed below.
+                </p>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody style="font-family: monospace;">
+                    <tr>
+                        <td><span style="color: blue; ">01</span></td>
+                        <td>Arbitration</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">02</span></td>
+                        <td>Arbitration Chargeback</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">03</span></td>
+                        <td>Arbitration Lost</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">04</span></td>
+                        <td>Arbitration Split</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">05</span></td>
+                        <td>Arbitration Won</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">06</span></td>
+                        <td>Chargeback Reversal</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">07</span></td>
+                        <td>First Chargeback</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">08</span></td>
+                        <td>Issuer Accepted Pre-Arbitration</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">09</span></td>
+                        <td>Issuer Arbitration</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">10</span></td>
+                        <td>Issuer Declined Pre-Arbitration</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">11</span></td>
+                        <td>Pre-Arbitration</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">12</span></td>
+                        <td>Representment</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">13</span></td>
+                        <td>Response to Issuer Arbitration</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">14</span></td>
+                        <td>Retrieval Request</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <h3 id="cbk">Chargeback Queues</h3>
+                <p>
+                    Use the <code>6th and 7th</code> characters from the right in the <code>caseId</code> to generate the queue types listed below.
+                </p>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody style="font-family: monospace;">
+                    <tr>
+                        <td><span style="color: blue; ">01</span></td>
+                        <td>Arbitrate</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">02</span></td>
+                        <td>Decision Pending</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">03</span></td>
+                        <td>Decision Final</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">04</span></td>
+                        <td>Merchant</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">05</span></td>
+                        <td>Merchant Arbitrate</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">06</span></td>
+                        <td>Merchant Assumed</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">07</span></td>
+                        <td>Merchant Auto Assumed</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">08</span></td>
+                        <td>Merchant Automated</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">09</span></td>
+                        <td>Network Assumed</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">10</span></td>
+                        <td>PayPal Hold - Assumed</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">11</span></td>
+                        <td>PayPal Hold - Represent</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">12</span></td>
+                        <td>Pre-arbitrate</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">13</span></td>
+                        <td>Vantiv</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">14</span></td>
+                        <td>Vantiv Assumed</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">15</span></td>
+                        <td>Vantiv Error</td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: blue; ">16</span></td>
+                        <td>Vantiv Outgoing</td>
+                    </tr>
+                    </tbody>
+                </table>
+
                 <h3>Examples</h3>
                 <p>
                     A <code>chargebackUpdateRequest</code> can be sent to sandbox to receive a <code>chargebackUpdateResponse</code> containing a random transactionId of length 14.
