@@ -62,7 +62,15 @@ content-description: ""
                         https://www.testvantivcnp.com/sandbox/new/services/chargebacks
                     </div>
                 </div>
-                <p>NOTE: Requests made to the Sandbox environment require the connection be TLS 1.2</p>
+                <p><strong>NOTE:</strong> Requests made to the Sandbox environment require the connection be TLS 1.2</p>
+                <p>
+                <strong>Authorization header:</strong>Should contain Base-64 encoded credentials in the format <code>username:password</code> <br>
+                       <pre>
+E.g. username:password = merchant1:password
+       Base-64 encoded = bWVyY2hhbnQxOnBhc3N3b3Jk</pre>
+                <strong>NOTE:</strong> Sandbox does not validate the credential. It is recommended to use dummy values for credential to be prepared for live environment.
+                </p>
+
                 <p>
                     Send a simple GET request to sandbox using your HTTP tool.
                     The following would be the <a href="http://en.wikipedia.org/wiki/CURL">curl</a> command to submit
