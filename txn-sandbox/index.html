@@ -19,21 +19,6 @@ content-description: ""
                     <h3>Sandbox Status</h3>
                     <p id="status"></p>
                     <script>
-                        // $.get("https://www.testvantivcnp.com/sandbox/new/sandbox/actuator/health", function(){
-                        //     console.log("http method invoked!");
-                        // })
-                        //     .always(function(data) {
-                        //         document.getElementById("status").innerHTML = "<p>Sandbox is running</p>";
-                        //         console.log(data);
-                        //     })
-                        //     .done(function(data) {
-                        //         document.getElementById("status").innerHTML = "<p>Sandbox is up</p>";
-                        //         console.log(data);
-                        //     })
-                        //     .fail(function() {
-                        //         document.getElementById("status").innerHTML = "<p>Sandbox is down</p>";
-                        //     });
-
                         function createCORSRequest(method, url) {
                             var request = new XMLHttpRequest();
                             if("withCredentials" in request) {
@@ -41,12 +26,11 @@ content-description: ""
                             } else {
                                 request = null;
                             }
-                            //request.setRequestHeader("Access-Control-Allow-Origin", "*");
                             return request;
                         }
 
                         function makeCORSRequest() {
-                            var url = 'https://www.testvantivcnp.com/sandbox/status';
+                            var url = 'http://10.1.52.128:8888/status';
                             var method = 'GET';
                             var request = createCORSRequest(method, url);
                             if(!request) {
@@ -65,26 +49,6 @@ content-description: ""
                         }
 
                         makeCORSRequest();
-                        // var request = new XMLHttpRequest();
-                        // var params = "action=something";
-                        // request.open('GET', "https://www.testvantivcnp.com/sandbox/new/sandbox/actuator/health", true);
-                        // request.onreadystatechange = function() {
-                        //     if (request.readyState===4)
-                        //         console.log("request ready");
-                        //     else
-                        //         console.log("request not ready");
-                        // };
-                        // Access-Control-Expose-Headers: Content-type, Content-length, Connection
-                        // request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                        // request.setRequestHeader("Content-length", params.length);
-                        // request.setRequestHeader("Connection", "close");
-                        // request.send(params);
-                        // var output = request.response;
-                        // console.log(output);
-                        // if(output === "{\"status\":\"UP\"}")
-                        //     document.getElementById("status").innerHTML = "<p>Sandbox is up</p>";
-                        // else
-                        //     document.getElementById("status").innerHTML = "<p>Sandbox is down</p>";
                     </script>
                     <button onclick="makeCORSRequest()">refresh status</button>
                 </div>
