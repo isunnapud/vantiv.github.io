@@ -30,7 +30,7 @@ content-description: ""
                         }
 
                         function makeCORSRequest() {
-                            var url = 'http://10.1.52.128:8888/status';
+                            var url = 'https://www.testvantivcnp.com/sandbox/status';
                             var method = 'GET';
                             var request = createCORSRequest(method, url);
                             if(!request) {
@@ -49,6 +49,7 @@ content-description: ""
                         }
 
                         makeCORSRequest();
+                        setInterval(makeCORSRequest, 30000)
                     </script>
                     <button onclick="makeCORSRequest()">refresh status</button>
                 </div>
