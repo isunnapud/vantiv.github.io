@@ -20,7 +20,7 @@ content-description: ""
                         <span style="padding-right: 4%;">Sandbox Status</span>
                         <span  style="cursor: pointer;" onclick="makeCORSRequest()" title='refresh status' class="glyphicon glyphicon-refresh"></span>
                     </span>
-                    <span onclick="makeCORSRequest()" id="status"></span>
+                    <span id="status"></span>
                     <p style="font-size: 10px; color: gray;">Last Checked: <span id="date-time"></span></p>
                     <script>
                         function createCORSRequest(method, url) {
@@ -34,7 +34,7 @@ content-description: ""
                         }
 
                         function makeCORSRequest() {
-                            document.getElementById("status").innerHTML = "<span style='color: yellow; size: 30px;' title='checking status' class='glyphicon glyphicon-ban-circle'></span>";
+                            document.getElementById("status").innerHTML = "<span style='color: darkgoldenrod; size: 30px;' title='checking status' class='glyphicon glyphicon-ban-circle'></span>";
                             var url = 'https://www.testvantivcnp.com/sandbox/status';
                             var method = 'GET';
                             var request = createCORSRequest(method, url);
