@@ -14,10 +14,10 @@ content-description: ""
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="section-title">Sandbox - Online transactions</div>
-                <div class="sandbox-status">
-                    <h3>Sandbox Status</h3>
-                    <p id="status"></p>
+                <div class="section-title">Sandbox</div>
+                <div style="float: right; text-align: left;" class="sandbox-status">
+                    <h4>Sandbox Status</h4>
+                    <p onclick="makeCORSRequest()" id="status"></p>
                     <script>
                         function createCORSRequest(method, url) {
                             var request = new XMLHttpRequest();
@@ -38,11 +38,11 @@ content-description: ""
                             }
 
                             request.onload = function() {
-                                document.getElementById("status").innerHTML = "<p>Sandbox is up</p>";
+                                document.getElementById("status").innerHTML = "<span style='color: green;' class='glyphicon glyphicon-ok-circle'></span>";
                             };
 
                             request.onerror = function() {
-                                document.getElementById("status").innerHTML = "<p>Sandbox is down</p>";
+                                document.getElementById("status").innerHTML = "<span style='color: red;' class='glyphicon glyphicon-remove-circle'></span>";
                             };
 
                             request.send();
@@ -51,7 +51,7 @@ content-description: ""
                         makeCORSRequest();
                         setInterval(makeCORSRequest, 30000)
                     </script>
-                    <button onclick="makeCORSRequest()">refresh status</button>
+                    <span onclick="makeCORSRequest()" class="glyphicon glyphicon-refresh"></span>
                 </div>
             </div>
         </div>
