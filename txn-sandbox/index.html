@@ -13,58 +13,57 @@ content-description: ""
 <section id="dev-main" class="pad70 gray">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <div class="section-title">Sandbox</div>
-                <div style="float: right; text-align: left;" class="sandbox-status">
-                    <span style="font-size: 15px; font-weight: 700; border-right-width: 20%;">
-                        <span style="padding-right: 4%;">Sandbox Status</span>
-                        <span  style="cursor: pointer;" onclick="makeCORSRequest()" title='refresh status' class="glyphicon glyphicon-refresh"></span>
-                    </span>
-                    <span id="status"></span>
-                    <p style="font-size: 10px; color: gray;">Last Checked: <span id="date-time"></span></p>
-                    <script>
-                        function createCORSRequest(method, url) {
-                            var request = new XMLHttpRequest();
-                            if("withCredentials" in request) {
-                                request.open(method, url, true);
-                            } else {
-                                request = null;
-                            }
-                            return request;
-                        }
+            <div class="section-title">Sandbox <span id="status"></span> </div>
+            <script>
+                function createCORSRequest(method, url) {
+                    var request = new XMLHttpRequest();
+                    if("withCredentials" in request) {
+                        request.open(method, url, true);
+                    } else {
+                        request = null;
+                    }
+                    return request;
+                }
 
-                        function makeCORSRequest() {
-                            document.getElementById("status").innerHTML = "<span style='color: darkgoldenrod; size: 30px;' title='checking status' class='glyphicon glyphicon-ban-circle'></span>";
-                            var url = 'https://www.testvantivcnp.com/sandbox/status';
-                            var method = 'GET';
-                            var request = createCORSRequest(method, url);
-                            if(!request) {
-                                return;
-                            }
+                function makeCORSRequest() {
+                    document.getElementById("status").innerHTML = "<span style='color: darkgoldenrod; size: 30px;' title='checking status' class='glyphicon glyphicon-refresh'></span>";
+                    var url = 'https://www.testvantivcnp.com/sandbox/status';
+                    var method = 'GET';
+                    var request = createCORSRequest(method, url);
+                    if(!request) {
+                        return;
+                    }
 
-                            request.onload = function() {
-                                var date = new Date();
-                                document.getElementById("status").innerHTML = "<span style='color: green; size: 30px;' title='sandbox is running' class='glyphicon glyphicon-ok-circle'></span>";
-                                document.getElementById("date-time").innerHTML = date.toLocaleString();
-                            };
+                    request.onload = function() {
+                        var date = new Date();
+                        var status = 'Sandbox is up (Last checked :' + date.toLocaleString() + ')';
+                        document.getElementById("status").innerHTML = "<span style='color: green; size: 30px;' title='"+status+"' class='glyphicon glyphicon-ok-circle'></span>";
+                    };
 
-                            request.onerror = function() {
-                                var date = new Date();
-                                document.getElementById("status").innerHTML = "<span style='color: red; size: 30px;' title='sandbox is running' class='glyphicon glyphicon-remove-circle'></span>";
-                                document.getElementById("date-time").innerHTML = date.toLocaleString();
+                    request.onerror = function() {
+                        var date = new Date();
+                        var status = 'Sandbox is up (Last checked :' + date.toLocaleString() + ')';
+                        document.getElementById("status").innerHTML = "<span style='color: red; size: 30px;' title='"+status+"' class='glyphicon glyphicon-remove-circle'></span>";
 
-                            };
+                    };
 
-                            request.send();
-                        }
+                    request.send();
+                }
 
-                        makeCORSRequest();
-                        setInterval(makeCORSRequest, 30000)
-                    </script>
+                makeCORSRequest();
+                setInterval(makeCORSRequest, 30000)
+            </script>
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="../txn-sandbox">CNP Online</a>
+                </li>
+                <li>
+                    <a href="../cbk-sandbox">Chargeback</a>
+                </li>
+            </ul>
 
-                </div>
-            </div>
         </div>
+        <p></p>
         <div class="row">
             <div class="col-md-3">
                 <div id="fixedMenu" class="navbar-spy" data-spy="affix" data-offset-top="280">

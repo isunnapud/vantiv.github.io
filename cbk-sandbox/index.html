@@ -13,10 +13,57 @@ content-description: ""
 <section id="dev-main" class="pad70 gray">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <div class="section-title">Sandbox - Chargebacks</div>
-            </div>
+            <div class="section-title">Sandbox <span id="status"></span> </div>
+            <script>
+                function createCORSRequest(method, url) {
+                    var request = new XMLHttpRequest();
+                    if("withCredentials" in request) {
+                        request.open(method, url, true);
+                    } else {
+                        request = null;
+                    }
+                    return request;
+                }
+
+                function makeCORSRequest() {
+                    document.getElementById("status").innerHTML = "<span style='color: darkgoldenrod; size: 30px;' title='checking status' class='glyphicon glyphicon-refresh'></span>";
+                    var url = 'https://www.testvantivcnp.com/sandbox/status';
+                    var method = 'GET';
+                    var request = createCORSRequest(method, url);
+                    if(!request) {
+                        return;
+                    }
+
+                    request.onload = function() {
+                        var date = new Date();
+                        var status = 'Sandbox is up (Last checked :' + date.toLocaleString() + ')';
+                        document.getElementById("status").innerHTML = "<span style='color: green; size: 30px;' title='"+status+"' class='glyphicon glyphicon-ok-circle'></span>";
+                    };
+
+                    request.onerror = function() {
+                        var date = new Date();
+                        var status = 'Sandbox is up (Last checked :' + date.toLocaleString() + ')';
+                        document.getElementById("status").innerHTML = "<span style='color: red; size: 30px;' title='"+status+"' class='glyphicon glyphicon-remove-circle'></span>";
+
+                    };
+
+                    request.send();
+                }
+
+                makeCORSRequest();
+                setInterval(makeCORSRequest, 30000)
+            </script>
+            <ul class="nav nav-tabs">
+                <li>
+                    <a href="../txn-sandbox">CNP Online</a>
+                </li>
+                <li class="active">
+                    <a href="../cbk-sandbox">Chargeback</a>
+                </li>
+            </ul>
+
         </div>
+        <p></p>
         <div class="row">
             <div class="col-md-3">
                 <div id="fixedMenu" class="navbar-spy" data-spy="affix" data-offset-top="280">
