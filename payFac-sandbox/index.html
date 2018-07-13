@@ -1,0 +1,185 @@
+---
+
+layout: "cnp-sub"
+
+title: "Sandbox"
+description: ""
+
+content-title: "Sandbox"
+content-description: ""
+
+---
+
+<section id="dev-main" class="pad70 gray">
+    <div class="container">
+        <div class="row">
+            <div class="section-title">Sandbox <span id="status"></span> </div>
+            <script>
+                function createCORSRequest(method, url) {
+                    var request = new XMLHttpRequest();
+                    if("withCredentials" in request) {
+                        request.open(method, url, true);
+                    } else {
+                        request = null;
+                    }
+                    return request;
+                }
+
+                function makeCORSRequest() {
+                    document.getElementById("status").innerHTML = "<span style='color: darkgoldenrod; size: 30px;' title='checking status' class='glyphicon glyphicon-refresh'></span>";
+                    var url = 'https://www.testvantivcnp.com/sandbox/status';
+                    var method = 'GET';
+                    var request = createCORSRequest(method, url);
+                    if(!request) {
+                        return;
+                    }
+
+                    request.onload = function() {
+                        var date = new Date();
+                        var status = 'Sandbox is up (Last checked :' + date.toLocaleString() + ')';
+                        document.getElementById("status").innerHTML = "<span style='color: green; size: 30px;' title='"+status+"' class='glyphicon glyphicon-ok-circle'></span>";
+                    };
+
+                    request.onerror = function() {
+                        var date = new Date();
+                        var status = 'Sandbox is up (Last checked :' + date.toLocaleString() + ')';
+                        document.getElementById("status").innerHTML = "<span style='color: red; size: 30px;' title='"+status+"' class='glyphicon glyphicon-remove-circle'></span>";
+
+                    };
+
+                    request.send();
+                }
+
+                makeCORSRequest();
+                setInterval(makeCORSRequest, 300000)
+            </script>
+            <ul class="nav nav-tabs">
+                <li>
+                    <a href="../sandbox">CNP Online</a>
+                </li>
+                <li>
+                    <a href="../cbk-sandbox">Chargeback</a>
+                </li>
+                <li class="active">
+                    <a href="">PayFac</a>
+                </li>
+            </ul>
+        </div>
+        <p></p>
+        <div class="row">
+            <div class="col-md-3">
+                <div id="fixedMenu" class="navbar-spy" data-spy="affix" data-offset-top="280">
+                    <ul class="nav nav-bordered nav-stacked" role="tablist">
+                        <!--<li class="active"><a href="#whatIs" data-toggle="tab">What is the Sandbox?</a></li>-->
+                        <!--<li><a href="#howItWorks" data-toggle="tab">How does it work</a></li>-->
+                        <li  class="active"><a href="#gettingStarted" data-toggle="tab">Getting Started</a></li>
+                        <li><a href="#payfac" data-toggle="tab">PayFac API</a></li>
+                        <!--<li><a href="#responseCodes" data-toggle="tab">Response Codes</a></li>-->
+                    </ul>
+                    <a href="#top">Back to the top</a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <h3 id="gettingStarted">Getting Started</h3>
+                <p>
+                    The URL to send all of your PayFac requests to the sandbox is the following:
+                </p>
+                <div class="panel panel-success">
+                    <div class="panel-heading text-center">Sandbox URL</div>
+                    <div class="panel-body text-center">
+                        https://www.testvantivcnp.com/
+                    </div>
+                </div>
+                <p><strong>NOTE:</strong> Requests made to the Sandbox environment require the connection be TLS 1.2</p>
+                <p>
+                    <strong>Authorization header: </strong>Should contain Base-64 encoded credentials in the format<code>username:password</code> <br>
+                <pre>
+                E.g. username:password = merchant1:password
+                        Base-64 encoded = bWVyY2hhbnQxOnBhc3N3b3Jk</pre>
+                <strong>NOTE:</strong> Sandbox does not validate the credential. It is recommended to use dummy values for credential to be prepared for live environment.
+                </p>
+
+                <p>
+                    Send a simple GET request to sandbox using your HTTP tool.
+                    The following would be the <a href="http://en.wikipedia.org/wiki/CURL">curl</a> command to submit
+                    the GET request:
+                </p>
+                <script src="https://gist.github.com/VantivSDK/1c4f0488eb44874e24cf72a2064b0206.js"></script>
+                <p>
+                    Please check that you don't have a proxy setup. If you do have a proxy setup, the command to submit
+                    the previous XML with Proxy:
+                </p>
+                <script src="https://gist.github.com/VantivSDK/b0d4d65f852cbeb455c6e163b60d8ffd.js"></script>
+
+                <h3 id="payfac">PayFac API Sandbox</h3>
+                <p>The following HTTP request methods of the Merchant Provisioner PayFac API are supported in sandbox.</p>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>URI/Query</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody style="font-family: monospace;">
+                    <tr>
+                        <td>GET</td>
+                        <td><code>/mcc</code></td>
+                        <td>Returns the list of merchant category codes that are currently approved for the Payment Service Provider.</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td><code>/legalentity/&lt;legalEntityId&gt;</code></td>
+                        <td>Request for information and/or status of the designated Legal Entity.</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td><code>/legalentity/&lt;legalEntityId&gt;/agreement</code></td>
+                        <td>Request to retrieve all agreements associated with a specified Legal Entity.</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td><code>/legalentity/&lt;legalEntityId&gt;/submerchant/&lt;subMerchantId&gt;</code></td>
+                        <td>Request to retrieve information about the designated Sub-merchant.</td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td><code>/legalentity/&lt;legalEntityId&gt;</code></td>
+                        <td>Request to update data associated with the designated Legal Entity.</td>
+                    </tr>
+                    <tr>
+                        <td>PUT</td>
+                        <td><code>/legalentity/&lt;legalEntityId&gt;/submerchant/&lt;subMerchantId&gt;</code></td>
+                        <td>Request to update data associated with the designated Sub-merchant.</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td><code>/legalentity</code></td>
+                        <td>Request to create a new Legal Entity.</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td><code>/legalentity/&lt;legalEntityId&gt;/agreement</code></td>
+                        <td>Request to designate the version of the agreement along with information about the agreeing party.</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td><code>/legalentity/&lt;legalEntityId&gt;/principal</code></td>
+                        <td>Request to create a new Principal associated with a Legal Entity.</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td><code>/legalentity/&lt;legalEntityId&gt;/submerchant</code></td>
+                        <td>Request to create a Sub-merchant associated with the designated Legal Entity.</td>
+                    </tr>
+                    <tr>
+                        <td>DELETE</td>
+                        <td><code>/legalentity/&lt;legalEntityId&gt;/principal/&lt;principalId&gt;</code></td>
+                        <td>Request to delete a Principal associated with a Legal Entity.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
