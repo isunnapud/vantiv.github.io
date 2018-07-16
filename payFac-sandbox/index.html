@@ -87,7 +87,7 @@ content-description: ""
                 <div class="panel panel-success">
                     <div class="panel-heading text-center">Sandbox URL</div>
                     <div class="panel-body text-center">
-                        https://www.testvantivcnp.com/
+                        https://www.testvantivcnp.com/payfac
                     </div>
                 </div>
                 <p><strong>NOTE:</strong> Requests made to the Sandbox environment require the connection be TLS 1.2</p>
@@ -113,7 +113,7 @@ content-description: ""
 
                 <h3 id="payfac">PayFac API Sandbox</h3>
                 <p>The following HTTP request methods of the Merchant Provisioner PayFac API are supported in sandbox.</p>
-                <table>
+                <table class="table">
                     <thead>
                     <tr>
                         <th>Method</th>
@@ -179,6 +179,33 @@ content-description: ""
                     </tr>
                     </tbody>
                 </table>
+
+                <h3>Examples</h3>
+                <!--PUT request example below-->
+                <p>
+                    A <code>legalEntityCreateRequest</code> can be sent to the sandbox to receive a <code>legalEntityResponse</code>
+                    that contains a random legalIdentityId of max Length 19 characters.
+                </p>
+
+                <p>
+                    An example of a <code>legalEntityCreateRequest</code> is below.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/f5635d6e264abe0b3d5f67534fbc3e8f.js"></script>
+
+                <p>
+                    In addition to the above URL, send the below request in a HTTP PUT request.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/24f0a4782ff09e21eba370d28bf17273.js"></script>
+
+                <p>
+                    The Sandbox will respond with a <code>legalEntityResponse</code> that is similar to the one below.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/af57800d63c4b8bf3d9c964d02764165.js"></script>
+                <!-- Add a second example. Probably a POST-->
+                
             </div>
         </div>
     </div>
