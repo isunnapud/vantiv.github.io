@@ -70,11 +70,10 @@ content-description: ""
             <div class="col-md-3">
                 <div id="fixedMenu" class="navbar-spy" data-spy="affix" data-offset-top="280">
                     <ul class="nav nav-bordered nav-stacked" role="tablist">
-                        <!--<li class="active"><a href="#whatIs" data-toggle="tab">What is the Sandbox?</a></li>-->
-                        <!--<li><a href="#howItWorks" data-toggle="tab">How does it work</a></li>-->
                         <li  class="active"><a href="#gettingStarted" data-toggle="tab">Getting Started</a></li>
                         <li><a href="#payfac" data-toggle="tab">PayFac API</a></li>
-                        <!--<li><a href="#responseCodes" data-toggle="tab">Response Codes</a></li>-->
+                        <li><a href="#responses" data-toggle="tab">Response Codes</a></li>
+                        <li><a href="#examples" data-toggle="tab">PayFac Examples</a></li>
                     </ul>
                     <a href="#top">Back to the top</a>
                 </div>
@@ -91,9 +90,37 @@ content-description: ""
                     </div>
                 </div>
                 <p><strong>NOTE:</strong> Requests made to the Sandbox environment require the connection be TLS 1.2</p>
-                <p>
-                    <strong>Authorization header: </strong>Should contain Base-64 encoded credentials in the format<code>username:password</code> <br>
-                <pre>
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Value</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Authorization Header</td>
+                        <td><code>username:password</code></td>
+                        <td>Contains Base-64 encoded credentials in this format.</td>
+                    </tr>
+                    <tr>
+                        <td>Content-Type</td>
+                        <td><code>application/com.vantivcnp.payfac-v13+xml</code></td>
+                        <td>Version number depends on the API used.</td>
+                    </tr>
+                    <tr>
+                        <td>Accept</td>
+                        <td><code>application/com.vantivcnp.payfac-v13+xml</code></td>
+                        <td>Version number depends on the API used.</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <strong>NOTE: </strong>Content-Type and Accept may not be required for all methods. <br>
+
+                <p> <pre>
                 E.g. username:password = merchant1:password
                         Base-64 encoded = bWVyY2hhbnQxOnBhc3N3b3Jk</pre>
                 <strong>NOTE:</strong> Sandbox does not validate the credential. It is recommended to use dummy values for credential to be prepared for live environment.
@@ -180,11 +207,75 @@ content-description: ""
                     </tbody>
                 </table>
 
-                <h3>Examples</h3>
-                <!--PUT request example below-->
+                <h3 id="responses">PayFac Responses</h3>
+                <p>
+                    Use the <code>last three characters</code> in the <code>legalEntityId</code> to generate the responses listed
+                    below.
+                </p>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <td>Type</td>
+                        <td>Description</td>
+                    </tr>
+                    </thead>
+                    <tbody style="font-family: monospace;">
+                    <tr>
+                        <td>Agreement Responses</td>
+                        <td>
+                            <span style="color: blue;">000</span> - No Agreements <br />
+                            <span style="color: blue;">001</span> - One Agreement <br />
+                            <span style="color: blue;">002</span> - Two Agreements<br />
+                            <span style="color: blue;">003</span> - Three Agreements<br />
+                            <span style="color: blue;">004</span> - Four Agreements<br />
+                            <span style="color: blue;">005</span> - Five Agreements<br />
+                            <span style="color: blue;">006</span> - Six Agreements<br />
+                            <span style="color: blue;">007</span> - Seven Agreements<br />
+                            <span style="color: blue;">008</span> - Eight Agreements<br />
+                            <span style="color: blue;">009</span> - Nine Agreements<br />
+                            <span style="color: blue;">***</span> - Any other code (except HTTP errors) contains One Agreement <br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>HTTP Errors</td>
+                        <td>
+                            <span style="color: red; ">400</span> - Could not find requested object.<br />
+                            <span style="color: red; ">401</span> - You are not authorized to access this resource. Please check your credentials. <br />
+                            <span style="color: red; ">500</span> - Internal Error. This error has already been escalated to Vantiv for resolution. Please contact support with questions.<br />
+                            <span style="color: red; ">503</span> - Service was unavailable.<br />
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <p></p>
+
+                <h3 id="examples">Examples</h3>
+
+                <h5>Example 1: Agreement Codes</h5>
+
+                <p>
+                    To test the Agreement information above send a HTTP GET request to the URL mentioned below.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/4abdf623ece211885aa0975c2dd3c9f5.js"></script>
+
+                <p>
+                    This request has a <code>legalEntityId</code> of 201003. Therefore, the response should have three
+                    <code>legalEntityAgreement</code>s as aforementioned.
+                </p>
+
+                <p>
+                    The <code>legalEntityAgreementRetrievalResponse</code> should look similar to this.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/32a455c841c1fd0ad667bbaf5acb06f1.js"></script>
+
+                <h5>Example 2: Basic PUT Request</h5>
+
                 <p>
                     A <code>legalEntityCreateRequest</code> can be sent to the sandbox to receive a <code>legalEntityResponse</code>
-                    that contains a random legalIdentityId of max Length 19 characters.
+                    that contains a random <code>legalIdentityId</code> of max Length 19 characters.
                 </p>
 
                 <p>
@@ -200,12 +291,10 @@ content-description: ""
                 <script src="https://gist.github.com/VantivSDK/24f0a4782ff09e21eba370d28bf17273.js"></script>
 
                 <p>
-                    The Sandbox will respond with a <code>legalEntityResponse</code> that is similar to the one below.
+                    The Sandbox will respond with a <code>legalEntityResponse</code> similar to the one below.
                 </p>
 
                 <script src="https://gist.github.com/VantivSDK/af57800d63c4b8bf3d9c964d02764165.js"></script>
-                <!-- Add a second example. Probably a POST-->
-
             </div>
         </div>
     </div>
