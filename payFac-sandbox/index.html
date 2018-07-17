@@ -81,7 +81,7 @@ content-description: ""
             <div class="col-md-9">
                 <h3 id="gettingStarted">Getting Started</h3>
                 <p>
-                    The URL to send all of your PayFac requests to the sandbox is the following:
+                    The URL to send all of your PayFac requests to the Sandbox is the following:
                 </p>
                 <div class="panel panel-success">
                     <div class="panel-heading text-center">Sandbox URL</div>
@@ -90,6 +90,8 @@ content-description: ""
                     </div>
                 </div>
                 <p><strong>NOTE:</strong> Requests made to the Sandbox environment require the connection be TLS 1.2</p>
+
+                <h3>Header Information</h3>
 
                 <table class="table">
                     <thead>
@@ -121,25 +123,28 @@ content-description: ""
                 <strong>NOTE: </strong>Content-Type and Accept may not be required for all methods. <br>
 
                 <p> <pre>
-                E.g. username:password = merchant1:password
-                        Base-64 encoded = bWVyY2hhbnQxOnBhc3N3b3Jk</pre>
-                <strong>NOTE:</strong> Sandbox does not validate the credential. It is recommended to use dummy values for credential to be prepared for live environment.
+                        E.g. username:password = merchant1:password
+                        Base-64 encoded = bWVyY2hhbnQxOnBhc3N3b3Jk
+                    </pre>
+                    <strong>NOTE:</strong> Sandbox does not validate the credential. It is recommended to use dummy values
+                    for credential to be prepared for live environment.
                 </p>
 
                 <p>
-                    Send a simple GET request to sandbox using your HTTP tool.
+                    Send a simple GET request to Sandbox using your HTTP tool.
                     The following would be the <a href="http://en.wikipedia.org/wiki/CURL">curl</a> command to submit
                     the GET request:
                 </p>
                 <script src="https://gist.github.com/VantivSDK/1c4f0488eb44874e24cf72a2064b0206.js"></script>
                 <p>
-                    Please check that you don't have a proxy setup. If you do have a proxy setup, the command to submit
-                    the previous XML with Proxy:
+                    Please check that you don't have a proxy setup. If you do have a proxy setup, here is the command to
+                    submit the previous XML with a Proxy.
                 </p>
                 <script src="https://gist.github.com/VantivSDK/b0d4d65f852cbeb455c6e163b60d8ffd.js"></script>
 
                 <h3 id="payfac">PayFac API Sandbox</h3>
-                <p>The following HTTP request methods of the Merchant Provisioner PayFac API are supported in sandbox.</p>
+                <p>The following HTTP request methods of the Merchant Provisioner PayFac API are supported in Sandbox.</p>
+                <p><strong>NOTE: </strong>To see examples for each of the methods, click on the method name.</p>
                 <table class="table">
                     <thead>
                     <tr>
@@ -215,8 +220,8 @@ content-description: ""
                 <table class="table">
                     <thead>
                     <tr>
-                        <td>Type</td>
-                        <td>Description</td>
+                        <th>Type</th>
+                        <th>Description</th>
                     </tr>
                     </thead>
                     <tbody style="font-family: monospace;">
@@ -257,7 +262,7 @@ content-description: ""
                 <ol>
                     <li>
                         If <code>Merchant Name</code> is set to <code>duplicate all matching</code> in the Request, Sandbox will return a Create Submerchant Response
-                        with <code>submerchantId</code> and <code>merhcantIdentString</code> only.
+                        with <code>submerchantId</code> and <code>merchantIdentString</code> only.
                     </li>
                     <li>
                         If <code>Merchant Name</code> is set to <code>duplicate not matching</code> in the Request, Sandbox will return a Create Submerchant Response
@@ -266,12 +271,9 @@ content-description: ""
                 </ol>
 
 
-                <p></p>
-
                 <h3 id="examples">PayFac HTTP Examples</h3>
 
-
-                <h5>GET Examples</h5>
+                <h4>GET Examples</h4>
 
                 <p id="ex-mccGET">
                     To test the <code>/mcc</code> HTTP method send a GET request to the URL mentioned below.
@@ -327,14 +329,14 @@ content-description: ""
 
                 <script src="https://gist.github.com/VantivSDK/9563ad60cff3b62bb27b87164630311e.js"></script>
 
-                <h5>PUT Examples</h5>
+                <h4>PUT Examples</h4>
 
                 <p><strong>NOTE: </strong>For each following HTTTP request (PUT, POST, and DELETE) send a request that is similar to the one below.</p>
 
                 <script src="https://gist.github.com/VantivSDK/24f0a4782ff09e21eba370d28bf17273.js"></script>
 
                 <p id="ex-legalPUT">
-                    A <code>legalEntityCreateRequest</code> can be sent to the sandbox to receive a <code>legalEntityResponse</code>
+                    A <code>legalEntityCreateRequest</code> can be sent to the Sandbox to receive a <code>legalEntityResponse</code>
                     that contains a random <code>legalIdentityId</code> of max Length 19 characters.
                 </p>
 
@@ -363,7 +365,7 @@ content-description: ""
 
                 <script src="https://gist.github.com/VantivSDK/237fabd7325aa0d69e163441a838c235.js"></script>
 
-                <h5>POST Examples</h5>
+                <h4>POST Examples</h4>
 
                 <p id="ex-legalPOST">
                     To test the <code>/legalentity</code> HTTP method, send a POST request to the URL mentioned below.
@@ -414,7 +416,7 @@ content-description: ""
 
                 <script src="https://gist.github.com/VantivSDK/669ef7e0a01e0beb72a11e9d09bad0f0.js"></script>
 
-                <h5>DELETE Examples</h5>
+                <h4>DELETE Examples</h4>
 
                 <p id="ex-principalDELETE">
                     To test the <code>/legalentity/&lt;legalEntityId&gt;/principal/&lt;principalId&gt;</code> HTTP method, send a DELETE
