@@ -86,7 +86,7 @@ content-description: ""
                 <div class="panel panel-success">
                     <div class="panel-heading text-center">Sandbox URL</div>
                     <div class="panel-body text-center">
-                        https://www.testvantivcnp.com/payfac
+                        https://www.testvantivcnp.com/sandbox/payfac
                     </div>
                 </div>
                 <p><strong>NOTE:</strong> Requests made to the Sandbox environment require the connection be TLS 1.2</p>
@@ -150,57 +150,57 @@ content-description: ""
                     </thead>
                     <tbody style="font-family: monospace;">
                     <tr>
-                        <td>GET</td>
+                        <td><a style="text-decoration: none; color: black;" href="#ex-mccGET">GET</a></td>
                         <td><code>/mcc</code></td>
                         <td>Returns the list of merchant category codes that are currently approved for the Payment Service Provider.</td>
                     </tr>
                     <tr>
-                        <td>GET</td>
+                        <td><a style="text-decoration: none; color: black;" href="#ex-legalentityGET">GET</a></td>
                         <td><code>/legalentity/&lt;legalEntityId&gt;</code></td>
                         <td>Request for information and/or status of the designated Legal Entity.</td>
                     </tr>
                     <tr>
-                        <td>GET</td>
+                        <td><a style="text-decoration: none; color: black;" href="#ex-agreementGET">GET</a></td>
                         <td><code>/legalentity/&lt;legalEntityId&gt;/agreement</code></td>
                         <td>Request to retrieve all agreements associated with a specified Legal Entity.</td>
                     </tr>
                     <tr>
-                        <td>GET</td>
+                        <td><a style="text-decoration: none; color: black;" href="#ex-legalsubmerchantGET">GET</a></td>
                         <td><code>/legalentity/&lt;legalEntityId&gt;/submerchant/&lt;subMerchantId&gt;</code></td>
                         <td>Request to retrieve information about the designated Sub-merchant.</td>
                     </tr>
                     <tr>
-                        <td>PUT</td>
+                        <td><a style="text-decoration: none; color: black;" href="#ex-legalPUT">PUT</a></td>
                         <td><code>/legalentity/&lt;legalEntityId&gt;</code></td>
                         <td>Request to update data associated with the designated Legal Entity.</td>
                     </tr>
                     <tr>
-                        <td>PUT</td>
+                        <td><a style="text-decoration: none; color: black;" href="#ex-legalsubmerchantPUT">PUT</a></td>
                         <td><code>/legalentity/&lt;legalEntityId&gt;/submerchant/&lt;subMerchantId&gt;</code></td>
                         <td>Request to update data associated with the designated Sub-merchant.</td>
                     </tr>
                     <tr>
-                        <td>POST</td>
+                        <td><a style="text-decoration: none; color: black;" href="#ex-legalPOST">POST</a></td>
                         <td><code>/legalentity</code></td>
                         <td>Request to create a new Legal Entity.</td>
                     </tr>
                     <tr>
-                        <td>POST</td>
+                        <td><a style="text-decoration: none; color: black;" href="#ex-agreementPOST">POST</a></td>
                         <td><code>/legalentity/&lt;legalEntityId&gt;/agreement</code></td>
                         <td>Request to designate the version of the agreement along with information about the agreeing party.</td>
                     </tr>
                     <tr>
-                        <td>POST</td>
+                        <td><a style="text-decoration: none; color: black;" href="#ex-principalPOST">POST</a></td>
                         <td><code>/legalentity/&lt;legalEntityId&gt;/principal</code></td>
                         <td>Request to create a new Principal associated with a Legal Entity.</td>
                     </tr>
                     <tr>
-                        <td>POST</td>
+                        <td><a style="text-decoration: none; color: black;" href="#ex-duplicatePOST">POST</a></td>
                         <td><code>/legalentity/&lt;legalEntityId&gt;/submerchant</code></td>
                         <td>Request to create a Sub-merchant associated with the designated Legal Entity.</td>
                     </tr>
                     <tr>
-                        <td>DELETE</td>
+                        <td><a style="text-decoration: none; color: black;" href="#ex-principalDELETE">DELETE</a></td>
                         <td><code>/legalentity/&lt;legalEntityId&gt;/principal/&lt;principalId&gt;</code></td>
                         <td>Request to delete a Principal associated with a Legal Entity.</td>
                     </tr>
@@ -248,20 +248,63 @@ content-description: ""
                     </tbody>
                 </table>
 
-                <p></p>
-
-                <h3 id="examples">Examples</h3>
-
-                <h5>Example 1: Agreement Codes</h5>
+                <h3>Submerchant Duplicate Responses</h3>
 
                 <p>
+                    There are two types of requests that can be sent in the HTTP POST method with URL <code>/legalentity/&lt;legalEntityId&gt;/submerchant</code>.
+                </p>
+
+                <ol>
+                    <li>
+                        If <code>Merchant Name</code> is set to <code>duplicate all matching</code> in the Request, Sandbox will return a Create Submerchant Response
+                        with <code>submerchantId</code> and <code>merhcantIdentString</code> only.
+                    </li>
+                    <li>
+                        If <code>Merchant Name</code> is set to <code>duplicate not matching</code> in the Request, Sandbox will return a Create Submerchant Response
+                        with <code>originalSubmerchant</code> that has all information on submerchant.
+                    </li>
+                </ol>
+
+
+                <p></p>
+
+                <h3 id="examples">PayFac HTTP Examples</h3>
+
+
+                <h5>GET Examples</h5>
+
+                <p id="ex-mccGET">
+                    To test the <code>/mcc</code> HTTP method send a GET request to the URL mentioned below.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/7b125074fc6358bd346b4ffcf67166cf.js"></script>
+
+                <p>
+                    The <code>approvedMccResponse</code> should look similar to below.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/506d01a6b86c2ad29ef3245924d52d6c.js"></script>
+
+                <p id="ex-legalentityGET">
+                    To test the <code>/legalentity/&lt;legalEntityId&gt;</code> HTTP method, send a GET request to the URL mentioned below.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/f5635d6e264abe0b3d5f67534fbc3e8f.js"></script>
+
+                <p>
+                    The <code>legalEntityRetrievalResponse</code> should look similar to below.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/7fb7f1d546f0823a82f0e98acf9393bf.js"></script>
+
+                <p id="ex-agreementGET">
                     To test the Agreement information above send a HTTP GET request to the URL mentioned below.
                 </p>
 
                 <script src="https://gist.github.com/VantivSDK/4abdf623ece211885aa0975c2dd3c9f5.js"></script>
 
                 <p>
-                    This request has a <code>legalEntityId</code> of 201003. Therefore, the response should have three
+                    This request has a <code>legalEntityId</code> of <code>201003</code>. Therefore, the response should have three
                     <code>legalEntityAgreement</code> as aforementioned.
                 </p>
 
@@ -271,9 +314,26 @@ content-description: ""
 
                 <script src="https://gist.github.com/VantivSDK/32a455c841c1fd0ad667bbaf5acb06f1.js"></script>
 
-                <h5>Example 2: Basic PUT Request</h5>
+                <p id="ex-legalsubmerchantGET">
+                    To test the <code>/legalentity/&lt;legalEntityId&gt;/submerchant/&lt;subMerchantId&gt;</code> HTTP method, send a GET request
+                    to the URL mentioned below
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/77a14a12abd3e8a208b0bcffed45039a.js"></script>
 
                 <p>
+                    The <code>subMerchantRetrievalResponse</code> should look similar  to below.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/9563ad60cff3b62bb27b87164630311e.js"></script>
+
+                <h5>PUT Examples</h5>
+
+                <p><strong>NOTE: </strong>For each following HTTTP request (PUT, POST, and DELETE) send a request that is similar to the one below.</p>
+
+                <script src="https://gist.github.com/VantivSDK/24f0a4782ff09e21eba370d28bf17273.js"></script>
+
+                <p id="ex-legalPUT">
                     A <code>legalEntityCreateRequest</code> can be sent to the sandbox to receive a <code>legalEntityResponse</code>
                     that contains a random <code>legalIdentityId</code> of max Length 19 characters.
                 </p>
@@ -285,16 +345,91 @@ content-description: ""
                 <script src="https://gist.github.com/VantivSDK/f5635d6e264abe0b3d5f67534fbc3e8f.js"></script>
 
                 <p>
-                    In addition to the above URL, send the below request in a HTTP PUT request.
-                </p>
-
-                <script src="https://gist.github.com/VantivSDK/24f0a4782ff09e21eba370d28bf17273.js"></script>
-
-                <p>
                     The Sandbox will respond with a <code>legalEntityResponse</code> similar to the one below.
                 </p>
 
                 <script src="https://gist.github.com/VantivSDK/af57800d63c4b8bf3d9c964d02764165.js"></script>
+
+                <p id="ex-legalsubmerchantPUT">
+                    To test the <code>/legalentity/&lt;legalEntityId&gt;/submerchant/&lt;subMerchantId&gt;</code> HTTP method, send a PUT request
+                    to the URL mentioned below.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/77a14a12abd3e8a208b0bcffed45039a.js"></script>
+
+                <p>
+                    The <code>response</code> should similar to below.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/237fabd7325aa0d69e163441a838c235.js"></script>
+
+                <h5>POST Examples</h5>
+
+                <p id="ex-legalPOST">
+                    To test the <code>/legalentity</code> HTTP method, send a POST request to the URL mentioned below.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/24e82110533a352a472f967fec680559.js"></script>
+
+                <p>
+                    The <code>legalEntityCreateResponse</code> should look similar to below.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/1eb3ceb948365ebe08e411d9873bc937.js"></script>
+
+                <p id="ex-agreementPOST">
+                    To test the <code>/legalentity/&lt;legalEntityId&gt;/agreement</code> HTTP method, send a POST request to the URL
+                    mentioned below.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/4abdf623ece211885aa0975c2dd3c9f5.js"></script>
+
+                <p>
+                    The <code>legalEntityAgreementCreateResponse</code> should look similar to below.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/04ea89a3be617b9b74cbd69109debdc9.js"></script>
+
+                <p id="ex-principalPOST">
+                    To test the <code>/legalentity/&lt;legalEntityId&gt;/principal</code> HTTP method, send a POST request to the URL mentioned below.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/3f0a588cf53cdceb177efb42f32e070b.js"></script>
+
+                <p>
+                    The <code>principalCreateResponse</code> should look similar to below.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/67767cfdea3234de409d2b1001c7df50.js"></script>
+
+                <p id="ex-duplicatePOST">
+                    The Sandbox will send the response below if <code>Merchant Name</code> is set to <code>duplicate all matching</code>.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/d519e71b512f0b41f719959d97dd3d41.js"></script>
+
+                <p>
+                    The Sandbox will send a response similar to below if <code>Merchant Name</code> is set to <code>duplicate not matching</code>.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/669ef7e0a01e0beb72a11e9d09bad0f0.js"></script>
+
+                <h5>DELETE Examples</h5>
+
+                <p id="ex-principalDELETE">
+                    To test the <code>/legalentity/&lt;legalEntityId&gt;/principal/&lt;principalId&gt;</code> HTTP method, send a DELETE
+                    request to the URL mentioned below.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/f4231625955f97a54914eae4c1f4a439.js"></script>
+
+                <p>
+                    The <code>principalDeleteResponse</code> should look similar to below.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/134ba7760bf9baaa8be484b2741ce3a2.js"></script>
+
+
             </div>
         </div>
     </div>
