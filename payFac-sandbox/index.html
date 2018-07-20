@@ -270,6 +270,17 @@ content-description: ""
                     </li>
                 </ol>
 
+                <h3>Agreement Duplicate Response</h3>
+
+                <p>
+                    In the <code>/legalentity/&lt;legalEntityId&gt;/agreement</code> POST method, if the create request sent is a
+                    duplicate, the response message will include a <code>duplicate="true"</code> attribute at the end.
+                </p>
+
+                <p>
+                    More specifically, if the last three digits of the legalEntityId are 000, the root element (in this case
+                    <code>legalEntityAgreementCreateResponse</code> will have the <code>duplicate="true"</code> attribute.
+                </p>
 
                 <h3 id="examples">PayFac HTTP Examples</h3>
 
@@ -391,6 +402,13 @@ content-description: ""
                 </p>
 
                 <script src="https://gist.github.com/VantivSDK/04ea89a3be617b9b74cbd69109debdc9.js"></script>
+
+                <p>
+                    To test the Agreement duplicate attribute, send a POST request to the URL above changing the original
+                    ID to 201000. The response should look similar to the one below.
+                </p>
+
+                <script src="https://gist.github.com/VantivSDK/6e8ed7047d3329dc9f9a3ecf214ed6c4.js"></script>
 
                 <p id="ex-principalPOST">
                     To test the <code>/legalentity/&lt;legalEntityId&gt;/principal</code> HTTP method, send a POST request to the URL mentioned below.
