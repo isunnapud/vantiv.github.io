@@ -216,11 +216,11 @@ content-description: ""
 
 
                 <p>
-                    Almost all HTTP methods have a response code and response Description in their responses. For the
+                    Almost all HTTP methods have a response Code and response Description attribute in their responses. For the
                     <code>/legalentity</code> POST and <code>/legalentity/&lt;legalEntityId&gt;</code> PUT methods, changing the
-                    last two digits of <code>taxId</code> in the request will result in a different response code. For every
-                    other method, changing the last two digits of the <code>legalEntityId</code> will result in a different
-                    response code.
+                    last two digits of <code>taxId</code> in the request will result in a different response code. However,
+                    for every other method, changing the last two digits of the <code>legalEntityId</code> will result in a different
+                    response code. A list of all the possible response Codes and their associated description is listed below.
                 </p>
                 <table class="table">
                     <thead>
@@ -363,7 +363,7 @@ content-description: ""
                             <span style="color: orange;">007</span> - Seven Agreements<br />
                             <span style="color: orange;">008</span> - Eight Agreements<br />
                             <span style="color: orange;">009</span> - Nine Agreements<br />
-                            <span style="color: orange;">***</span> - Any other code (except HTTP errors) contains One Agreement <br />
+                            <span style="color: orange;">* * *</span> - Any other code (except HTTP errors) contains One Agreement <br />
                         </td>
                     </tr>
                     </tbody>
@@ -520,13 +520,15 @@ content-description: ""
                 <script src="https://gist.github.com/VantivSDK/3baba947f9da657a284df7f1d0977394.js"></script>
 
                 <p>
-                    The Sandbox will send the response below if <code>Merchant Name</code> is set to <code>duplicate all matching</code>.
+                    Using the request above, the Sandbox will send the response below if <code>Merchant Name</code>
+                    is set to <code>duplicate all matching</code>.
                 </p>
 
                 <script src="https://gist.github.com/VantivSDK/d519e71b512f0b41f719959d97dd3d41.js"></script>
 
                 <p>
-                    The Sandbox will send a response similar to below if <code>Merchant Name</code> is set to <code>duplicate not matching</code>.
+                    Similarly, the Sandbox will send a response similar to below if <code>Merchant Name</code> is
+                    set to <code>duplicate not matching</code>.
                 </p>
 
                 <script src="https://gist.github.com/VantivSDK/669ef7e0a01e0beb72a11e9d09bad0f0.js"></script>
@@ -545,8 +547,6 @@ content-description: ""
                 </p>
 
                 <script src="https://gist.github.com/VantivSDK/134ba7760bf9baaa8be484b2741ce3a2.js"></script>
-
-
             </div>
         </div>
     </div>
