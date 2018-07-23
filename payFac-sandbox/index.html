@@ -155,57 +155,57 @@ content-description: ""
                     </thead>
                     <tbody style="font-family: monospace;">
                     <tr>
-                        <td><a style="color: black;" href="#ex-agreementPOST">POST</a></td>
+                        <td><a style="color: blue;" href="#ex-agreementPOST"><u>POST</u></a></td>
                         <td><code>/legalentity/&lt;legalEntityId&gt;/agreement</code></td>
                         <td>Request to designate the version of the agreement along with information about the agreeing party.</td>
                     </tr>
                     <tr>
-                        <td><a style="color: black;" href="#ex-agreementGET">GET</a></td>
+                        <td><a style="color: blue;" href="#ex-agreementGET"><u>GET</u></a></td>
                         <td><code>/legalentity/&lt;legalEntityId&gt;/agreement</code></td>
                         <td>Request to retrieve all agreements associated with a specified Legal Entity.</td>
                     </tr>
                     <tr>
-                        <td><a style="color: black;" href="#ex-legalPOST">POST</a></td>
+                        <td><a style="color: blue;" href="#ex-legalPOST"><u>POST</u></a></td>
                         <td><code>/legalentity</code></td>
                         <td>Request to create a new Legal Entity.</td>
                     </tr>
                     <tr>
-                        <td><a style="color: black;" href="#ex-legalPUT">PUT</a></td>
+                        <td><a style="color: blue;" href="#ex-legalPUT"><u>PUT</u></a></td>
                         <td><code>/legalentity/&lt;legalEntityId&gt;</code></td>
                         <td>Request to update data associated with the designated Legal Entity.</td>
                     </tr>
                     <tr>
-                        <td><a style="color: black;" href="#ex-legalentityGET">GET</a></td>
+                        <td><a style="color: blue;" href="#ex-legalentityGET"><u>GET</u></a></td>
                         <td><code>/legalentity/&lt;legalEntityId&gt;</code></td>
                         <td>Request for information and/or status of the designated Legal Entity.</td>
                     </tr>
                     <tr>
-                        <td><a style="color: black;" href="#ex-principalPOST">POST</a></td>
+                        <td><a style="color: blue;" href="#ex-principalPOST"><u>POST</u></a></td>
                         <td><code>/legalentity/&lt;legalEntityId&gt;/principal</code></td>
                         <td>Request to create a new Principal associated with a Legal Entity.</td>
                     </tr>
                     <tr>
-                        <td><a style="color: black;" href="#ex-principalDELETE">DELETE</a></td>
+                        <td><a style="color: blue;" href="#ex-principalDELETE"><u>DELETE</u></a></td>
                         <td><code>/legalentity/&lt;legalEntityId&gt;/principal/&lt;principalId&gt;</code></td>
                         <td>Request to delete a Principal associated with a Legal Entity.</td>
                     </tr>
                     <tr>
-                        <td><a style="color: black;" href="#ex-duplicatePOST">POST</a></td>
+                        <td><a style="color: blue;" href="#ex-duplicatePOST"><u>POST</u></a></td>
                         <td><code>/legalentity/&lt;legalEntityId&gt;/submerchant</code></td>
                         <td>Request to create a Sub-merchant associated with the designated Legal Entity.</td>
                     </tr>
                     <tr>
-                        <td><a style="color: black;" href="#ex-legalsubmerchantPUT">PUT</a></td>
+                        <td><a style="color: blue;" href="#ex-legalsubmerchantPUT"><u>PUT</u></a></td>
                         <td><code>/legalentity/&lt;legalEntityId&gt;/submerchant/&lt;subMerchantId&gt;</code></td>
                         <td>Request to update data associated with the designated Sub-merchant.</td>
                     </tr>
                     <tr>
-                        <td><a style="color: black;" href="#ex-legalsubmerchantGET">GET</a></td>
+                        <td><a style="color: blue;" href="#ex-legalsubmerchantGET"><u>GET</u></a></td>
                         <td><code>/legalentity/&lt;legalEntityId&gt;/submerchant/&lt;subMerchantId&gt;</code></td>
                         <td>Request to retrieve information about the designated Sub-merchant.</td>
                     </tr>
                     <tr>
-                        <td><a style="color: black;" href="#ex-mccGET">GET</a></td>
+                        <td><a style="color: blue;" href="#ex-mccGET"><u>GET</u></a></td>
                         <td><code>/mcc</code></td>
                         <td>Returns the list of merchant category codes that are currently approved for the Payment Service Provider.</td>
                     </tr>
@@ -215,6 +215,13 @@ content-description: ""
                 <h3 id="responses">PayFac Responses</h3>
 
 
+                <p>
+                    Almost all HTTP methods have a response code and response Description in their responses. For the
+                    <code>/legalentity</code> POST and <code>/legalentity/&lt;legalEntityId&gt;</code> PUT methods, changing the
+                    last two digits of <code>taxId</code> in the request will result in a different response code. For every
+                    other method, changing the last two digits of the <code>legalEntityId</code> will result in a different
+                    response code.
+                </p>
                 <table class="table">
                     <thead>
                     <tr>
@@ -234,6 +241,7 @@ content-description: ""
                             <span style="color: green;">40</span> - Declined <br />
                             <span style="color: green;">98</span> - Manual Review (End Point Down) <br />
                             <span style="color: green;">99</span> - Manual Review (Background Check Error) <br />
+                            <span style="color: green;">**</span> - Anything else results in code 10 and description Approved
                         </td>
                     </tr>
                     </tbody>
@@ -263,7 +271,7 @@ content-description: ""
                     </tbody>
                 </table>
 
-                <h3><a href="#ex-duplicatePOST" style="color: black;">Submerchant Duplicate Responses</a></h3>
+                <h3><a href="#ex-duplicatePOST" style="color: blue;"><u>Submerchant Duplicate Responses</u></a></h3>
 
                 <p>
                     There are two types of requests that can be sent in the HTTP POST method with URL <code>/legalentity/&lt;legalEntityId&gt;/submerchant</code>.
@@ -280,7 +288,7 @@ content-description: ""
                     </li>
                 </ol>
 
-                <h3><a href="#ex-agreementPOST" style="color: black;">Agreement Duplicate Response</a></h3>
+                <h3><a href="#ex-agreementPOST" style="color: blue;"><u>Agreement Duplicate Response</u></a></h3>
 
                 <p>
                     In the <code>/legalentity/&lt;legalEntityId&gt;/agreement</code> POST method, if the create request sent is a
@@ -292,7 +300,7 @@ content-description: ""
                     <code>legalEntityAgreementCreateResponse</code>) will have the <code>duplicate="true"</code> attribute.
                 </p>
 
-                <h3><a href="#ex-principalDELETE" style="color: black;">PrincipalId Value</a></h3>
+                <h3><a href="#ex-principalDELETE" style="color: blue;"><u>PrincipalId Value</u></a></h3>
                 <p>
                     The purpose of the DELETE method is to delete the principal Id that is associated with the passed in
                     legalEntityId. However, be sure that when testing the value that is passed for the PrincipalId is between
@@ -345,17 +353,17 @@ content-description: ""
                     <tr>
                         <td>Agreement Responses</td>
                         <td>
-                            <span style="color: blue;">000</span> - No Agreements <br />
-                            <span style="color: blue;">001</span> - One Agreement <br />
-                            <span style="color: blue;">002</span> - Two Agreements<br />
-                            <span style="color: blue;">003</span> - Three Agreements<br />
-                            <span style="color: blue;">004</span> - Four Agreements<br />
-                            <span style="color: blue;">005</span> - Five Agreements<br />
-                            <span style="color: blue;">006</span> - Six Agreements<br />
-                            <span style="color: blue;">007</span> - Seven Agreements<br />
-                            <span style="color: blue;">008</span> - Eight Agreements<br />
-                            <span style="color: blue;">009</span> - Nine Agreements<br />
-                            <span style="color: blue;">***</span> - Any other code (except HTTP errors) contains One Agreement <br />
+                            <span style="color: orange;">000</span> - No Agreements <br />
+                            <span style="color: orange;">001</span> - One Agreement <br />
+                            <span style="color: orange;">002</span> - Two Agreements<br />
+                            <span style="color: orange;">003</span> - Three Agreements<br />
+                            <span style="color: orange;">004</span> - Four Agreements<br />
+                            <span style="color: orange;">005</span> - Five Agreements<br />
+                            <span style="color: orange;">006</span> - Six Agreements<br />
+                            <span style="color: orange;">007</span> - Seven Agreements<br />
+                            <span style="color: orange;">008</span> - Eight Agreements<br />
+                            <span style="color: orange;">009</span> - Nine Agreements<br />
+                            <span style="color: orange;">***</span> - Any other code (except HTTP errors) contains One Agreement <br />
                         </td>
                     </tr>
                     </tbody>
@@ -429,7 +437,7 @@ content-description: ""
                 </p>
 
                 <script src="https://gist.github.com/VantivSDK/6cada3f5982e654611145572c96d3e20.js"></script>
-                
+
                 <p>
                     The <code>response</code> should similar to below.
                 </p>
@@ -476,8 +484,8 @@ content-description: ""
                 <script src="https://gist.github.com/VantivSDK/04ea89a3be617b9b74cbd69109debdc9.js"></script>
 
                 <p>
-                    To test the Agreement duplicate attribute, send a <strong>POST</strong> request to the URL above changing the original
-                    ID to 201000. The response should look similar to the one below.
+                    To test the Agreement duplicate attribute, send a <strong>POST</strong> request to the URL above changing the last
+                    three digits of the legalEntityId to 000. The response should look similar to the one below.
                 </p>
 
                 <script src="https://gist.github.com/VantivSDK/6e8ed7047d3329dc9f9a3ecf214ed6c4.js"></script>
@@ -503,6 +511,13 @@ content-description: ""
 
                 <h4 id="ex-duplicatePOST">Submerchant Duplicate POST Example</h4>
 
+                <p>The URL for the submerchant request is below</p>
+
+                <script src="https://gist.github.com/VantivSDK/3c90641bff0cd05c269ef565b9daaae5.js"></script>
+
+                <p>Below is a basic request for the submerchant POST method.</p>
+
+                <script src="https://gist.github.com/VantivSDK/3baba947f9da657a284df7f1d0977394.js"></script>
 
                 <p>
                     The Sandbox will send the response below if <code>Merchant Name</code> is set to <code>duplicate all matching</code>.
