@@ -36,13 +36,13 @@ content-description: ""
 
                     request.onload = function() {
                         var date = new Date();
-                        var status = 'Sandbox is up (Last checked :' + date.toLocaleString() + ')';
+                        var status = 'Sandbox is up (Last checked:' + date.toLocaleString() + ')';
                         document.getElementById("status").innerHTML = "<span style='color: green; size: 30px;' title='"+status+"' class='glyphicon glyphicon-ok-circle'></span>";
                     };
 
                     request.onerror = function() {
                         var date = new Date();
-                        var status = 'Sandbox is up (Last checked :' + date.toLocaleString() + ')';
+                        var status = 'Sandbox is up (Last checked:' + date.toLocaleString() + ')';
                         document.getElementById("status").innerHTML = "<span style='color: red; size: 30px;' title='"+status+"' class='glyphicon glyphicon-remove-circle'></span>";
 
                     };
@@ -279,7 +279,7 @@ content-description: ""
 
                 <p>
                     More specifically, if the last three digits of the legalEntityId are 000, the root element (in this case
-                    <code>legalEntityAgreementCreateResponse</code> will have the <code>duplicate="true"</code> attribute.
+                    <code>legalEntityAgreementCreateResponse</code>) will have the <code>duplicate="true"</code> attribute.
                 </p>
 
                 <h3 id="examples">PayFac HTTP Examples</h3>
@@ -287,7 +287,7 @@ content-description: ""
                 <h4>GET Examples</h4>
 
                 <p id="ex-mccGET">
-                    To test the <code>/mcc</code> HTTP method send a GET request to the URL mentioned below.
+                    To test the <code>/mcc</code> HTTP method send a <strong>GET</strong> request to the URL mentioned below.
                 </p>
 
                 <script src="https://gist.github.com/VantivSDK/7b125074fc6358bd346b4ffcf67166cf.js"></script>
@@ -299,7 +299,7 @@ content-description: ""
                 <script src="https://gist.github.com/VantivSDK/506d01a6b86c2ad29ef3245924d52d6c.js"></script>
 
                 <p id="ex-legalentityGET">
-                    To test the <code>/legalentity/&lt;legalEntityId&gt;</code> HTTP method, send a GET request to the URL mentioned below.
+                    To test the <code>/legalentity/&lt;legalEntityId&gt;</code> HTTP method, send a <strong>GET</strong> request to the URL mentioned below.
                 </p>
 
                 <script src="https://gist.github.com/VantivSDK/f5635d6e264abe0b3d5f67534fbc3e8f.js"></script>
@@ -311,7 +311,7 @@ content-description: ""
                 <script src="https://gist.github.com/VantivSDK/7fb7f1d546f0823a82f0e98acf9393bf.js"></script>
 
                 <p id="ex-agreementGET">
-                    To test the Agreement information above send a HTTP GET request to the URL mentioned below.
+                    To test the Agreement information above send a HTTP <strong>GET</strong> request to the URL mentioned below.
                 </p>
 
                 <script src="https://gist.github.com/VantivSDK/4abdf623ece211885aa0975c2dd3c9f5.js"></script>
@@ -328,8 +328,8 @@ content-description: ""
                 <script src="https://gist.github.com/VantivSDK/32a455c841c1fd0ad667bbaf5acb06f1.js"></script>
 
                 <p id="ex-legalsubmerchantGET">
-                    To test the <code>/legalentity/&lt;legalEntityId&gt;/submerchant/&lt;subMerchantId&gt;</code> HTTP method, send a GET request
-                    to the URL mentioned below
+                    To test the <code>/legalentity/&lt;legalEntityId&gt;/submerchant/&lt;subMerchantId&gt;</code> HTTP method, send a <strong>GET</strong>
+                    request to the URL mentioned below.
                 </p>
 
                 <script src="https://gist.github.com/VantivSDK/77a14a12abd3e8a208b0bcffed45039a.js"></script>
@@ -342,7 +342,7 @@ content-description: ""
 
                 <h4>PUT Examples</h4>
 
-                <p><strong>NOTE: </strong>For each following HTTTP request (PUT, POST, and DELETE) send a request that is similar to the one below.</p>
+                <p><strong>NOTE: </strong>For each following HTTP request (PUT, POST, and DELETE) send a request that is similar to the one below.</p>
 
                 <script src="https://gist.github.com/VantivSDK/24f0a4782ff09e21eba370d28bf17273.js"></script>
 
@@ -364,7 +364,7 @@ content-description: ""
                 <script src="https://gist.github.com/VantivSDK/af57800d63c4b8bf3d9c964d02764165.js"></script>
 
                 <p id="ex-legalsubmerchantPUT">
-                    To test the <code>/legalentity/&lt;legalEntityId&gt;/submerchant/&lt;subMerchantId&gt;</code> HTTP method, send a PUT request
+                    To test the <code>/legalentity/&lt;legalEntityId&gt;/submerchant/&lt;subMerchantId&gt;</code> HTTP method, send a <strong>PUT</strong> request
                     to the URL mentioned below.
                 </p>
 
@@ -379,7 +379,7 @@ content-description: ""
                 <h4>POST Examples</h4>
 
                 <p id="ex-legalPOST">
-                    To test the <code>/legalentity</code> HTTP method, send a POST request to the URL mentioned below.
+                    To test the <code>/legalentity</code> HTTP method, send a <strong>POST</strong> request to the URL mentioned below.
                 </p>
 
                 <script src="https://gist.github.com/VantivSDK/24e82110533a352a472f967fec680559.js"></script>
@@ -391,7 +391,7 @@ content-description: ""
                 <script src="https://gist.github.com/VantivSDK/1eb3ceb948365ebe08e411d9873bc937.js"></script>
 
                 <p id="ex-agreementPOST">
-                    To test the <code>/legalentity/&lt;legalEntityId&gt;/agreement</code> HTTP method, send a POST request to the URL
+                    To test the <code>/legalentity/&lt;legalEntityId&gt;/agreement</code> HTTP method, send a <strong>POST</strong> request to the URL
                     mentioned below.
                 </p>
 
@@ -404,14 +404,14 @@ content-description: ""
                 <script src="https://gist.github.com/VantivSDK/04ea89a3be617b9b74cbd69109debdc9.js"></script>
 
                 <p>
-                    To test the Agreement duplicate attribute, send a POST request to the URL above changing the original
+                    To test the Agreement duplicate attribute, send a <strong>POST</strong> request to the URL above changing the original
                     ID to 201000. The response should look similar to the one below.
                 </p>
 
                 <script src="https://gist.github.com/VantivSDK/6e8ed7047d3329dc9f9a3ecf214ed6c4.js"></script>
 
                 <p id="ex-principalPOST">
-                    To test the <code>/legalentity/&lt;legalEntityId&gt;/principal</code> HTTP method, send a POST request to the URL mentioned below.
+                    To test the <code>/legalentity/&lt;legalEntityId&gt;/principal</code> HTTP method, send a <strong>POST</strong> request to the URL mentioned below.
                 </p>
 
                 <script src="https://gist.github.com/VantivSDK/3f0a588cf53cdceb177efb42f32e070b.js"></script>
@@ -437,7 +437,7 @@ content-description: ""
                 <h4>DELETE Examples</h4>
 
                 <p id="ex-principalDELETE">
-                    To test the <code>/legalentity/&lt;legalEntityId&gt;/principal/&lt;principalId&gt;</code> HTTP method, send a DELETE
+                    To test the <code>/legalentity/&lt;legalEntityId&gt;/principal/&lt;principalId&gt;</code> HTTP method, send a <strong>DELETE</strong>
                     request to the URL mentioned below.
                 </p>
 

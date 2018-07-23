@@ -36,13 +36,13 @@ content-description: ""
 
                     request.onload = function() {
                         var date = new Date();
-                        var status = 'Sandbox is up (Last checked :' + date.toLocaleString() + ')';
+                        var status = 'Sandbox is up (Last checked:' + date.toLocaleString() + ')';
                         document.getElementById("status").innerHTML = "<span style='color: green; size: 30px;' title='"+status+"' class='glyphicon glyphicon-ok-circle'></span>";
                     };
 
                     request.onerror = function() {
                         var date = new Date();
-                        var status = 'Sandbox is up (Last checked :' + date.toLocaleString() + ')';
+                        var status = 'Sandbox is up (Last checked:' + date.toLocaleString() + ')';
                         document.getElementById("status").innerHTML = "<span style='color: red; size: 30px;' title='"+status+"' class='glyphicon glyphicon-remove-circle'></span>";
 
                     };
