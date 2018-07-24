@@ -217,10 +217,10 @@ content-description: ""
 
                 <p>
                     Almost all HTTP methods have a response Code and response Description attribute in their responses. For the
-                    <code>/legalentity</code> POST and <code>/legalentity/&lt;legalEntityId&gt;</code> PUT methods, changing the
-                    last two digits of <code>taxId</code> in the request will result in a different response code. However,
-                    for every other method, changing the last two digits of the <code>legalEntityId</code> will result in a different
-                    response code. A list of all the possible response Codes and their associated description is listed below.
+                    <code>/legalentity</code> POST, changing the last two digits of <code>taxId</code> in the request will
+                    result in a different response code. However, for every other method, changing the last two digits of
+                    the <code>legalEntityId</code> will result in a different response code. A list of all the possible
+                    response Codes and their associated description is listed below.
                 </p>
                 <table class="table">
                     <thead>
@@ -271,7 +271,7 @@ content-description: ""
                     </tbody>
                 </table>
 
-                <h3><a href="#ex-duplicatePOST" style="color: blue;"><u>Submerchant Duplicate Responses</u></a></h3>
+                <h3><a href="#ex-duplicatePOST" style="color: blue;"><u>SubMerchant Duplicate Responses</u></a></h3>
 
                 <p>
                     There are two types of requests that can be sent in the HTTP POST method with URL <code>/legalentity/&lt;legalEntityId&gt;/submerchant</code>.
@@ -279,12 +279,12 @@ content-description: ""
 
                 <ol>
                     <li>
-                        If <code>Merchant Name</code> is set to <code>duplicate all matching</code> in the Request, Sandbox will return a Create Submerchant Response
+                        If <code>Merchant Name</code> is set to <code>duplicate all matching</code> in the Request, Sandbox will return a Create SubMerchant Response
                         with <code>submerchantId</code> and <code>merchantIdentString</code> only.
                     </li>
                     <li>
-                        If <code>Merchant Name</code> is set to <code>duplicate not matching</code> in the Request, Sandbox will return a Create Submerchant Response
-                        with <code>originalSubmerchant</code> that has all information on submerchant.
+                        If <code>Merchant Name</code> is set to <code>duplicate not matching</code> in the Request, Sandbox will return a Create SubMerchant Response
+                        with <code>originalSubmerchant</code> that has all information on SubMerchant.
                     </li>
                 </ol>
 
@@ -385,7 +385,7 @@ content-description: ""
 
                 <script src="https://gist.github.com/VantivSDK/32a455c841c1fd0ad667bbaf5acb06f1.js"></script>
 
-                <h4 id="ex-legalsubmerchantGET">Submerchant GET Example</h4>
+                <h4 id="ex-legalsubmerchantGET">SubMerchant GET Example</h4>
                 <p>
                     To test the <code>/legalentity/&lt;legalEntityId&gt;/submerchant/&lt;subMerchantId&gt;</code> HTTP method, send a <strong>GET</strong>
                     request to the URL mentioned below.
@@ -401,7 +401,7 @@ content-description: ""
 
                 <h4 id="ex-legalPUT">LegalEntity PUT Example</h4>
                 <p>
-                    A <code>legalEntityCreateRequest</code> can be sent to the Sandbox to receive a <code>legalEntityResponse</code>
+                    A <code>legalEntityUpdateRequest</code> can be sent to the Sandbox to receive a <code>legalEntityResponse</code>
                     that contains a random <code>legalIdentityId</code> of max Length 19 characters.
                 </p>
 
@@ -412,7 +412,7 @@ content-description: ""
                 <script src="https://gist.github.com/VantivSDK/f5635d6e264abe0b3d5f67534fbc3e8f.js"></script>
 
                 <p>
-                    An example of a <code>legalEntityCreateRequest</code> is below.
+                    An example of a <code>legalEntityUpdateRequest</code> is below.
                 </p>
 
                 <script src="https://gist.github.com/VantivSDK/13251e59bdc39c86b3ad7b4bac4af2e3.js"></script>
@@ -424,7 +424,7 @@ content-description: ""
 
                 <script src="https://gist.github.com/VantivSDK/af57800d63c4b8bf3d9c964d02764165.js"></script>
 
-                <h4 id="ex-legalsubmerchantPUT">Submerchant PUT example</h4>
+                <h4 id="ex-legalsubmerchantPUT">SubMerchant PUT example</h4>
                 <p>
                     To test the <code>/legalentity/&lt;legalEntityId&gt;/submerchant/&lt;subMerchantId&gt;</code> HTTP method, send a <strong>PUT</strong> request
                     to the URL mentioned below.
@@ -509,13 +509,13 @@ content-description: ""
 
                 <script src="https://gist.github.com/VantivSDK/67767cfdea3234de409d2b1001c7df50.js"></script>
 
-                <h4 id="ex-duplicatePOST">Submerchant Duplicate POST Example</h4>
+                <h4 id="ex-duplicatePOST">SubMerchant Duplicate POST Example</h4>
 
-                <p>The URL for the submerchant request is below</p>
+                <p>The URL for the SubMerchant request is below</p>
 
                 <script src="https://gist.github.com/VantivSDK/3c90641bff0cd05c269ef565b9daaae5.js"></script>
 
-                <p>Below is a basic request for the submerchant POST method.</p>
+                <p>Below is a basic request for the SubMerchant POST method.</p>
 
                 <script src="https://gist.github.com/VantivSDK/3baba947f9da657a284df7f1d0977394.js"></script>
 
