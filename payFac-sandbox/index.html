@@ -74,6 +74,7 @@ content-description: ""
                         <li><a href="#payfac" data-toggle="tab">PayFac API</a></li>
                         <li><a href="#responses" data-toggle="tab">Response Codes</a></li>
                         <li><a href="#examples" data-toggle="tab">PayFac Examples</a></li>
+                        <li><a href="#postmansamples" data-toggle="tab">Postman Samples</a></li>
                     </ul>
                     <a href="#top">Back to the top</a>
                 </div>
@@ -103,8 +104,8 @@ content-description: ""
                     </thead>
                     <tbody>
                     <tr>
-                        <td>Authorization Header</td>
-                        <td><code>username:password</code></td>
+                        <td>Authorization</td>
+                        <td><code>Basic username:password</code></td>
                         <td>Contains Base-64 encoded credentials in this format.</td>
                     </tr>
                     <tr>
@@ -124,7 +125,7 @@ content-description: ""
 
                 <p> <pre>
                         E.g. username:password = merchant1:password
-                        Base-64 encoded = bWVyY2hhbnQxOnBhc3N3b3Jk
+                               Base-64 encoded = Basic bWVyY2hhbnQxOnBhc3N3b3Jk=
                     </pre>
                     <strong>NOTE:</strong> Sandbox does not validate the credential. It is recommended to use dummy values
                     for credential to be prepared for live environment.
@@ -547,6 +548,9 @@ content-description: ""
                 </p>
 
                 <script src="https://gist.github.com/VantivSDK/134ba7760bf9baaa8be484b2741ce3a2.js"></script>
+            
+            <h3 id="postmansamples">Postman Samples</h3>
+            <p><a href="https://www.getpostman.com/" target="_blank">Postman</a> samples for the above requests can be downloaded from <a href="PayFacSandbox.postman_collection.json">here.</a></p>
             </div>
         </div>
     </div>
