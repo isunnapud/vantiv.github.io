@@ -1,0 +1,457 @@
+{
+	"info": {
+		"_postman_id": "9357243b-ea83-4ffd-a576-3036b5b2a21e",
+		"name": "PayFacSandbox",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST Agreement",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic abc"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/com.vantivcnp.payfac-v13+xml"
+					},
+					{
+						"key": "Accept",
+						"value": "application/com.vantivcnp.payfac-v13+xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<legalEntityAgreementCreateRequest\r\n\txmlns=\"http://payfac.vantivcnp.com/api/merchant/onboard\">\r\n\t<legalEntityAgreement>\r\n\t\t<legalEntityAgreementType>MERCHANT_AGREEMENT</legalEntityAgreementType>\r\n\t\t<agreementVersion>agreementVersion1</agreementVersion>\r\n\t\t<userFullName>userFullName</userFullName>\r\n\t\t<userSystemName>systemUserName</userSystemName>\r\n\t\t<userIPAddress>196.198.100.100</userIPAddress>\r\n\t\t<manuallyEntered>false</manuallyEntered>\r\n\t\t<acceptanceDateTime>2017-02-11T12:00:00-06:00</acceptanceDateTime>\r\n\t</legalEntityAgreement>\r\n</legalEntityAgreementCreateRequest>"
+				},
+				"url": {
+					"raw": "https://www.testvantivcnp.com/sandbox/payfac/legalentity/20100003/agreement",
+					"protocol": "https",
+					"host": [
+						"www",
+						"testvantivcnp",
+						"com"
+					],
+					"path": [
+						"sandbox",
+						"payfac",
+						"legalentity",
+						"20100003",
+						"agreement"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Agreement",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic abc"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/com.vantivcnp.payfac-v13+xml"
+					},
+					{
+						"key": "Accept",
+						"value": "application/com.vantivcnp.payfac-v13+xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<legalEntityAgreementCreateRequest\r\n\txmlns=\"http://payfac.vantivcnp.com/api/merchant/onboard\">\r\n\t<legalEntityAgreement>\r\n\t\t<legalEntityAgreementType>MERCHANT_AGREEMENT</legalEntityAgreementType>\r\n\t\t<agreementVersion>agreementVersion1</agreementVersion>\r\n\t\t<userFullName>userFullName</userFullName>\r\n\t\t<userSystemName>systemUserName</userSystemName>\r\n\t\t<userIPAddress>196.198.100.100</userIPAddress>\r\n\t\t<manuallyEntered>false</manuallyEntered>\r\n\t\t<acceptanceDateTime>2017-02-11T12:00:00-06:00</acceptanceDateTime>\r\n\t</legalEntityAgreement>\r\n</legalEntityAgreementCreateRequest>"
+				},
+				"url": {
+					"raw": "https://www.testvantivcnp.com/sandbox/payfac/legalentity/201000/agreement",
+					"protocol": "https",
+					"host": [
+						"www",
+						"testvantivcnp",
+						"com"
+					],
+					"path": [
+						"sandbox",
+						"payfac",
+						"legalentity",
+						"201000",
+						"agreement"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST LegalEntity",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic abc"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/com.vantivcnp.payfac-v13+xml"
+					},
+					{
+						"key": "Accept",
+						"value": "application/com.vantivcnp.payfac-v13+xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<legalEntityCreateRequest xmlns=\"http://payfac.vantivcnp.com/api/merchant/onboard\">\r\n<legalEntityName>Legal Entity Name</legalEntityName>\r\n<legalEntityType>CORPORATION</legalEntityType>\r\n<legalEntityOwnershipType>PUBLIC</legalEntityOwnershipType>\r\n<doingBusinessAs>Alternate Business Name</doingBusinessAs>\r\n<taxId>123456793</taxId>\r\n<contactPhone>7817659800</contactPhone>\r\n<annualCreditCardSalesVolume>80000000</annualCreditCardSalesVolume>\r\n<hasAcceptedCreditCards>true</hasAcceptedCreditCards>\r\n<address>\r\n\t<streetAddress1>Street Address 1</streetAddress1>\r\n\t<streetAddress2>Street Address 2</streetAddress2>\r\n\t<city>City</city>\r\n\t<stateProvince>MA</stateProvince>\r\n\t<postalCode>01730</postalCode>\r\n\t<countryCode>USA</countryCode>\r\n</address>\r\n<principal>\r\n\t\t<title>Chief Financial Officer</title>\r\n\t<firstName>p first</firstName>\r\n\t<lastName>p last</lastName>\r\n\t<emailAddress>emailAddress</emailAddress>\r\n\t<ssn>123459876</ssn>\r\n\t<contactPhone>7817659800</contactPhone>\r\n\t<dateOfBirth>1980-10-12</dateOfBirth>\r\n\t<driversLicense>892327409832</driversLicense>\r\n\t<driversLicenseState>MA</driversLicenseState>\r\n\t<address>\r\n\t\t<streetAddress1>p street address 1</streetAddress1>\r\n\t\t<streetAddress2>p street address 2</streetAddress2>\r\n\t\t<city>Boston</city>\r\n\t\t<stateProvince>MA</stateProvince>\r\n\t\t<postalCode>01890</postalCode>\r\n\t\t<countryCode>USA</countryCode>\r\n\t</address>\r\n\t<stakePercent>33</stakePercent>\r\n</principal>\r\n<yearsInBusiness>12</yearsInBusiness>\r\n</legalEntityCreateRequest>"
+				},
+				"url": {
+					"raw": "https://www.testvantivcnp.com/sandbox/payfac/legalentity",
+					"protocol": "https",
+					"host": [
+						"www",
+						"testvantivcnp",
+						"com"
+					],
+					"path": [
+						"sandbox",
+						"payfac",
+						"legalentity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT LegalEntity",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic abc"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/com.vantivcnp.payfac-v13+xml"
+					},
+					{
+						"key": "Accept",
+						"value": "application/com.vantivcnp.payfac-v13+xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<legalEntityUpdateRequest\r\n\txmlns=\"http://payfac.vantivcnp.com/api/merchant/onboard\">\r\n\t<address>\r\n\t\t<streetAddress1>LE Street Address 1</streetAddress1>\r\n\t\t<streetAddress2>LE Street Address 2</streetAddress2>\r\n\t\t<city>LE City</city>\r\n\t\t<stateProvince>MA</stateProvince>\r\n\t\t<postalCode>01730</postalCode>\r\n\t\t<countryCode>USA</countryCode>\r\n\t</address>\r\n\t<contactPhone>9785550101</contactPhone>\r\n\t<doingBusinessAs>Other Name Co.</doingBusinessAs>\r\n\t<annualCreditCardSalesVolume>10000000</annualCreditCardSalesVolume>\r\n\t<hasAcceptedCreditCards>true</hasAcceptedCreditCards>\r\n\t<principal>\r\n\t\t<principalId>9</principalId>\r\n\t\t<title>CEO</title>\r\n\t\t<emailAddress>jdoe@mail.net</emailAddress>\r\n\t\t<contactPhone>9785551234</contactPhone>\r\n\t\t<address>\r\n\t\t\t<streetAddress1>p street address 1</streetAddress1>\r\n\t\t\t<streetAddress2>p street address 2</streetAddress2>\r\n\t\t\t<city>Boston</city>\r\n\t\t\t<stateProvince>MA</stateProvince>\r\n\t\t\t<postalCode>01890</postalCode>\r\n\t\t\t<countryCode>USA</countryCode>\r\n\t\t</address>\r\n\t\t<backgroundCheckFields>\r\n\t\t\t<firstName>p first</firstName>\r\n\t\t\t<lastName>p last</lastName>\r\n\t\t\t<ssn>123459876</ssn>\r\n\t\t\t<dateOfBirth>1980-10-12</dateOfBirth>\r\n\t\t\t<driversLicense>892327409832</driversLicense>\r\n\t\t\t<driversLicenseState>MA</driversLicenseState>\r\n\t\t</backgroundCheckFields>\r\n\t</principal>\r\n\t<backgroundCheckFields>\r\n\t\t<legalEntityName>Company Name</legalEntityName>\r\n\t\t<legalEntityType>INDIVIDUAL_SOLE_PROPRIETORSHIP</legalEntityType>\r\n\t\t<taxId>123456789</taxId>\r\n\t</backgroundCheckFields>\r\n\t<legalEntityOwnershipType>PUBLIC</legalEntityOwnershipType>\r\n\t<yearsInBusiness>10</yearsInBusiness>\r\n</legalEntityUpdateRequest>"
+				},
+				"url": {
+					"raw": "https://www.testvantivcnp.com/sandbox/payfac/legalentity/100098",
+					"protocol": "https",
+					"host": [
+						"www",
+						"testvantivcnp",
+						"com"
+					],
+					"path": [
+						"sandbox",
+						"payfac",
+						"legalentity",
+						"100098"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET LegalEntity",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic abc"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/com.vantivcnp.payfac-v13+xml"
+					},
+					{
+						"key": "Accept",
+						"value": "application/com.vantivcnp.payfac-v13+xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<legalEntityUpdateRequest\r\n\txmlns=\"http://payfac.vantivcnp.com/api/merchant/onboard\">\r\n\t<address>\r\n\t\t<streetAddress1>LE Street Address 1</streetAddress1>\r\n\t\t<streetAddress2>LE Street Address 2</streetAddress2>\r\n\t\t<city>LE City</city>\r\n\t\t<stateProvince>MA</stateProvince>\r\n\t\t<postalCode>01730</postalCode>\r\n\t\t<countryCode>USA</countryCode>\r\n\t</address>\r\n\t<contactPhone>9785550101</contactPhone>\r\n\t<doingBusinessAs>Other Name Co.</doingBusinessAs>\r\n\t<annualCreditCardSalesVolume>10000000</annualCreditCardSalesVolume>\r\n\t<hasAcceptedCreditCards>true</hasAcceptedCreditCards>\r\n\t<principal>\r\n\t\t<principalId>9</principalId>\r\n\t\t<title>CEO</title>\r\n\t\t<emailAddress>jdoe@mail.net</emailAddress>\r\n\t\t<contactPhone>9785551234</contactPhone>\r\n\t\t<address>\r\n\t\t\t<streetAddress1>p street address 1</streetAddress1>\r\n\t\t\t<streetAddress2>p street address 2</streetAddress2>\r\n\t\t\t<city>Boston</city>\r\n\t\t\t<stateProvince>MA</stateProvince>\r\n\t\t\t<postalCode>01890</postalCode>\r\n\t\t\t<countryCode>USA</countryCode>\r\n\t\t</address>\r\n\t\t<backgroundCheckFields>\r\n\t\t\t<firstName>p first</firstName>\r\n\t\t\t<lastName>p last</lastName>\r\n\t\t\t<ssn>123459876</ssn>\r\n\t\t\t<dateOfBirth>1980-10-12</dateOfBirth>\r\n\t\t\t<driversLicense>892327409832</driversLicense>\r\n\t\t\t<driversLicenseState>MA</driversLicenseState>\r\n\t\t</backgroundCheckFields>\r\n\t</principal>\r\n\t<backgroundCheckFields>\r\n\t\t<legalEntityName>Company Name</legalEntityName>\r\n\t\t<legalEntityType>INDIVIDUAL_SOLE_PROPRIETORSHIP</legalEntityType>\r\n\t\t<taxId>123456789</taxId>\r\n\t</backgroundCheckFields>\r\n\t<legalEntityOwnershipType>PUBLIC</legalEntityOwnershipType>\r\n\t<yearsInBusiness>10</yearsInBusiness>\r\n</legalEntityUpdateRequest>"
+				},
+				"url": {
+					"raw": "https://www.testvantivcnp.com/sandbox/payfac/legalentity/1000005",
+					"protocol": "https",
+					"host": [
+						"www",
+						"testvantivcnp",
+						"com"
+					],
+					"path": [
+						"sandbox",
+						"payfac",
+						"legalentity",
+						"1000005"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Principal",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic abc"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/com.vantivcnp.payfac-v13+xml"
+					},
+					{
+						"key": "Accept",
+						"value": "application/com.vantivcnp.payfac-v13+xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<legalEntityPrincipalCreateRequest\r\n\txmlns=\"http://payfac.vantivcnp.com/api/merchant/onboard\">\r\n\t<principal>\r\n\t\t<title>Mr.</title>\r\n\t\t<firstName>First</firstName>\r\n\t\t<lastName>Last</lastName>\r\n\t\t<emailAddress>abc@gmail.com</emailAddress>\r\n\t\t<ssn>123450015</ssn>\r\n\t\t<dateOfBirth>1980-10-12</dateOfBirth>\r\n\t\t<address>\r\n\t\t\t<streetAddress1>p2 street address 1</streetAddress1>\r\n\t\t\t<streetAddress2>p2 street address 2</streetAddress2>\r\n\t\t\t<city>Boston2</city>\r\n\t\t\t<stateProvince>MA</stateProvince>\r\n\t\t\t<postalCode>01892</postalCode>\r\n\t\t\t<countryCode>USA</countryCode>\r\n\t\t</address>\r\n\t\t<stakePercent>31</stakePercent>\r\n\t</principal>\r\n</legalEntityPrincipalCreateRequest>"
+				},
+				"url": {
+					"raw": "https://www.testvantivcnp.com/sandbox/payfac/legalentity/2018/principal",
+					"protocol": "https",
+					"host": [
+						"www",
+						"testvantivcnp",
+						"com"
+					],
+					"path": [
+						"sandbox",
+						"payfac",
+						"legalentity",
+						"2018",
+						"principal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Principal",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic abc"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/com.vantivcnp.payfac-v13+xml"
+					},
+					{
+						"key": "Accept",
+						"value": "application/com.vantivcnp.payfac-v13+xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<legalEntityPrincipalCreateRequest\r\n\txmlns=\"http://payfac.vantivcnp.com/api/merchant/onboard\">\r\n\t<principal>\r\n\t\t<title>Mr.</title>\r\n\t\t<firstName>First</firstName>\r\n\t\t<lastName>Last</lastName>\r\n\t\t<emailAddress>abc@gmail.com</emailAddress>\r\n\t\t<ssn>123450015</ssn>\r\n\t\t<dateOfBirth>1980-10-12</dateOfBirth>\r\n\t\t<address>\r\n\t\t\t<streetAddress1>p2 street address 1</streetAddress1>\r\n\t\t\t<streetAddress2>p2 street address 2</streetAddress2>\r\n\t\t\t<city>Boston2</city>\r\n\t\t\t<stateProvince>MA</stateProvince>\r\n\t\t\t<postalCode>01892</postalCode>\r\n\t\t\t<countryCode>USA</countryCode>\r\n\t\t</address>\r\n\t\t<stakePercent>31</stakePercent>\r\n\t</principal>\r\n</legalEntityPrincipalCreateRequest>"
+				},
+				"url": {
+					"raw": "https://www.testvantivcnp.com/sandbox/payfac/legalentity/2018/principal/9",
+					"protocol": "https",
+					"host": [
+						"www",
+						"testvantivcnp",
+						"com"
+					],
+					"path": [
+						"sandbox",
+						"payfac",
+						"legalentity",
+						"2018",
+						"principal",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST SubMerchant",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic abc"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/com.vantivcnp.payfac-v13+xml"
+					},
+					{
+						"key": "Accept",
+						"value": "application/com.vantivcnp.payfac-v13+xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<subMerchantCreateRequest\r\n\txmlns=\"http://payfac.vantivcnp.com/api/merchant/onboard\">\r\n\t<merchantName>Merchant Name</merchantName>\r\n\t<amexMid>1234567890</amexMid>\r\n\t<discoverConveyedMid>123456789012345</discoverConveyedMid>\r\n\t<url>http://merchantUrl</url>\r\n\t<customerServiceNumber>8407809000</customerServiceNumber>\r\n\t<hardCodedBillingDescriptor>billing\r\nDescriptor</hardCodedBillingDescriptor>\r\n\t<maxTransactionAmount>8400</maxTransactionAmount>\r\n\t<purchaseCurrency>USD</purchaseCurrency>\r\n\t<merchantCategoryCode>5964</merchantCategoryCode>\r\n\t<bankRoutingNumber>840123124</bankRoutingNumber>\r\n\t<bankAccountNumber>84012312415</bankAccountNumber>\r\n\t<pspMerchantId>123456</pspMerchantId>\r\n\t<fraud enabled=\"true\"></fraud>\r\n\t<amexAcquired enabled=\"false\"></amexAcquired>\r\n\t<address>\r\n\t\t<streetAddress1>Street Address 1</streetAddress1>\r\n\t\t<streetAddress2>Street Address 2</streetAddress2>\r\n\t\t<city>City</city>\r\n\t\t<stateProvince>MA</stateProvince>\r\n\t\t<postalCode>01970</postalCode>\r\n\t\t<countryCode>USA</countryCode>\r\n\t</address>\r\n\t<primaryContact>\r\n\t\t<firstName>John</firstName>\r\n\t\t<lastName>Doe</lastName>\r\n\t\t<emailAddress>John.Doe@company.com</emailAddress>\r\n\t\t<phone>9785552222</phone>\r\n\t</primaryContact>\r\n\t<createCredentials>true</createCredentials>\r\n\t<eCheck enabled=\"true\">\r\n\t\t<eCheckCompanyName>Company Name</eCheckCompanyName>\r\n\t\t<eCheckBillingDescriptor>9785552222</eCheckBillingDescriptor>\r\n\t</eCheck>\r\n\t<subMerchantFunding enabled=\"false\"></subMerchantFunding>\r\n\t<settlementCurrency>USD</settlementCurrency>\r\n</subMerchantCreateRequest>"
+				},
+				"url": {
+					"raw": "https://www.testvantivcnp.com/sandbox/payfac/legalentity/2018/submerchant",
+					"protocol": "https",
+					"host": [
+						"www",
+						"testvantivcnp",
+						"com"
+					],
+					"path": [
+						"sandbox",
+						"payfac",
+						"legalentity",
+						"2018",
+						"submerchant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT SubMerchant",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic abc"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/com.vantivcnp.payfac-v13+xml"
+					},
+					{
+						"key": "Accept",
+						"value": "application/com.vantivcnp.payfac-v13+xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<subMerchantUpdateRequest\r\n\txmlns=\"http://payfac.vantivcnp.com/api/merchant/onboard\">\r\n\t<amexMid>1234567890</amexMid>\r\n\t<discoverConveyedMid>123456789012345</discoverConveyedMid>\r\n\t<url>http://merchantUrl</url>\r\n\t<customerServiceNumber>8407809000</customerServiceNumber>\r\n\t<hardCodedBillingDescriptor>Descriptor</hardCodedBillingDescriptor>\r\n\t<maxTransactionAmount>8400</maxTransactionAmount>\r\n\t<bankRoutingNumber>840123124</bankRoutingNumber>\r\n\t<bankAccountNumber>84012312415</bankAccountNumber>\r\n\t<pspMerchantId>785412365</pspMerchantId>\r\n\t<purchaseCurrency>USD</purchaseCurrency>\r\n\t<address>\r\n\t\t<streetAddress1>Street Address 1</streetAddress1>\r\n\t\t<streetAddress2>Street Address 2</streetAddress2>\r\n\t\t<city>City</city>\r\n\t\t<stateProvince>MA</stateProvince>\r\n\t\t<postalCode>01970</postalCode>\r\n\t</address>\r\n\t<primaryContact>\r\n\t\t<firstName>John</firstName>\r\n\t\t<lastName>Doe</lastName>\r\n\t\t<phone>9785552222</phone>\r\n\t</primaryContact>\r\n\t<fraud enabled=\"true\"></fraud>\r\n\t<amexAcquired enabled=\"true\"></amexAcquired>\r\n\t<eCheck enabled=\"true\">\r\n\t\t<eCheckBillingDescriptor>9785552222</eCheckBillingDescriptor>\r\n\t</eCheck>\r\n</subMerchantUpdateRequest>"
+				},
+				"url": {
+					"raw": "https://www.testvantivcnp.com/sandbox/payfac/legalentity/2018/submerchant/123456",
+					"protocol": "https",
+					"host": [
+						"www",
+						"testvantivcnp",
+						"com"
+					],
+					"path": [
+						"sandbox",
+						"payfac",
+						"legalentity",
+						"2018",
+						"submerchant",
+						"123456"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET SubMerchant",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic abc"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/com.vantivcnp.payfac-v13+xml"
+					},
+					{
+						"key": "Accept",
+						"value": "application/com.vantivcnp.payfac-v13+xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<subMerchantUpdateRequest\r\n\txmlns=\"http://payfac.vantivcnp.com/api/merchant/onboard\">\r\n\t<amexMid>1234567890</amexMid>\r\n\t<discoverConveyedMid>123456789012345</discoverConveyedMid>\r\n\t<url>http://merchantUrl</url>\r\n\t<customerServiceNumber>8407809000</customerServiceNumber>\r\n\t<hardCodedBillingDescriptor>Descriptor</hardCodedBillingDescriptor>\r\n\t<maxTransactionAmount>8400</maxTransactionAmount>\r\n\t<bankRoutingNumber>840123124</bankRoutingNumber>\r\n\t<bankAccountNumber>84012312415</bankAccountNumber>\r\n\t<pspMerchantId>785412365</pspMerchantId>\r\n\t<purchaseCurrency>USD</purchaseCurrency>\r\n\t<address>\r\n\t\t<streetAddress1>Street Address 1</streetAddress1>\r\n\t\t<streetAddress2>Street Address 2</streetAddress2>\r\n\t\t<city>City</city>\r\n\t\t<stateProvince>MA</stateProvince>\r\n\t\t<postalCode>01970</postalCode>\r\n\t</address>\r\n\t<primaryContact>\r\n\t\t<firstName>John</firstName>\r\n\t\t<lastName>Doe</lastName>\r\n\t\t<phone>9785552222</phone>\r\n\t</primaryContact>\r\n\t<fraud enabled=\"true\"></fraud>\r\n\t<amexAcquired enabled=\"true\"></amexAcquired>\r\n\t<eCheck enabled=\"true\">\r\n\t\t<eCheckBillingDescriptor>9785552222</eCheckBillingDescriptor>\r\n\t</eCheck>\r\n</subMerchantUpdateRequest>"
+				},
+				"url": {
+					"raw": "https://www.testvantivcnp.com/sandbox/payfac/legalentity/2018/submerchant/123456",
+					"protocol": "https",
+					"host": [
+						"www",
+						"testvantivcnp",
+						"com"
+					],
+					"path": [
+						"sandbox",
+						"payfac",
+						"legalentity",
+						"2018",
+						"submerchant",
+						"123456"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Mcc",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic abc"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/com.vantivcnp.payfac-v13+xml"
+					},
+					{
+						"key": "Accept",
+						"value": "application/com.vantivcnp.payfac-v13+xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<legalEntityCreateRequest xmlns=\"http://payfac.vantivcnp.com/api/merchant/onboard\">\r\n<legalEntityName>Legal Entity Name</legalEntityName>\r\n<legalEntityType>CORPORATION</legalEntityType>\r\n<legalEntityOwnershipType>PUBLIC</legalEntityOwnershipType>\r\n<doingBusinessAs>Alternate Business Name</doingBusinessAs>\r\n<taxId>123456789</taxId>\r\n<contactPhone>7817659800</contactPhone>\r\n<annualCreditCardSalesVolume>80000000</annualCreditCardSalesVolume>\r\n<hasAcceptedCreditCards>true</hasAcceptedCreditCards>\r\n<address>\r\n\t<streetAddress1>asasvcvcdf</streetAddress1>\r\n\t<streetAddress2>Street Address 2</streetAddress2>\r\n\t<city>City</city>\r\n\t<stateProvince>MA</stateProvince>\r\n\t<postalCode>01730</postalCode>\r\n\t<countryCode>USA</countryCode>\r\n</address>\r\n<principal>\r\n\t\t<title>Chief Financial Officer</title>\r\n\t<firstName>p first</firstName>\r\n\t<lastName>p last</lastName>\r\n\t<emailAddress>emailAddress</emailAddress>\r\n\t<ssn>123459876</ssn>\r\n\t<contactPhone>7817659800</contactPhone>\r\n\t<dateOfBirth>1980-10-12</dateOfBirth>\r\n\t<driversLicense>892327409832</driversLicense>\r\n\t<driversLicenseState>MA</driversLicenseState>\r\n\t<address>\r\n\t\t<streetAddress1>p street address 1</streetAddress1>\r\n\t\t<streetAddress2>p street address 2</streetAddress2>\r\n\t\t<city>Boston</city>\r\n\t\t<stateProvince>MA</stateProvince>\r\n\t\t<postalCode>01890</postalCode>\r\n\t\t<countryCode>USA</countryCode>\r\n\t</address>\r\n\t<stakePercent>33</stakePercent>\r\n</principal>\r\n<yearsInBusiness>12</yearsInBusiness>\r\n</legalEntityCreateRequest>"
+				},
+				"url": {
+					"raw": "https://www.testvantivcnp.com/sandbox/payfac/mcc",
+					"protocol": "https",
+					"host": [
+						"www",
+						"testvantivcnp",
+						"com"
+					],
+					"path": [
+						"sandbox",
+						"payfac",
+						"mcc"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
