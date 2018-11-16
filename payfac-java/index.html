@@ -1,0 +1,123 @@
+---
+
+layout: sdk
+
+title: "Java"
+description: ""
+type: "payfac"
+
+content-title: "Java Overview"
+content-description: ""
+
+---
+
+<section id="dev-main" class="gray">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div id="fixedMenu" class="navbar-spy" data-spy="affix" data-offset-top="280">
+                    <ul class="nav nav-bordered nav-stacked" role="tablist">
+                        <li class="active"><a href="#gettingStarted" data-toggle="tab">Getting Started</a></li>
+                        <li><a href="#payfac-legalentity-get" data-toggle="tab">LegalEntity (GET)</a></li>
+                        <li><a href="#payfac-legalentity-post" data-toggle="tab">LegalEntity (POST)</a></li>
+                        <li><a href="#payfac-legalentity-put" data-toggle="tab">LegalEntity (PUT)</a></li>
+                        <li><a href="#payfac-legalentity-principal-post" data-toggle="tab">LegalEntity-Principal (POST)</a></li>
+                        <li><a href="#payfac-legalentity-principal-delete" data-toggle="tab">LegalEntity-Principal (DELETE)</a></li>
+                        <li><a href="#payfac-legalentity-submerchant-get" data-toggle="tab">LegalEntity-Submerchant (GET)</a></li>
+                        <li><a href="#payfac-legalentity-submerchant-post" data-toggle="tab">LegalEntity-Submerchant (POST)</a></li>
+                        <li><a href="#payfac-legalentity-submerchant-put" data-toggle="tab">LegalEntity-Submerchant (PUT)</a></li>
+                        <li><a href="#payfac-legalentity-agreement-get" data-toggle="tab">LegalEntity-Agreement (GET)</a></li>
+                        <li><a href="#payfac-legalentity-agreement-post" data-toggle="tab">LegalEntity-Agreement (POST)</a></li>
+                        <li><a href="#payfac-mcc" data-toggle="tab">MCC (GET)</a></li>
+                    </ul>
+                    <a href="#top">Back to the top</a>
+                </div>
+            </div>
+            <div class="col-md-9" id="ex">
+                <h3 id="gettingStarted">Getting started</h3>
+                <p id="getting-started-text"><img src="./../images/loading.gif" alt="loading" height="42" width="42"></p>
+
+                <div class="text-center">
+                    <a href="https://github.com/Vantiv/payfac-mp-sdk-java" target="_blank"
+                       class="btn btn-default btn-lg">
+                        <span class="fa fa-github fa-lg"></span>
+                        Fork us on GitHub
+                    </a>
+                    or
+                    <a href="https://github.com/Vantiv/payfac-mp-sdk-java/releases" target="_blank"
+                       class="btn btn-default btn-lg">
+                        <span class="fa fa-github fa-lg"></span>
+                        Download from GitHub
+                    </a>
+                </div>
+
+                <h3 id="payfac-legalentity-get">LegalEntity (GET)</h3>
+                <div>
+                    <script src="https://gist.github.com/VantivSDK/f20b271847a54595bda28c0a30fb7712.js"></script>
+                </div>
+                <h3 id="payfac-legalentity-post">LegalEntity (POST)</h3>
+                <div>
+                    <script src="https://gist.github.com/VantivSDK/74e53278806bd56012dedeb31443c6ed.js"></script>
+                </div>
+                <h3 id="payfac-legalentity-put">LegalEntity (PUT)</h3>
+                <div>
+                    <script src="https://gist.github.com/VantivSDK/34535a9957c6156c631e7896c69a453a.js"></script>
+                </div>
+                <h3 id="payfac-legalentity-principal-post">LegalEntity-Principal (POST)</h3>
+                <div>
+                    <script src="https://gist.github.com/VantivSDK/3dd939016c8bd9adcec21ca0a1dbe99c.js"></script>
+                </div>
+                <h3 id="payfac-legalentity-principal-delete">LegalEntity-Principal (DELETE)</h3>
+                <div>
+                    <script src="https://gist.github.com/VantivSDK/3270c572dd906ac1c1cab897f807deb1.js"></script>
+                </div>
+                <h3 id="payfac-legalentity-submerchant-get">LegalEntity-Submerchant (GET)</h3>
+                <div>
+                    <script src="https://gist.github.com/VantivSDK/956ede3ee9b8d08419db836e73311666.js"></script>
+                </div>
+                <h3 id="payfac-legalentity-submerchant-post">LegalEntity-Submerchant (POST)</h3>
+                <div>
+                    <script src="https://gist.github.com/VantivSDK/1af1b939280ff5eb36497184bdac7322.js"></script>
+                </div>
+                <h3 id="payfac-legalentity-submerchant-put">LegalEntity-Submerchant (PUT)</h3>
+                <div>
+                    <script src="https://gist.github.com/VantivSDK/e7df44d779fd8faf339838fc30ef6ff5.js"></script>
+                </div>
+                <h3 id="payfac-legalentity-agreement-get">LegalEntity-Agreement (GET)</h3>
+                <div>
+                    <script src="https://gist.github.com/VantivSDK/f7f5fce0783c27660f7a0050452bd101.js"></script>
+                </div>
+                <h3 id="payfac-legalentity-agreement-post">LegalEntity-Agreement (POST)</h3>
+                <div>
+                    <script src="https://gist.github.com/VantivSDK/9b6db10f973090ce95ab77e742d247d0.js"></script>
+                </div>
+                <h3 id="payfac-mcc">MCC (GET)</h3>
+                <div>
+                    <script src="https://gist.github.com/VantivSDK/03b8a2b3878a633a710c9a23e831f6f2.js"></script>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        function load() {
+            var xhttp = new XMLHttpRequest();
+            var response;
+
+
+            xhttp.open("GET", "https://raw.githubusercontent.com/Vantiv/payfac-mp-sdk-java/13.x/README.md", false);
+            xhttp.send();
+            response = xhttp.responseText;
+
+            xhttp.open("POST", "https://api.github.com/markdown/raw", false);
+            xhttp.setRequestHeader("Content-type", "text/plain");
+            xhttp.send(response);
+
+            document.getElementById("getting-started-text").innerHTML = xhttp.responseText;
+
+        }
+
+        load();
+    </script>
+</section>

@@ -1,0 +1,120 @@
+---
+
+layout: sdk
+
+title: "DotNet"
+description: ""
+type: "cbk"
+
+content-title: ".NET Overview"
+content-description: ""
+
+---
+
+<section id="dev-main" class="gray">
+    <div class="container">
+        <div class="col-md-3">
+                <div id="fixedMenu" class="navbar-spy" data-spy="affix" data-offset-top="280">
+                    <ul class="nav nav-bordered nav-stacked" role="tablist">
+                        <li class="active"><a href="#gettingStarted" data-toggle="tab">Getting Started</a></li>
+                        <li><a href="#assign-case-to-user" data-toggle="tab">Assign case to user Example</a></li>
+                        <li><a href="#add-note-to-case" data-toggle="tab">Add note to case example</a></li>
+                        <li><a href="#assume-liability" data-toggle="tab">Assume liability example</a></li>
+                        <li><a href="#represent" data-toggle="tab">Represent Example</a></li>
+                        <li><a href="#respond" data-toggle="tab">Respond to retrieval request Example</a></li>
+                        <li><a href="#activity-date" data-toggle="tab">Retrieve all chargebacks for activity date Example</a></li>
+                        <li><a href="#actionable" data-toggle="tab">Retrieve actionable chargebacks Example</a></li>
+                        <li><a href="#case-activity" data-toggle="tab">Retrieve case activity Example</a></li>
+                        <li><a href="#card" data-toggle="tab">Retrieve card activity Example</a></li>
+                        <li><a href="#arn" data-toggle="tab">Retrieve ARN activity Example</a></li>
+                    </ul>
+                    <a href="#top">Back to the top</a>
+                </div>
+        </div>
+            <div class="col-md-9" id="ex">
+                <h3 id="gettingStarted">Getting started</h3>
+                <p id="getting-started-text"><img src="./../images/loading.gif" alt="loading" height="42" width="42"></p>
+
+                <div class="text-center">
+                    <a href="https://github.com/Vantiv/cnp-chargeback-sdk-dotNet" target="_blank"
+                       class="btn btn-default btn-lg">
+                        <span class="fa fa-github fa-lg"></span>
+                        Fork us on GitHub
+                    </a>
+                    or
+                    <a href="https://github.com/Vantiv/cnp-chargeback-sdk-dotNet/releases" target="_blank"
+                       class="btn btn-default btn-lg">
+                        <span class="fa fa-github fa-lg"></span>
+                        Download from GitHub
+                    </a>
+                </div>
+                <h3 id="assign-case-to-user">Assign case to user Example</h3>
+                <div class="tab-pane">
+                    <script src="https://gist.github.com/VantivSDK/2f54923ca86761a722fd226ad4f39271.js"></script>
+                </div>
+
+                <h3 id="add-note-to-case">Add note to case example</h3>
+                <div class="tab-pane">
+                    <script src="https://gist.github.com/VantivSDK/195fd629adeccf74c135e93087b74473.js"></script>
+                </div>
+
+                <h3 id="assume-liability">Assume liability example</h3>
+                <div class="tab-pane">
+                    <script src="https://gist.github.com/VantivSDK/38fd8fb414b00907d83c82bca4f1586c.js"></script>
+                </div>
+
+                <h3 id="represent">Represent Example</h3>
+                <div class="tab-pane">
+                    <script src="https://gist.github.com/VantivSDK/18669ecf38e09d8af060f97e302ac328.js"></script>
+                </div>
+
+                <h3 id="respond">Respond to retrieval request Example</h3>
+                <div class="tab-pane">
+                    <script src="https://gist.github.com/VantivSDK/40bae857f93841f4574e56ce7901648f.js"></script>
+                </div>
+
+                <h3 id="activity-date">Retrieve all chargebacks for activity date Example</h3>
+                <div class="tab-pane">
+                    <script src="https://gist.github.com/VantivSDK/c19105cbbdb94dc9260c792a6be73b21.js"></script>
+                </div>
+
+                <h3 id="actionable">Retrieve actionable chargebacks Example</h3>
+                <div class="tab-pane">
+                    <script src="https://gist.github.com/VantivSDK/77900813de770a275fab260590190daa.js"></script>
+                </div>
+                <h3 id="case-activity">Retrieve case activity Example</h3>
+                <div class="tab-pane">
+                    <script src="https://gist.github.com/VantivSDK/4aef2c7318c62db7236880423f8f11d0.js"></script>
+                </div>
+
+                <h3 id="card">Retrieve card activity Example</h3>
+                <div class="tab-pane">
+                    <script src="https://gist.github.com/VantivSDK/8724d66875fba55b9a7bc6f0271005d3.js"></script>
+                </div>
+
+                <h3 id="arn">Retrieve ARN activity Example</h3>
+                <div class="tab-pane">
+                    <script src="https://gist.github.com/VantivSDK/8d2cdd7ffede7a17006fa0162c3cc8b4.js"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function load() {
+            var xhttp = new XMLHttpRequest();
+            var response;
+
+            xhttp.open("GET", "https://raw.githubusercontent.com/Vantiv/cnp-chargeback-sdk-dotNet/2.x/README.md", false);
+            xhttp.send();
+            response = xhttp.responseText;
+
+            xhttp.open("POST", "https://api.github.com/markdown/raw", false);
+            xhttp.setRequestHeader("Content-type", "text/plain");
+            xhttp.send(response);
+
+            document.getElementById("getting-started-text").innerHTML = xhttp.responseText;
+        }
+
+        load();
+    </script>
+</section>

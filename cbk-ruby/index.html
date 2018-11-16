@@ -1,0 +1,121 @@
+---
+
+layout: sdk
+
+title: "Ruby"
+description: ""
+type: "cbk"
+
+content-title: "Ruby Overview"
+content-description: ""
+
+---
+
+<section id="dev-main" class="gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div id="fixedMenu" class="navbar-spy" data-spy="affix" data-offset-top="280">
+                    <ul class="nav nav-bordered nav-stacked" role="tablist">
+                        <li class="active"><a href="#gettingStarted" data-toggle="tab">Getting Started</a></li>
+                        <li><a href="#assign-case-to-user" data-toggle="tab">Assign case to user Example</a></li>
+                        <li><a href="#add-note-to-case" data-toggle="tab">Add note to case example</a></li>
+                        <li><a href="#assume-liability" data-toggle="tab">Assume liability example</a></li>
+                        <li><a href="#represent" data-toggle="tab">Represent Example</a></li>
+                        <li><a href="#respond" data-toggle="tab">Respond to retrieval request Example</a></li>
+                        <li><a href="#activity-date" data-toggle="tab">Retrieve all chargebacks for activity date Example</a></li>
+                        <li><a href="#actionable" data-toggle="tab">Retrieve actionable chargebacks Example</a></li>
+                        <li><a href="#case-activity" data-toggle="tab">Retrieve case activity Example</a></li>
+                        <li><a href="#card" data-toggle="tab">Retrieve card activity Example</a></li>
+                        <li><a href="#arn" data-toggle="tab">Retrieve ARN activity Example</a></li>
+                    </ul>
+                    <a href="#top">Back to the top</a>
+                </div>
+            </div>
+            <div class="col-md-9" id="ex">
+                <h3 id="gettingStarted">Getting started</h3>
+                <p id="getting-started-text"><img src="./../images/loading.gif" alt="loading" height="42" width="42"></p>
+                <div class="text-center">
+                    <a href="https://github.com/Vantiv/cnp-chargeback-sdk-ruby" target="_blank"
+                       class="btn btn-default btn-lg">
+                        <span class="fa fa-github fa-lg"></span>
+                        Fork us on GitHub
+                    </a>
+                    or
+                    <a href="https://rubygems.org/gems/CnpChargeback" target="_blank" class="btn btn-default btn-lg">
+                        <img src="/images/rubygem-logo.gif" height="25px"/>
+                        Use it from RubyGem
+                    </a>
+                </div>
+                <h3 id="assign-case-to-user">Assign case to user Example</h3>
+                <div class="tab-pane">
+                    <script src="https://gist.github.com/VantivSDK/53c024e54c4978e08b699763708aea9e.js"></script>
+                </div>
+
+                <h3 id="add-note-to-case">Add note to case example</h3>
+                <div class="tab-pane">
+                    <script src="https://gist.github.com/VantivSDK/63df8d6081bc82474932f8739b1b3949.js"></script>
+                </div>
+
+                <h3 id="assume-liability">Assume liability example</h3>
+                <div class="tab-pane">
+                    <script src="https://gist.github.com/VantivSDK/383eb56097c907070396dfbd80c4aef4.js"></script>
+                </div>
+
+                <h3 id="represent">Represent Example</h3>
+                <div class="tab-pane">
+                    <script src="https://gist.github.com/VantivSDK/fe0cff4c665b30f70d4a624466e573de.js"></script>
+                </div>
+
+                <h3 id="respond">Respond to retrieval request Example</h3>
+                <div class="tab-pane">
+                    <script src="https://gist.github.com/VantivSDK/a082197568330a5ebd9edeee61c399ee.js"></script>
+                </div>
+
+                <h3 id="activity-date">Retrieve all chargebacks for activity date Example</h3>
+                <div class="tab-pane">
+                    <script src="https://gist.github.com/VantivSDK/d7fd9a1c3bcac983cadb2dd1e8aa563a.js"></script>
+                </div>
+
+                <h3 id="actionable">Retrieve actionable chargebacks Example</h3>
+                <div class="tab-pane">
+                    <script src="https://gist.github.com/VantivSDK/1f9c305b81241c289cfed784df9b3a1c.js"></script>
+                </div>
+                <h3 id="case-activity">Retrieve case activity Example</h3>
+                <div class="tab-pane">
+                    <script src="https://gist.github.com/VantivSDK/4b13114268b83ba2b5c46d3aa8346829.js"></script>
+                </div>
+
+                <h3 id="card">Retrieve card activity Example</h3>
+                <div class="tab-pane">
+                    <script src="https://gist.github.com/VantivSDK/8d07fd6c863b1fa92e6fe0fc8edfc6f4.js"></script>
+                </div>
+
+                <h3 id="arn">Retrieve ARN activity Example</h3>
+                <div class="tab-pane">
+                    <script src="https://gist.github.com/VantivSDK/345e4c9c088e9735d93a1f4ccc7ce032.js"></script>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <script>
+        function load() {
+            var xhttp = new XMLHttpRequest();
+            var response;
+
+            xhttp.open("GET", "https://raw.githubusercontent.com/Vantiv/cnp-chargeback-sdk-ruby/master/README.md", false);
+            xhttp.send();
+            response = xhttp.responseText;
+
+            xhttp.open("POST", "https://api.github.com/markdown/raw", false);
+            xhttp.setRequestHeader("Content-type", "text/plain");
+            xhttp.send(response);
+
+            document.getElementById("getting-started-text").innerHTML = xhttp.responseText;
+        }
+
+        load();
+    </script>
+</section>

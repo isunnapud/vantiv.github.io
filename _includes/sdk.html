@@ -1,0 +1,51 @@
+	<section id="sdk" class="gray">
+		<div class="container">
+			<p></p>
+			<p></p>
+			<div class="row">
+
+
+				<ul class="nav nav-tabs">
+					<li class="{% if page.type == 'cnp' %}active{% endif %}">
+						<a href="../java">CNP SDKs</a>
+					</li>
+					<li class="{% if page.type == 'cbk' %}active{% endif %}">
+						<a href="../cbk-java">Chargeback SDKs</a>
+					</li>
+					<li class="{% if page.type == 'payfac' %}active{% endif %}">
+						<a href="../payfac-java">PayFac MP SDKs</a>
+					</li>
+					<li class="{% if page.type == 'versions' %}active{% endif %}">
+						<a href="../latest-versions">Latest Versions</a>
+					</li>
+				</ul>
+
+			</div>
+			<p></p>
+			{% if page.type != 'versions' %}
+			<div class="row">
+				<ol class="pagination pagination-lg">
+					<li class="{% if page.title == 'Java' %}active{% endif %}">
+						<a href="../{% if page.type == 'cbk' %}cbk-{% endif %}{% if page.type == 'payfac' %}payfac-{% endif %}java" class="btn-default" id="cnp-sdk-java">Java</a>
+					</li>
+					<!--include ruby sdk only for cnp and chargeback -->
+					{% if page.type != 'payfac' %}
+					<li class="{% if page.title == 'Ruby' %}active{% endif %}">
+						<a href="../{% if page.type == 'cbk' %}cbk-{% endif %}ruby" class="btn-default"  id="cnp-sdk-ruby">Ruby</a>
+					</li>
+					{% endif %}
+					<li class="{% if page.title == 'DotNet' %}active{% endif %}">
+						<a href="../{% if page.type == 'cbk' %}cbk-{% endif %}{% if page.type == 'payfac' %}payfac-{% endif %}dotnet" class="btn-default"  id="cnp-sdk-dotnet">.NET</a>
+					</li>
+					<li class="{% if page.title == 'PHP' %}active{% endif %}">
+						<a href="../{% if page.type == 'cbk' %}cbk-{% endif %}{% if page.type == 'payfac' %}payfac-{% endif %}php" class="btn-default" id="cnp-sdk-php">PHP</a>
+					</li>
+					<li class="{% if page.title == 'Python' %}active{% endif %}">
+						<a href="../{% if page.type == 'cbk' %}cbk-{% endif %}{% if page.type == 'payfac' %}payfac-{% endif %}python" class="btn-default" id="cnp-sdk-python">Python</a>
+					</li>
+				</ol>
+			</div>
+			{% endif %}
+
+		</div>
+	</section>

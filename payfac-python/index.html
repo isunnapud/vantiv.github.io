@@ -1,0 +1,120 @@
+---
+
+layout: sdk
+
+title: "Python"
+description: ""
+type: "payfac"
+
+content-title: "Python Overview"
+content-description: ""
+
+---
+
+<section id="dev-main" class="gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div id="fixedMenu" class="navbar-spy" data-spy="affix" data-offset-top="280">
+                    <ul class="nav nav-bordered nav-stacked" role="tablist">
+                        <li class="active"><a href="#gettingStarted" data-toggle="tab">Getting Started</a></li>
+                        <li><a href="#payfac-legalentity-get" data-toggle="tab">LegalEntity (GET)</a></li>
+                        <li><a href="#payfac-legalentity-post" data-toggle="tab">LegalEntity (POST)</a></li>
+                        <li><a href="#payfac-legalentity-put" data-toggle="tab">LegalEntity (PUT)</a></li>
+                        <li><a href="#payfac-legalentity-principal-post" data-toggle="tab">LegalEntity-Principal (POST)</a></li>
+                        <li><a href="#payfac-legalentity-principal-delete" data-toggle="tab">LegalEntity-Principal (DELETE)</a></li>
+                        <li><a href="#payfac-legalentity-submerchant-get" data-toggle="tab">LegalEntity-Submerchant (GET)</a></li>
+                        <li><a href="#payfac-legalentity-submerchant-post" data-toggle="tab">LegalEntity-Submerchant (POST)</a></li>
+                        <li><a href="#payfac-legalentity-submerchant-put" data-toggle="tab">LegalEntity-Submerchant (PUT)</a></li>
+                        <li><a href="#payfac-legalentity-agreement-get" data-toggle="tab">LegalEntity-Agreement (GET)</a></li>
+                        <li><a href="#payfac-legalentity-agreement-post" data-toggle="tab">LegalEntity-Agreement (POST)</a></li>
+                        <li><a href="#payfac-mcc" data-toggle="tab">MCC (GET)</a></li>
+                    </ul>
+                    <a href="#top">Back to the top</a>
+                </div>
+            </div>
+            <div class="col-md-9" id="ex">
+                <h3 id="gettingStarted">Getting started</h3>
+                <p id="getting-started-text"><img src="./../images/loading.gif" alt="loading" height="42" width="42"></p>
+
+                <div class="text-center">
+                    <a href="https://github.com/Vantiv/payfac-mp-sdk-python" target="_blank"
+                       class="btn btn-default btn-lg">
+                        <span class="fa fa-github fa-lg"></span>
+                        Fork us on GitHub
+                    </a>
+                    or
+                    <a href="https://github.com/Vantiv/payfac-mp-sdk-python/releases" target="_blank"
+                       class="btn btn-default btn-lg">
+                        <span class="fa fa-github fa-lg"></span>
+                        Download from GitHub
+                    </a>
+                </div>
+
+                <h3 id="payfac-legalentity-get">LegalEntity (GET)</h3>
+                <div>
+                    <script src="https://gist.github.com/VantivSDK/d9db80a30cf8f5f64cf6645ad819907a.js"></script>
+                </div>
+                <h3 id="payfac-legalentity-post">LegalEntity (POST)</h3>
+                <div>
+                    <script src="https://gist.github.com/VantivSDK/743e37879c0b885c24e05720e1271259.js"></script>
+                </div>
+                <h3 id="payfac-legalentity-put">LegalEntity (PUT)</h3>
+                <div>
+                    <script src="https://gist.github.com/VantivSDK/9243f25a8bc5d7ff9e6baa8dc12641dc.js"></script>
+                </div>
+                <h3 id="payfac-legalentity-principal-post">LegalEntity-Principal (POST)</h3>
+                <div>
+                    <script src="https://gist.github.com/VantivSDK/0e8c8e9796e9f9fbaa0675a712b0f196.js"></script>
+                </div>
+                <h3 id="payfac-legalentity-principal-delete">LegalEntity-Principal (DELETE)</h3>
+                <div>
+                    <script src="https://gist.github.com/VantivSDK/028726c4ed5ce54b2e17782997cf20ac.js"></script>
+                </div>
+                <h3 id="payfac-legalentity-submerchant-get">LegalEntity-Submerchant (GET)</h3>
+                <div>
+                    <script src="https://gist.github.com/VantivSDK/ac1a867978c2e1e650a17da52af8e86d.js"></script>
+                </div>
+                <h3 id="payfac-legalentity-submerchant-post">LegalEntity-Submerchant (POST)</h3>
+                <div>
+                    <script src="https://gist.github.com/VantivSDK/524b40c0dbb7db81165705849be78122.js"></script>
+                </div>
+                <h3 id="payfac-legalentity-submerchant-put">LegalEntity-Submerchant (PUT)</h3>
+                <div>
+                    <script src="https://gist.github.com/VantivSDK/ed1802e650a6d1ac3ec0e3d4ad4932f4.js"></script>
+                </div>
+                <h3 id="payfac-legalentity-agreement-get">LegalEntity-Agreement (GET)</h3>
+                <div>
+                    <script src="https://gist.github.com/VantivSDK/96b7c843b7e8cbe49dc1b35310114db0.js"></script>
+                </div>
+                <h3 id="payfac-legalentity-agreement-post">LegalEntity-Agreement (POST)</h3>
+                <div>
+                    <script src="https://gist.github.com/VantivSDK/99c14d8f650f83317cc923f1456bb496.js"></script>
+                </div>
+                <h3 id="payfac-mcc">MCC (GET)</h3>
+                <div>
+                    <script src="https://gist.github.com/VantivSDK/b9d4ba34be74d611541119a622d8f201.js"></script>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        function load() {
+            var xhttp = new XMLHttpRequest();
+            var response;
+
+            xhttp.open("GET", "https://raw.githubusercontent.com/Vantiv/payfac-mp-sdk-python/13.x/README.md", false);
+            xhttp.send();
+            response = xhttp.responseText;
+
+            xhttp.open("POST", "https://api.github.com/markdown/raw", false);
+            xhttp.setRequestHeader("Content-type", "text/plain");
+            xhttp.send(response);
+
+            document.getElementById("getting-started-text").innerHTML = xhttp.responseText;
+        }
+
+        load();
+    </script>
+</section>
