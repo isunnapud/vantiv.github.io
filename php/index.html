@@ -1,22 +1,18 @@
 ---
 
-layout: cnp-sub
+layout: sdk
 
 title: "PHP"
 description: ""
+type: "cnp"
 
 content-title: "PHP Overview"
 content-description: ""
 
 ---
 
-<section id="dev-main" class="pad70 gray">
+<section id="dev-main" class="gray">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-title">PHP SDK</div>
-            </div>
-        </div>
         <div class="row">
             <div class="col-md-3">
                 <div id="fixedMenu" class="navbar-spy" data-spy="affix" data-offset-top="280">
@@ -33,27 +29,15 @@ content-description: ""
             </div>
             <div class="col-md-9" id="ex">
                 <h3 id="gettingStarted">Getting started</h3>
-                <p>
-                    PHP is a widely-used general-purpose scripting language that is especially suited for Web
-                    development. PHP is typically used in conjunction with the Apache Webserver.
-                </p>
-                <p>
-                    The PHP SDK makes it quick and easy to connect your PHP site to our payment platform. Download our
-                    SDK, install it, and start testing against our sandbox environment right away.
-                </p>
-                <p>
-                    Please contact either your Vantiv Implementation Consultant, or <a
-                        href="mailto:sdksupport@Vantiv.com">sdksupport</a> for help in determining which SDK version
-                    will best support your business needs.
-                </p>
+                <p id="getting-started-text"><img src="./../images/loading.gif" alt="loading" height="42" width="42"></p>
                 <div class="text-center">
-                    <a href="https://github.com/LitleCo/litle-sdk-for-php" target="_blank"
+                    <a href="https://github.com/Vantiv/cnp-sdk-for-php" target="_blank"
                        class="btn btn-default btn-lg">
                         <span class="fa fa-github fa-lg"></span>
                         Fork us on GitHub
                     </a>
                     or
-                    <a href="https://packagist.org/packages/litle/payments-sdk" target="_blank"
+                    <a href="https://packagist.org/packages/vantiv/cnp-payments-sdk" target="_blank"
                        class="btn btn-default btn-lg">
                         <img src="/images/packagist-logo.png" height="25px"/>
                         Use it from Packagist
@@ -61,25 +45,43 @@ content-description: ""
                 </div>
                 <h3 id="auth">Auth Example</h3>
                 <div>
-                    <script src="https://gist.github.com/2007176.js"></script>
+                    <script src="https://gist.github.com/VantivSDK/5c52b7e46b5062da8e3304876109a84f.js"></script>
                 </div>
                 <h3 id="capture">Capture Example</h3>
                 <div>
-                    <script src="https://gist.github.com/2007140.js"></script>
+                    <script src="https://gist.github.com/VantivSDK/a753ab241feee91edc7488d60cb63e11.js"></script>
                 </div>
                 <h3 id="credit">Credit Example</h3>
                 <div>
-                    <script src="https://gist.github.com/2007013.js"></script>
+                    <script src="https://gist.github.com/VantivSDK/57f62dfd4faaa48e9b988d5ae001eed7.js"></script>
                 </div>
                 <h3 id="partial">Partial Capture Example</h3>
                 <div>
-                    <script src="https://gist.github.com/2007034.js"></script>
+                    <script src="https://gist.github.com/VantivSDK/d76d606371a8edd9b066755fe4e1dd56.js"></script>
                 </div>
                 <h3 id="sale">Sale Example</h3>
                 <div>
-                    <script src="https://gist.github.com/2007219.js"></script>
+                    <script src="https://gist.github.com/VantivSDK/e8fcb7a18ba6cbaf0bab80739046fc4d.js"></script>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        function load() {
+            var xhttp = new XMLHttpRequest();
+            var response;
+
+            xhttp.open("GET", "https://raw.githubusercontent.com/Vantiv/cnp-sdk-for-php/12.X/README.md", false);
+            xhttp.send();
+            response = xhttp.responseText;
+
+            xhttp.open("POST", "https://api.github.com/markdown/raw", false);
+            xhttp.setRequestHeader("Content-type", "text/plain");
+            xhttp.send(response);
+
+            document.getElementById("getting-started-text").innerHTML = xhttp.responseText;
+        }
+
+        load();
+    </script>
 </section>

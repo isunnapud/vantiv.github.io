@@ -1,25 +1,19 @@
 ---
 
-layout: cnp-sub
+layout: sdk
 
 title: "Ruby"
 description: ""
+type: "cnp"
 
 content-title: "Ruby Overview"
 content-description: ""
 
 ---
 
-<section id="dev-main" class="pad70 gray">
+<section id="dev-main" class="gray">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-title">Ruby SDK</div>
-            </div>
-        </div>
-        <div class="row">
-
-            <div class="col-md-3">
+        <div class="col-md-3">
                 <div id="fixedMenu" class="navbar-spy" data-spy="affix" data-offset-top="280">
                     <ul class="nav nav-bordered nav-stacked" role="tablist">
                         <li class="active"><a href="#gettingStarted" data-toggle="tab">Getting Started</a></li>
@@ -34,64 +28,63 @@ content-description: ""
             </div>
             <div class="col-md-9" id="ex">
                 <h3 id="gettingStarted">Getting started</h3>
-                <p>
-                    Initially, Matz looked at other languages to find an ideal syntax. Recalling his search, he said, “I
-                    wanted a scripting language that was more powerful than Perl, and more object-oriented than
-                    Python3.”
-                </p>
-                <p>
-                    In Ruby, everything is an object. Every bit of information and code can be given their own
-                    properties and actions. Object-oriented programming calls properties by the name instance variables
-                    and actions are known as methods.
-                </p>
-                <p>
-                    Our Ruby SDK follows the above principles providing a simple Ruby implementation of the Vantiv
-                    eCommerce XML API. This SDK was created to make it as simple as possible to connect process your
-                    payments with us. This SDK utilizes the HTTPS protocol to securely connect to our platform, you can
-                    start right away by connecting to our Sandbox environment.
-                </p>
-                <p>
-                    Please contact either your Vantiv Implementation Consultant, or <a
-                        href="mailto:sdksupport@Vantiv.com">sdksupport</a> for help in determining which SDK version
-                    will best support your business needs.
-                </p>
+                <p id="getting-started-text"><img src="./../images/loading.gif" alt="loading" height="42" width="42"></p>
+
                 <div class="text-center">
-                    <a href="https://github.com/Vantiv/litle-sdk-for-ruby" target="_blank"
+                    <a href="https://github.com/Vantiv/cnp-sdk-for-ruby" target="_blank"
                        class="btn btn-default btn-lg">
                         <span class="fa fa-github fa-lg"></span>
                         Fork us on GitHub
                     </a>
                     or
-                    <a href="https://rubygems.org/gems/LitleOnline" target="_blank" class="btn btn-default btn-lg">
+                    <a href="https://rubygems.org/gems/CnpOnline" target="_blank" class="btn btn-default btn-lg">
                         <img src="/images/rubygem-logo.gif" height="25px"/>
                         Use it from RubyGem
                     </a>
                 </div>
                 <h3 id="auth">Auth Example</h3>
                 <div class="tab-pane">
-                    <script src="https://gist.github.com/1941298.js"></script>
+                    <script src="https://gist.github.com/VantivSDK/a8422f34f5f10634062b3c2e0b935110.js"></script>
                 </div>
 
                 <h3 id="capture">Capture Example</h3>
                 <div class="tab-pane">
-                    <script src="https://gist.github.com/1941575.js"></script>
+                    <script src="https://gist.github.com/VantivSDK/0350d88bb008ab46d102921b2f163a61.js"></script>
                 </div>
 
                 <h3 id="credit">Credit Example</h3>
                 <div class="tab-pane">
-                    <script src="https://gist.github.com/1941621.js"></script>
+                    <script src="https://gist.github.com/VantivSDK/8b862af161885407ccd02df10d78a9fc.js"></script>
                 </div>
 
                 <h3 id="partial">Partial Capture Example</h3>
-                <div class="tab-pane">
-                    <script src="https://gist.github.com/1941662.js"></script>
+                <div class="tab-pane">l
+                    <script src="https://gist.github.com/VantivSDK/c70d52e964808d1029c5dbe30bd2d8e8.js"></script>
                 </div>
 
                 <h3 id="sale">Sale Example</h3>
                 <div class="tab-pane">
-                    <script src="https://gist.github.com/1941267.js"></script>
+                    <script src="https://gist.github.com/VantivSDK/d4d07b75f1d820157c0c22d6a487dcd3.js"></script>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        function load() {
+            var xhttp = new XMLHttpRequest();
+            var response;
+
+            xhttp.open("GET", "https://raw.githubusercontent.com/Vantiv/cnp-sdk-for-ruby/12.X/README.md", false);
+            xhttp.send();
+            response = xhttp.responseText;
+
+            xhttp.open("POST", "https://api.github.com/markdown/raw", false);
+            xhttp.setRequestHeader("Content-type", "text/plain");
+            xhttp.send(response);
+
+            document.getElementById("getting-started-text").innerHTML = xhttp.responseText;
+        }
+
+        load();
+    </script>
 </section>
