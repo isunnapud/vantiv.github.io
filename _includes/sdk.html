@@ -6,6 +6,9 @@
 
 
 				<ul class="nav nav-tabs">
+					<li class="{% if page.type == 'versions' %}active{% endif %}">
+						<a href="../latest-versions">Latest Versions</a>
+					</li>
 					<li class="{% if page.type == 'cnp' %}active{% endif %}">
 						<a href="../java">CNP SDKs</a>
 					</li>
@@ -14,9 +17,6 @@
 					</li>
 					<li class="{% if page.type == 'payfac' %}active{% endif %}">
 						<a href="../payfac-java">PayFac MP SDKs</a>
-					</li>
-					<li class="{% if page.type == 'versions' %}active{% endif %}">
-						<a href="../latest-versions">Latest Versions</a>
 					</li>
 				</ul>
 
